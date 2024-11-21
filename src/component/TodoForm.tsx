@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -43,13 +43,16 @@ interface TodoFormProps {
 const TodoForm = ({ addTodo }: TodoFormProps) => {
   const [input, setInput] = useState("");
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    if (input.trim()) {
-      addTodo(input.trim());
-      setInput("");
-    }
-  };
+  const handleSubmit = useCallback(
+    (e: { preventDefault: () => void }) => {
+      e.preventDefault();
+      if (input.trim()) {
+        addTodo(input.trim());
+        setInput("");
+      }
+    },
+    [addTodo, input, setInput]
+  );
 
   return (
     <Form onSubmit={handleSubmit}>
