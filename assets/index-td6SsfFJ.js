@@ -62,7 +62,12 @@ Error generating stack: `+o.message+`
   &:hover {
     background-color: #096dd9;
   }
-`,Mm=({addTodo:e})=>{const[t,n]=Lt.useState(""),r=l=>{l.preventDefault(),t.trim()&&(e(t.trim()),n(""))};return se.jsxs(Om,{onSubmit:r,children:[se.jsx(Dm,{type:"text",value:t,onChange:l=>n(l.target.value),placeholder:"Input Tasks..."}),se.jsx(jm,{type:"submit",children:"Add Task"})]})},Fm=ct.li`
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`,Mm=({addTodo:e})=>{const[t,n]=Lt.useState(""),r=l=>{l.preventDefault(),t.trim()&&(e(t.trim()),n(""))};return se.jsxs(Om,{onSubmit:r,children:[se.jsx(Dm,{type:"text",value:t,onChange:l=>n(l.target.value),placeholder:"Input Tasks...",autoFocus:!0}),se.jsx(jm,{type:"submit",disabled:!t.trim(),children:"Add Task"})]})},Fm=ct.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
