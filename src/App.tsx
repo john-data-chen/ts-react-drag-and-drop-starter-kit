@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import TodoForm from "./component/TodoForm";
+import TodoList from "./component/TodoList";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -27,28 +29,40 @@ const Title = styled.h1`
 `;
 
 function App() {
-  const [todos, setTodos] = React.useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
-      text: "Learn React",
-      completed: false,
-    },
-    {
-      id: 2,
-      text: "Build a todo app",
-      completed: false,
-    },
-    {
-      id: 3,
-      text: "Deploy to production",
-      completed: false,
+      text: "Delete this task if you need to",
+      completed: true,
     },
   ]);
+
+  const addTodo = (text: string) => {
+    setTodos([...todos, { id: Date.now(), text, completed: false }]);
+  };
+
+  const toggleComplete = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+  // 刪除待辦事項
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
 
   return (
     <Container>
       <AppStyle />
       <Title>Todo List</Title>
+      <TodoForm addTodo={addTodo} />
+      <TodoList
+        todos={todos}
+        toggleComplete={toggleComplete}
+        deleteTodo={deleteTodo}
+      />
     </Container>
   );
 }
