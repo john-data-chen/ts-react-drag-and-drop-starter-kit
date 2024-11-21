@@ -1,6 +1,6 @@
 # React + TypeScript + Vite: Todo list
 
-a [demo](https://john-data-chen.github.io/to-do-list-app/) fo using React in TypeScript
+you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 
 ## How to use
 
