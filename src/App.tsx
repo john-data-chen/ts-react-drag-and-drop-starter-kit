@@ -48,7 +48,7 @@ function App() {
       )
     );
   };
-  // 刪除待辦事項
+
   const deleteTodo = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };

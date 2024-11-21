@@ -29,6 +29,11 @@ const Button = styled.button`
   &:hover {
     background-color: #096dd9;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 interface TodoFormProps {
@@ -53,8 +58,11 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Input Tasks..."
+        autoFocus
       />
-      <Button type="submit">Add Task</Button>
+      <Button type="submit" disabled={!input.trim()}>
+        Add Task
+      </Button>
     </Form>
   );
 };
