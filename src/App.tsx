@@ -13,7 +13,7 @@ const AppStyle = createGlobalStyle`
     `;
 
 const Container = styled.div`
-  max-width: 600px;
+  max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
@@ -31,14 +31,23 @@ const Title = styled.h1`
 function App() {
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: Date.now(),
       text: "Delete this task if you need to",
+      dueDate: null,
       completed: true,
     },
   ]);
 
-  const addTodo = (text: string) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }]);
+  const addTodo = (text: string, dueDate: Date | null) => {
+    setTodos([
+      ...todos,
+      {
+        id: Date.now(),
+        text,
+        dueDate: dueDate ?? null,
+        completed: false,
+      },
+    ]);
   };
 
   const toggleComplete = (id: number) => {

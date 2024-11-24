@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Todo from "../type/Todo";
 
 interface TodoItemProps extends React.HTMLAttributes<HTMLLIElement> {
+  dueDate: Date | null;
   completed: boolean;
 }
 
@@ -60,8 +61,13 @@ const Button = styled.button<ButtonProps>`
 
 const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
   return (
-    <TodoItem completed={todo.completed}>
+    <TodoItem completed={todo.completed} dueDate={todo.dueDate}>
       <Text completed={todo.completed}>{todo.text}</Text>
+      <br />
+      <Text completed={todo.completed}>
+        Due Date: {todo.dueDate?.toLocaleDateString() || "None"}
+      </Text>
+
       <Button
         completed={todo.completed}
         onClick={() => toggleComplete(todo.id)}
