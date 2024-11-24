@@ -1,5 +1,8 @@
 import { useState, useCallback } from "react";
 import styled from "styled-components";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./TodoForm.css";
 
 const Form = styled.form`
   display: flex;
@@ -13,6 +16,7 @@ const Input = styled.input`
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-right: 10px;
+  margin-left: 40px;
   font-size: 1rem;
 `;
 
@@ -37,21 +41,22 @@ const Button = styled.button`
 `;
 
 interface TodoFormProps {
-  addTodo: (text: string) => void;
+  addTodo: (text: string, dueDate: Date | null) => void;
 }
 
 const TodoForm = ({ addTodo }: TodoFormProps) => {
   const [input, setInput] = useState("");
+  const [dueDate, setDueDate] = useState<Date | null>(null);
 
   const handleSubmit = useCallback(
     (e: { preventDefault: () => void }) => {
       e.preventDefault();
       if (input.trim()) {
-        addTodo(input.trim());
+        addTodo(input.trim(), dueDate);
         setInput("");
       }
     },
-    [addTodo, input, setInput]
+    [addTodo, input, setInput, dueDate]
   );
 
   return (
@@ -62,6 +67,16 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         onChange={(e) => setInput(e.target.value)}
         placeholder="Input Tasks..."
         autoFocus
+      />
+      <DatePicker
+        minDate={new Date()}
+        selected={dueDate}
+        onChange={(date: Date | null) => {
+          setDueDate(date);
+        }}
+        placeholderText="Due Date"
+        dateFormat="yyyy-MM-dd"
+        className="datepicker"
       />
       <Button type="submit" disabled={!input.trim()}>
         Add Task
