@@ -52,6 +52,7 @@ Error generating stack: `+a.message+`
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-right: 10px;
+  margin-left: 40px;
   font-size: 1rem;
 `,pS=sn.button`
   background-color: #1890ff;
