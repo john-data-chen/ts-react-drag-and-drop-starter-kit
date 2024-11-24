@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
+import Todo from "./type/Todo";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -29,7 +30,7 @@ const Title = styled.h1`
 `;
 
 function App() {
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState<Todo[]>([
     {
       id: Date.now(),
       text: "Delete this task if you need to",

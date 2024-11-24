@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./TodoForm.css";
 
 const Form = styled.form`
   display: flex;
@@ -10,15 +11,6 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 1rem;
-`;
-
-const StyledDatePicker = styled(DatePicker)`
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
@@ -75,13 +67,15 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         placeholder="Input Tasks..."
         autoFocus
       />
-      <StyledDatePicker
-        wrapperClassName="datePicker"
+      <DatePicker
         minDate={new Date()}
         selected={dueDate}
         onChange={(date: Date | null) => {
           setDueDate(date);
         }}
+        placeholderText="Due Date"
+        dateFormat="yyyy-MM-dd"
+        className="datepicker"
       />
       <Button type="submit" disabled={!input.trim()}>
         Add Task
