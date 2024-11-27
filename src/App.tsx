@@ -3,6 +3,12 @@ import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
+import {
+  DragDropContext,
+  Draggable,
+  DropResult,
+  Droppable,
+} from "@hello-pangea/dnd";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -75,16 +81,51 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const onDragEnd = (event: DropResult) => {
+    const { source, destination } = event;
+    if (!destination) return;
+    const newTodos = [...todos];
+    const [removed] = newTodos.splice(source.index, 1);
+    newTodos.splice(destination.index, 0, removed);
+    setTodos(newTodos);
+  };
+
   return (
     <Container>
-      <AppStyle />
-      <Title>Todo List</Title>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleComplete={toggleComplete}
-        deleteTodo={deleteTodo}
-      />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <AppStyle />
+        <Title>Todo List</Title>
+        <TodoForm addTodo={addTodo} />
+        <Droppable droppableId="drop-id">
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {todos.map((item, i) => (
+                <div key={item.id}>
+                  <Draggable draggableId={item.id} index={i} key={item.id}>
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        {
+                          <TodoList
+                            todos={[item]}
+                            key={item.id}
+                            toggleComplete={toggleComplete}
+                            deleteTodo={deleteTodo}
+                          />
+                        }
+                      </div>
+                    )}
+                  </Draggable>
+                </div>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </Container>
   );
 }
