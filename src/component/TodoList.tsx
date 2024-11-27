@@ -4,19 +4,19 @@ import { useCallback } from "react";
 
 interface TodoListProps {
   todos: Todo[];
-  toggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
 }
 
 const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
   const handleToggleComplete = useCallback(
-    (id: number) => {
+    (id: string) => {
       toggleComplete(id);
     },
     [toggleComplete]
   );
   const handleDeleteTodo = useCallback(
-    (id: number) => {
+    (id: string) => {
       deleteTodo(id);
     },
     [deleteTodo]

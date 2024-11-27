@@ -3,6 +3,12 @@ import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
+import {
+  DragDropContext,
+  Draggable,
+  DropResult,
+  Droppable,
+} from "@hello-pangea/dnd";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -32,8 +38,20 @@ const Title = styled.h1`
 function App() {
   const [todos, setTodos] = useState<Todo[]>([
     {
-      id: Date.now(),
-      text: "Delete this task if you need to",
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "1",
+      dueDate: null,
+      completed: true,
+    },
+    {
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "2",
+      dueDate: null,
+      completed: false,
+    },
+    {
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "3",
       dueDate: null,
       completed: true,
     },
@@ -43,7 +61,7 @@ function App() {
     setTodos([
       ...todos,
       {
-        id: Date.now(),
+        id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
         text,
         dueDate: dueDate ?? null,
         completed: false,
@@ -51,7 +69,7 @@ function App() {
     ]);
   };
 
-  const toggleComplete = (id: number) => {
+  const toggleComplete = (id: string) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -59,20 +77,55 @@ function App() {
     );
   };
 
-  const deleteTodo = (id: number) => {
+  const deleteTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const onDragEnd = (event: DropResult) => {
+    const { source, destination } = event;
+    if (!destination) return;
+    const newTodos = [...todos];
+    const [removed] = newTodos.splice(source.index, 1);
+    newTodos.splice(destination.index, 0, removed);
+    setTodos(newTodos);
   };
 
   return (
     <Container>
-      <AppStyle />
-      <Title>Todo List</Title>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleComplete={toggleComplete}
-        deleteTodo={deleteTodo}
-      />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <AppStyle />
+        <Title>Todo List</Title>
+        <TodoForm addTodo={addTodo} />
+        <Droppable droppableId="drop-id">
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {todos.map((item, i) => (
+                <div key={item.id}>
+                  <Draggable draggableId={item.id} index={i} key={item.id}>
+                    {(provided) => (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        {
+                          <TodoList
+                            todos={[item]}
+                            key={item.id}
+                            toggleComplete={toggleComplete}
+                            deleteTodo={deleteTodo}
+                          />
+                        }
+                      </div>
+                    )}
+                  </Draggable>
+                </div>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </Container>
   );
 }
