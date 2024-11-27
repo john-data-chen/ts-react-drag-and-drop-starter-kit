@@ -32,8 +32,20 @@ const Title = styled.h1`
 function App() {
   const [todos, setTodos] = useState<Todo[]>([
     {
-      id: Date.now(),
-      text: "Delete this task if you need to",
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "1",
+      dueDate: null,
+      completed: true,
+    },
+    {
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "2",
+      dueDate: null,
+      completed: false,
+    },
+    {
+      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+      text: "3",
       dueDate: null,
       completed: true,
     },
@@ -43,7 +55,7 @@ function App() {
     setTodos([
       ...todos,
       {
-        id: Date.now(),
+        id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
         text,
         dueDate: dueDate ?? null,
         completed: false,
@@ -51,7 +63,7 @@ function App() {
     ]);
   };
 
-  const toggleComplete = (id: number) => {
+  const toggleComplete = (id: string) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
@@ -59,7 +71,7 @@ function App() {
     );
   };
 
-  const deleteTodo = (id: number) => {
+  const deleteTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 

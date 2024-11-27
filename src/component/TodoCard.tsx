@@ -24,8 +24,8 @@ const TodoItem = styled.li<TodoItemProps>`
 
 interface TodoCardProps {
   todo: Todo;
-  toggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
 }
 
 interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
