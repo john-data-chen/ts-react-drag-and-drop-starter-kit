@@ -69,21 +69,17 @@ const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
   return (
     <TodoItem key={todo.id}>
       <Text $completed={todo.completed}>{todo.text}</Text>
-      <br />
       <Text $completed={todo.completed}>
         Due Date: {todo.dueDate?.toLocaleDateString() || "None"}
       </Text>
 
       <CompleteButton
-        id={todo.id}
         $completed={todo.completed}
         onClick={() => toggleComplete(todo.id)}
       >
         {todo.completed ? "Completed" : "Complete"}
       </CompleteButton>
-      <DeleteButton id={todo.id} onClick={() => deleteTodo(todo.id)}>
-        Delete
-      </DeleteButton>
+      <DeleteButton onClick={() => deleteTodo(todo.id)}>Delete</DeleteButton>
     </TodoItem>
   );
 };
