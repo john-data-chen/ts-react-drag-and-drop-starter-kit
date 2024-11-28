@@ -13,6 +13,7 @@ const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
     (id: string) => {
       toggleComplete(id);
     },
+
     [toggleComplete]
   );
   const handleDeleteTodo = useCallback(
