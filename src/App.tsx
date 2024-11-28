@@ -74,6 +74,7 @@ function App() {
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
   return (
