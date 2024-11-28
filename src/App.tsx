@@ -36,34 +36,17 @@ const Title = styled.h1`
 `;
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "1",
-      dueDate: null,
-      completed: true,
-    },
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "2",
-      dueDate: null,
-      completed: false,
-    },
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "3",
-      dueDate: null,
-      completed: true,
-    },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>(
+    JSON.parse(localStorage.getItem("todos") || "[]")
+  );
 
-  const addTodo = (text: string, dueDate: Date | null) => {
+  const addTodo = function (text: string, dueDate: Date | string | null) {
     setTodos([
       ...todos,
       {
         id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
         text,
-        dueDate: dueDate ?? null,
+        dueDate,
         completed: false,
       },
     ]);
@@ -94,7 +77,7 @@ function App() {
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
         <AppStyle />
-        <Title>Todo List</Title>
+        <Title>Darg and Drop Todo List</Title>
         <TodoForm addTodo={addTodo} />
         <Droppable droppableId="drop-id">
           {(provided) => (
