@@ -9,25 +9,29 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
-  const storagedTodos = JSON.parse(localStorage.getItem("todos") || "[]");
+  const storageTodos = JSON.parse(localStorage.getItem("todos") || "[]");
   const handleToggleComplete = useCallback(
     (id: string) => {
       toggleComplete(id);
-      const updatedStoredTodos = storagedTodos.map((todo: Todo) => {
+      const updatedStoredTodo = storageTodos.map((todo: Todo) => {
         if (todo.id === id) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
       });
-      localStorage.setItem("todos", JSON.stringify(updatedStoredTodos));
+      localStorage.setItem("todos", JSON.stringify(updatedStoredTodo));
     },
-    [storagedTodos, toggleComplete]
+    [storageTodos, toggleComplete]
   );
   const handleDeleteTodo = useCallback(
     (id: string) => {
       deleteTodo(id);
+      const deletedStoredTodo = storageTodos.filter(
+        (todo: Todo) => todo.id !== id
+      );
+      localStorage.setItem("todos", JSON.stringify(deletedStoredTodo));
     },
-    [deleteTodo]
+    [deleteTodo, storageTodos]
   );
   return (
     <ul>
