@@ -41,7 +41,7 @@ const Button = styled.button`
 `;
 
 interface TodoFormProps {
-  addTodo: (text: string, dueDate: Date | null) => void;
+  addTodo: (text: string, dueDate: Date | string | null) => void;
 }
 
 const TodoForm = ({ addTodo }: TodoFormProps) => {
@@ -54,7 +54,18 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
       if (input.trim()) {
         addTodo(input.trim(), dueDate);
         setInput("");
+        setDueDate(null);
       }
+      const todos = JSON.parse(localStorage.getItem("todos") || "[]");
+
+      const newTodo = {
+        id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+        text: input.trim(),
+        dueDate: dueDate?.toLocaleDateString() || null,
+        completed: false,
+      };
+      todos.push(newTodo);
+      localStorage.setItem("todos", JSON.stringify(todos));
     },
     [addTodo, input, setInput, dueDate]
   );

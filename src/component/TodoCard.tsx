@@ -70,7 +70,8 @@ const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
     <TodoItem key={todo.id}>
       <Text $completed={todo.completed}>{todo.text}</Text>
       <Text $completed={todo.completed}>
-        Due Date: {todo.dueDate?.toLocaleDateString() || "None"}
+        Due Date:{" "}
+        {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
       </Text>
 
       <CompleteButton

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo from "./type/Todo";
+import Todo, { FakeData } from "./type/Todo";
 import {
   DragDropContext,
   Draggable,
@@ -36,34 +36,17 @@ const Title = styled.h1`
 `;
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "1",
-      dueDate: null,
-      completed: true,
-    },
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "2",
-      dueDate: null,
-      completed: false,
-    },
-    {
-      id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-      text: "3",
-      dueDate: null,
-      completed: true,
-    },
-  ]);
+  const [todos, setTodos] = useState<Todo[]>(
+    JSON.parse(localStorage.getItem("todos") || FakeData)
+  );
 
-  const addTodo = (text: string, dueDate: Date | null) => {
+  const addTodo = function (text: string, dueDate: Date | string | null) {
     setTodos([
       ...todos,
       {
         id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
         text,
-        dueDate: dueDate ?? null,
+        dueDate,
         completed: false,
       },
     ]);
@@ -88,13 +71,14 @@ function App() {
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
         <AppStyle />
-        <Title>Todo List</Title>
+        <Title>Darg and Drop Todo List</Title>
         <TodoForm addTodo={addTodo} />
         <Droppable droppableId="drop-id">
           {(provided) => (
