@@ -54,6 +54,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
       if (input.trim()) {
         addTodo(input.trim(), dueDate);
         setInput("");
+        setDueDate(null);
       }
       const todos = JSON.parse(localStorage.getItem("todos") || "[]");
 
