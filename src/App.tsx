@@ -78,8 +78,9 @@ function App() {
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
         <AppStyle />
-        <Title>Darg and Drop Todo List</Title>
+        <Title>Draggable Todo List</Title>
         <TodoForm addTodo={addTodo} />
+        <p>You can drag and drop the tasks to reorder</p>
         <Droppable droppableId="drop-id">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
