@@ -9,6 +9,7 @@ import {
   DropResult,
   Droppable,
 } from "@hello-pangea/dnd";
+import { useTranslation } from "react-i18next";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -27,12 +28,24 @@ const Container = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 20px;
+`;
+
+const SelectLanguage = styled.select`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
 `;
 
 function App() {
@@ -74,13 +87,25 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
+  const { i18n, t } = useTranslation();
+  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lang_code = e.target.value;
+    i18n.changeLanguage(lang_code);
+  };
   return (
     <Container>
+      <SelectLanguage defaultValue={i18n.language} onChange={onChangeLang}>
+        {i18n.languages.map((code) => (
+          <option key={code} value={code}>
+            {code.toUpperCase()}
+          </option>
+        ))}
+      </SelectLanguage>
       <DragDropContext onDragEnd={onDragEnd}>
         <AppStyle />
-        <Title>Draggable Todo List</Title>
+        <Title>{t("app-title")}</Title>
         <TodoForm addTodo={addTodo} />
-        <p>You can drag and drop the tasks to reorder</p>
+        <p>{t("draggable-hint")}</p>
         <Droppable droppableId="drop-id">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
