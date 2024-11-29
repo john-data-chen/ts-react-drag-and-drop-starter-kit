@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TodoForm.css";
+import { useTranslation } from "react-i18next";
 
 const Form = styled.form`
   display: flex;
@@ -70,13 +71,15 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
     [addTodo, input, setInput, dueDate]
   );
 
+  const { t } = useTranslation();
+
   return (
     <Form onSubmit={handleSubmit}>
       <Input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Input Tasks..."
+        placeholder={t("todo-form.todo-input")}
         autoFocus
       />
       <DatePicker
@@ -85,12 +88,12 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         onChange={(date: Date | null) => {
           setDueDate(date);
         }}
-        placeholderText="Due Date"
+        placeholderText={t("todo-form.due-date")}
         dateFormat="yyyy-MM-dd"
         className="datepicker"
       />
       <Button type="submit" disabled={!input.trim()}>
-        Add Task
+        {t("todo-form.add-button")}
       </Button>
     </Form>
   );
