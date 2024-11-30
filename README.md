@@ -15,12 +15,12 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add Drag and Drop in todo list
 - fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
 - Save todo list into local Storage
+- Add multi-language support
 
 ## More improvements in developing
 
 - Add edit button in task card
 - Use state management package such as Redux Toolkit...etc
-- Add multi-language support
 - Add Pomodoro
 - Add Dark Theme
 - Add test cases
