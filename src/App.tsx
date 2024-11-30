@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
@@ -52,6 +52,9 @@ function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || FakeData)
   );
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("i18nextLng") || "en"
+  );
 
   const addTodo = function (text: string, dueDate: Date | string | null) {
     setTodos([
@@ -88,13 +91,21 @@ function App() {
   };
 
   const { i18n, t } = useTranslation();
-  const onChangeLang = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const lang_code = e.target.value;
+  const onChangeLang = (lang_code: string) => {
     i18n.changeLanguage(lang_code);
+    setSelectedLanguage(lang_code);
+    localStorage.setItem("i18nextLng", lang_code);
   };
+  useEffect(() => {
+    i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("i18nextLng", selectedLanguage);
+  }, [i18n, selectedLanguage]);
   return (
     <Container>
-      <SelectLanguage defaultValue={i18n.language} onChange={onChangeLang}>
+      <SelectLanguage
+        defaultValue={selectedLanguage}
+        onChange={(e) => onChangeLang(e.target.value)}
+      >
         {LANGUAGES.map((lang) => (
           <option key={lang.code} value={lang.code}>
             {lang.label}
