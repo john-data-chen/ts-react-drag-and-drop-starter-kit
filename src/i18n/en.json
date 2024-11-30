@@ -1,0 +1,15 @@
+{
+  "app-title": "Draggable Todo List",
+  "draggable-hint": "You can drag and drop the tasks to reorder",
+  "todo-form": {
+    "todo-input": "Input Task...",
+    "due-date": "Due Date",
+    "add-button": "Add Task"
+  },
+  "todo-card": {
+    "complete": "Complete",
+    "completed": "Completed",
+    "due-date": "Due Date: ",
+    "delete": "Delete"
+  }
+}

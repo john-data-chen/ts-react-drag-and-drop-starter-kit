@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo, { FakeData } from "./type/Todo";
+import Todo, { FakeData, LANGUAGES } from "./type/Todo";
 import {
   DragDropContext,
   Draggable,
   DropResult,
   Droppable,
 } from "@hello-pangea/dnd";
+import { useTranslation } from "react-i18next";
 
 const AppStyle = createGlobalStyle`
   body {
@@ -27,6 +28,7 @@ const Container = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  position: relative;
 `;
 
 const Title = styled.h1`
@@ -35,9 +37,23 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
+const SelectLanguage = styled.select`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
+`;
+
 function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || FakeData)
+  );
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem("i18nextLng") || "en"
   );
 
   const addTodo = function (text: string, dueDate: Date | string | null) {
@@ -74,12 +90,33 @@ function App() {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
+  const { i18n, t } = useTranslation();
+  const onChangeLang = (lang_code: string) => {
+    i18n.changeLanguage(lang_code);
+    setSelectedLanguage(lang_code);
+    localStorage.setItem("i18nextLng", lang_code);
+  };
+  useEffect(() => {
+    i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("i18nextLng", selectedLanguage);
+  }, [i18n, selectedLanguage]);
   return (
     <Container>
+      <SelectLanguage
+        defaultValue={selectedLanguage}
+        onChange={(e) => onChangeLang(e.target.value)}
+      >
+        {LANGUAGES.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.label}
+          </option>
+        ))}
+      </SelectLanguage>
       <DragDropContext onDragEnd={onDragEnd}>
         <AppStyle />
-        <Title>Darg and Drop Todo List</Title>
+        <Title>{t("app-title")}</Title>
         <TodoForm addTodo={addTodo} />
+        <p>{t("draggable-hint")}</p>
         <Droppable droppableId="drop-id">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>

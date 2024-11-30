@@ -1,0 +1,15 @@
+{
+  "app-title": "Verschiebbare To-Do-Liste",
+  "draggable-hint": "Sie können die Aufgaben per Drag & Drop neu anordnen",
+  "todo-form": {
+    "todo-input": "Aufgabe eingeben...",
+    "due-date": "Fälligkeitsdatum",
+    "add-button": "Aufgabe hinzufügen"
+  },
+  "todo-card": {
+    "complete": "Vollständig",
+    "completed": "Vollendet",
+    "due-date": "Fälligkeitsdatum: ",
+    "delete": "Löschen"
+  }
+}
