@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo, { FakeData } from "./type/Todo";
+import Todo, { FakeData, LANGUAGES } from "./type/Todo";
 import {
   DragDropContext,
   Draggable,
@@ -95,9 +95,9 @@ function App() {
   return (
     <Container>
       <SelectLanguage defaultValue={i18n.language} onChange={onChangeLang}>
-        {i18n.languages.map((code) => (
-          <option key={code} value={code}>
-            {code.toUpperCase()}
+        {LANGUAGES.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.label}
           </option>
         ))}
       </SelectLanguage>
