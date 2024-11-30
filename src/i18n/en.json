@@ -11,8 +11,5 @@
     "completed": "Completed",
     "due-date": "Due Date: ",
     "delete": "Delete"
-  },
-  "i18n": {
-    "change-language": "Change Language"
   }
 }

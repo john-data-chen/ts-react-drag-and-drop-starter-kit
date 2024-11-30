@@ -11,8 +11,5 @@
     "completed": "Vollendet",
     "due-date": "Fälligkeitsdatum: ",
     "delete": "Löschen"
-  },
-  "i18n": {
-    "change-language": "Sprache ändern"
   }
 }
