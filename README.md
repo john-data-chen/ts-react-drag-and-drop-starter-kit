@@ -15,7 +15,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add Drag and Drop in todo list
 - fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
 - Save todo list into local Storage
-- Add multi-language support
+- Add multi-language support: English and German
 
 ## More improvements in developing
 
