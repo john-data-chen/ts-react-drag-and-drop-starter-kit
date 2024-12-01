@@ -16,7 +16,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
 - Save todo list into local Storage
 - Add multi-language support: English and Deutsch
-- Add Browser language detection: auto switch to Deutsch when user's browser is Deutsch first
+- Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
 
 ## More improvements in developing
 
