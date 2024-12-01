@@ -1,5 +1,6 @@
 import TodoCard from "./TodoCard";
-import Todo, { FakeData } from "../type/Todo";
+import Todo from "../type/Todo";
+import { DEMOTASKS } from "../constants/constants";
 import { useCallback } from "react";
 
 interface TodoListProps {
@@ -9,7 +10,7 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
-  const storageTodos = JSON.parse(localStorage.getItem("todos") || FakeData);
+  const storageTodos = JSON.parse(localStorage.getItem("todos") || DEMOTASKS);
   const handleToggleComplete = useCallback(
     (id: string) => {
       toggleComplete(id);

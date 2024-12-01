@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo, { FakeData, LANGUAGES } from "./type/Todo";
+import Todo from "./type/Todo";
+import { DEMOTASKS, LANGUAGES } from "./constants/constants";
 import {
   DragDropContext,
   Draggable,
@@ -50,7 +51,7 @@ const SelectLanguage = styled.select`
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>(
-    JSON.parse(localStorage.getItem("todos") || FakeData)
+    JSON.parse(localStorage.getItem("todos") || DEMOTASKS)
   );
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
