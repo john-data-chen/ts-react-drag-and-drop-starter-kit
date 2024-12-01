@@ -47,7 +47,8 @@ function App() {
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
-  const [theme, setTheme] = useState("light");
+  const storeTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(storeTheme || "light");
   const isDarkMode = theme === "dark";
   const toggleTheme = () => {
     setTheme(isDarkMode ? "light" : "dark");
