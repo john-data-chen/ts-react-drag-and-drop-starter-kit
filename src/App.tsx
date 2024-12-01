@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
+import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
 import { DEMOTASKS, LANGUAGES } from "./constants/constants";
 import {
   DragDropContext,
@@ -12,29 +13,8 @@ import {
 } from "@hello-pangea/dnd";
 import { useTranslation } from "react-i18next";
 
-const AppStyle = createGlobalStyle`
-  body {
-  font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    margin: 0;
-    padding: 0;
-}
-    `;
-
-const Container = styled.div`
-  max-width: 1000px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  position: relative;
-`;
-
 const Title = styled.h1`
   font-size: 2.5rem;
-  color: #333;
   margin-bottom: 20px;
 `;
 
@@ -49,6 +29,16 @@ const SelectLanguage = styled.select`
   font-size: 1rem;
 `;
 
+const ThemeSwitch = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 200px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
 function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || DEMOTASKS)
@@ -56,6 +46,11 @@ function App() {
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
+  const [theme, setTheme] = useState("light");
+  const isDarkMode = theme === "dark";
+  const toggleTheme = () => {
+    setTheme(isDarkMode ? "light" : "dark");
+  };
 
   const addTodo = function (text: string, dueDate: Date | string | null) {
     setTodos([
@@ -102,7 +97,11 @@ function App() {
     localStorage.setItem("i18nextLng", selectedLanguage);
   }, [i18n, selectedLanguage]);
   return (
-    <Container>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <ThemeSwitch onClick={toggleTheme}>
+        {isDarkMode ? "Light" : "Dark"}
+      </ThemeSwitch>
+      <GlobalStyles />
       <SelectLanguage
         defaultValue={selectedLanguage}
         onChange={(e) => onChangeLang(e.target.value)}
@@ -114,7 +113,6 @@ function App() {
         ))}
       </SelectLanguage>
       <DragDropContext onDragEnd={onDragEnd}>
-        <AppStyle />
         <Title>{t("app-title")}</Title>
         <TodoForm addTodo={addTodo} />
         <p>{t("draggable-hint")}</p>
@@ -148,7 +146,7 @@ function App() {
           )}
         </Droppable>
       </DragDropContext>
-    </Container>
+    </ThemeProvider>
   );
 }
 
