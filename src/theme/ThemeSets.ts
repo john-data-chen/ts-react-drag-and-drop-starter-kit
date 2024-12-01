@@ -17,13 +17,13 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme = {
   body: '#f7f7f7',
   text: '#333',
-  background: '#fff',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
+  buttonBackground: '#FFDF00',
 };
 
 export const darkTheme = {
   body: '#333',
   text: '#fff',
-  background: '#444',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.8)'
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.8)',
+  buttonBackground: '#FFF44F',
 };
