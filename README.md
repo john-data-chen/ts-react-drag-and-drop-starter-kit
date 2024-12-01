@@ -17,13 +17,13 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Save todo list into local Storage
 - Add multi-language support: English and Deutsch
 - Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
+- Add Dark Theme
 
 ## More improvements in developing
 
 - Add edit button in task card
 - Use state management package such as Redux Toolkit...etc
 - Add Pomodoro
-- Add Dark Theme
 - Add test cases
 - Add CI / CD
 - Make it a Chrome extension
