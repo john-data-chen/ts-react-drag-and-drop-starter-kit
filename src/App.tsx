@@ -32,11 +32,12 @@ const SelectLanguage = styled.select`
 const ThemeSwitch = styled.button`
   position: absolute;
   top: 20px;
-  right: 200px;
+  right: 160px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: ${({ theme }) => theme.buttonBackground};
 `;
 
 function App() {
@@ -99,7 +100,7 @@ function App() {
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <ThemeSwitch onClick={toggleTheme}>
-        {isDarkMode ? "Light" : "Dark"}
+        {isDarkMode ? "Light 🌞" : "Dark 🌜"}
       </ThemeSwitch>
       <GlobalStyles />
       <SelectLanguage
