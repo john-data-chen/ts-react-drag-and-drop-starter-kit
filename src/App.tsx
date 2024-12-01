@@ -51,6 +51,7 @@ function App() {
   const isDarkMode = theme === "dark";
   const toggleTheme = () => {
     setTheme(isDarkMode ? "light" : "dark");
+    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
   };
 
   const addTodo = function (text: string, dueDate: Date | string | null) {
