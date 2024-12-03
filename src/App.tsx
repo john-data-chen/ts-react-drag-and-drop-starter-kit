@@ -40,6 +40,11 @@ const ThemeSwitch = styled.button`
   background-color: ${({ theme }) => theme.buttonBackground};
 `;
 
+const DraggableHint = styled.p`
+  font-size: 1rem;
+  margin-top: 10px;
+`;
+
 function App() {
   const [todos, setTodos] = useState<Todo[]>(
     JSON.parse(localStorage.getItem("todos") || DEMOTASKS)
@@ -118,7 +123,7 @@ function App() {
       <DragDropContext onDragEnd={onDragEnd}>
         <Title>{t("app-title")}</Title>
         <TodoForm addTodo={addTodo} />
-        <p>{t("draggable-hint")}</p>
+        <DraggableHint>{t("draggable-hint")}</DraggableHint>
         <Droppable droppableId="drop-id">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
