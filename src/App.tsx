@@ -53,7 +53,7 @@ function App() {
     localStorage.getItem("i18nextLng") || "en"
   );
   const storeTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(storeTheme || "light");
+  const [theme, setTheme] = useState(storeTheme || "dark");
   const isDarkMode = theme === "dark";
   const toggleTheme = () => {
     setTheme(isDarkMode ? "light" : "dark");
