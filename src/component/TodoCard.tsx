@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Todo from "../type/Todo";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import EditTodoForm from "./EditTodoForm";
 
 // styled components
 const TodoItem = styled.li`
@@ -93,6 +95,13 @@ const TodoCard = ({
   deleteTodo,
   editTodo,
 }: TodoCardProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
   const { t } = useTranslation();
   return (
     <TodoItem key={todo.id}>
@@ -108,16 +117,16 @@ const TodoCard = ({
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <EditButton
-        onClick={() =>
-          editTodo(
-            todo.id,
-            todo.text,
-            todo.dueDate ? new Date(todo.dueDate) : null
-          )
-        }
-      >
+      <EditButton onClick={handleEdit}>
         {t("todo-card.edit")}
+        {isEditing && (
+          <EditTodoForm
+            todo={todo}
+            editTodo={editTodo}
+            isOpen={isEditing}
+            onCancel={handleCancel}
+          />
+        )}
       </EditButton>
       <DeleteButton onClick={() => deleteTodo(todo.id)}>
         {t("todo-card.delete")}
