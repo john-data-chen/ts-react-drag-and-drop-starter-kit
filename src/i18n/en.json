@@ -12,5 +12,11 @@
     "due-date": "Due Date: ",
     "delete": "Delete",
     "edit": "Edit"
+  },
+  "edit-todo-form": {
+    "todo-input": "Input Task...",
+    "due-date": "Due Date",
+    "save-button": "Save",
+    "cancel-button": "Cancel"
   }
 }
