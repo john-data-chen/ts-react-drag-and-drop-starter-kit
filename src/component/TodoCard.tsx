@@ -14,6 +14,10 @@ const TodoItem = styled.li`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 
+  span {
+    text-align: left;
+  }
+
   &:hover {
     background-color: #e6f7ff;
   }
