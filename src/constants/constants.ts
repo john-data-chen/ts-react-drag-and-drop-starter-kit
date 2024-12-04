@@ -1,4 +1,4 @@
-const DEMOTASKS = `[{"id":"1732777773493yllerj6b","text":"1: delete fake data before using","dueDate":"2024/11/28","completed":false},{"id":"1732777775878vnba3lt5","text":"2","dueDate":"","completed":true},{"id":"1732777800954jpxnw26l","text":"3","dueDate":"2024/11/30","completed":false}]`;
+const DEMOTASKS = `[{"id":"1733313427660","text":"1: Delete the Demo Tasks before you use","dueDate":null,"completed":false},{"id":"1733313461490","text":"2: You can drag to re-order tasks","dueDate":"2024-12-03T16:00:00.000Z","completed":false},{"id":"1733313502106","text":"3: Try it!","dueDate":null,"completed":true}]`;
 const LANGUAGES = [
   { code: "en", label: "English" },
   { code: "de", label: "Deutsch" },
