@@ -49,10 +49,9 @@ interface EditFormProps {
   todo: Todo;
   editTodo: (id: string, text: string, dueDate: Date | null) => void;
   onCancel: () => void;
-  onSave: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-const EditTodoForm = ({ todo, editTodo, onCancel, onSave }: EditFormProps) => {
+const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
   const { t } = useTranslation();
   const [text, setText] = useState(todo.text);
   const [dueDate, setDueDate] = useState<Date | null>(
@@ -63,17 +62,12 @@ const EditTodoForm = ({ todo, editTodo, onCancel, onSave }: EditFormProps) => {
     (e: { preventDefault: () => void }) => {
       e.preventDefault();
       if (text.trim()) {
-        onSave(todo.id, text, dueDate);
-        editTodo({
-          id: todo.id,
-          text: text,
-          dueDate: dueDate ? dueDate.toISOString() : null,
-        });
+        editTodo(todo.id, text, dueDate);
         setText("");
         setDueDate(null);
       }
     },
-    [text, dueDate, todo, setText, setDueDate, editTodo, onSave]
+    [text, dueDate, todo, setText, setDueDate, editTodo]
   );
   return (
     <FormContainer>
@@ -91,9 +85,7 @@ const EditTodoForm = ({ todo, editTodo, onCancel, onSave }: EditFormProps) => {
           placeholderText={t("edit-todo-form.due-date")}
           className="datepickerInEditForm"
         />
-        <SaveButton onClick={(e) => handleSubmit(e)}>
-          {t("edit-todo-form.save-button")}
-        </SaveButton>
+        <SaveButton type="submit">{t("edit-todo-form.save-button")}</SaveButton>
         <CancelButton onClick={onCancel}>
           {t("edit-todo-form.cancel-button")}
         </CancelButton>

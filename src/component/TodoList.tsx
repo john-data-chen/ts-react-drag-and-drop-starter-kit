@@ -5,14 +5,14 @@ interface TodoListProps {
   todos: Todo[];
   toggleComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
-  editTodo: (id: string, text: string, dueDate: Date | null) => void;
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
 }
 
 const TodoList = ({
   todos,
   toggleComplete,
   deleteTodo,
-  editTodo,
+  handleEditTodo,
 }: TodoListProps) => {
   return (
     <ul>
@@ -22,7 +22,7 @@ const TodoList = ({
           todo={todo}
           toggleComplete={toggleComplete}
           deleteTodo={deleteTodo}
-          editTodo={editTodo}
+          handleEditTodo={handleEditTodo}
         />
       ))}
     </ul>

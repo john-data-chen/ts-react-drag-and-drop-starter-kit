@@ -148,7 +148,7 @@ function App() {
                             key={item.id}
                             toggleComplete={handleToggleComplete}
                             deleteTodo={handleDeleteTodo}
-                            editTodo={handleEditTodo}
+                            handleEditTodo={handleEditTodo}
                           />
                         }
                       </div>
