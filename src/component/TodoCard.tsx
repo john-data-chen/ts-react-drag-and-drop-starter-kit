@@ -4,8 +4,6 @@ import { useTranslation } from "react-i18next";
 
 interface TodoCardProps {
   todo: Todo;
-  toggleComplete: (id: string) => void;
-  deleteTodo: (id: string) => void;
 }
 
 // styled components
@@ -66,7 +64,7 @@ const DeleteButton = styled.button`
   }
 `;
 
-const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
+const TodoCard = ({ todo }: TodoCardProps) => {
   const { t } = useTranslation();
   return (
     <TodoItem key={todo.id}>
@@ -76,15 +74,10 @@ const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
         {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
       </Text>
 
-      <CompleteButton
-        $completed={todo.completed}
-        onClick={() => toggleComplete(todo.id)}
-      >
+      <CompleteButton $completed={todo.completed}>
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <DeleteButton onClick={() => deleteTodo(todo.id)}>
-        {t("todo-card.delete")}
-      </DeleteButton>
+      <DeleteButton>{t("todo-card.delete")}</DeleteButton>
     </TodoItem>
   );
 };

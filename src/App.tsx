@@ -4,14 +4,16 @@ import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
-import { DEMOTASKS, LANGUAGES } from "./constants/constants";
+import { LANGUAGES } from "./constants/constants";
 import {
   DragDropContext,
   Draggable,
-  DropResult,
   Droppable,
+  DropResult,
 } from "@hello-pangea/dnd";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo, setTodos } from "./redux/todoReducer";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -46,9 +48,9 @@ const DraggableHint = styled.p`
 `;
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>(
-    JSON.parse(localStorage.getItem("todos") || DEMOTASKS)
-  );
+  const todosSelector = useSelector((state: Todo[]) => state.todos);
+  console.log("todosSelector", todosSelector);
+  const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
@@ -60,38 +62,18 @@ function App() {
     localStorage.setItem("theme", isDarkMode ? "light" : "dark");
   };
 
-  const addTodo = function (text: string, dueDate: Date | string | null) {
-    setTodos([
-      ...todos,
-      {
-        id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
-        text,
-        dueDate,
-        completed: false,
-      },
-    ]);
-  };
-
-  const toggleComplete = (id: string) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const deleteTodo = (id: string) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const handleAddTodo = (text: string, dueDate: Date | null) => {
+    const dueDateString = dueDate ? dueDate.toLocaleString() : null;
+    dispatch(addTodo({ text, dueDate: dueDateString }));
   };
 
   const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
     if (!destination) return;
-    const newTodos = [...todos];
+    const newTodos = [...todosSelector];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
-    setTodos(newTodos);
-    localStorage.setItem("todos", JSON.stringify(newTodos));
+    dispatch(setTodos(newTodos));
   };
 
   const { i18n, t } = useTranslation();
@@ -122,12 +104,12 @@ function App() {
       </SelectLanguage>
       <DragDropContext onDragEnd={onDragEnd}>
         <Title>{t("app-title")}</Title>
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={handleAddTodo} />
         <DraggableHint>{t("draggable-hint")}</DraggableHint>
         <Droppable droppableId="drop-id">
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
-              {todos.map((item, i) => (
+              {todosSelector.todos.map((item: Todo, i: number) => (
                 <div key={item.id}>
                   <Draggable draggableId={item.id} index={i} key={item.id}>
                     {(provided) => (
@@ -136,14 +118,7 @@ function App() {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                       >
-                        {
-                          <TodoList
-                            todos={[item]}
-                            key={item.id}
-                            toggleComplete={toggleComplete}
-                            deleteTodo={deleteTodo}
-                          />
-                        }
+                        {<TodoList todos={[item]} key={item.id} />}
                       </div>
                     )}
                   </Draggable>
