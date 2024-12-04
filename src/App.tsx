@@ -13,7 +13,7 @@ import {
 } from "@hello-pangea/dnd";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, setTodos } from "./redux/todoReducer";
+import { addTodo, handleDragEnd } from "./redux/todoReducer";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -78,7 +78,7 @@ function App() {
     const newTodos = [...todosSelector.todos];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
-    dispatch(setTodos(newTodos));
+    dispatch(handleDragEnd(newTodos));
   };
 
   const { i18n, t } = useTranslation();

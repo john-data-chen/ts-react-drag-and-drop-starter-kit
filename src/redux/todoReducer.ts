@@ -29,12 +29,12 @@ export const todoSlice = createSlice({
       ];
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
-    setTodos: (state, action) => {
+    handleDragEnd: (state, action) => {
       state.todos = action.payload;
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
   },
 });
 
-export const { addTodo, setTodos } = todoSlice.actions;
+export const { addTodo, handleDragEnd } = todoSlice.actions;
 export default todoSlice.reducer;
