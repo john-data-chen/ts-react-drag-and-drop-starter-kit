@@ -47,8 +47,14 @@ const DraggableHint = styled.p`
   margin-top: 10px;
 `;
 
+interface todosSelectorProps {
+  todos: Todo[];
+}
+
 function App() {
-  const todosSelector = useSelector((state: Todo[]) => state.todos);
+  const todosSelector = useSelector(
+    (state: { todos: todosSelectorProps }) => state.todos
+  );
   console.log("todosSelector", todosSelector);
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
@@ -70,7 +76,7 @@ function App() {
   const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
     if (!destination) return;
-    const newTodos = [...todosSelector];
+    const newTodos = [...todosSelector.todos];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     dispatch(setTodos(newTodos));
