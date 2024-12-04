@@ -10,6 +10,7 @@
     "complete": "Complete",
     "completed": "Completed",
     "due-date": "Due Date: ",
-    "delete": "Delete"
+    "delete": "Delete",
+    "edit": "Edit"
   }
 }
