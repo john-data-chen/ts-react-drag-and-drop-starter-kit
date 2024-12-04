@@ -2,12 +2,6 @@ import styled from "styled-components";
 import Todo from "../type/Todo";
 import { useTranslation } from "react-i18next";
 
-interface TodoCardProps {
-  todo: Todo;
-  toggleComplete: (id: string) => void;
-  deleteTodo: (id: string) => void;
-}
-
 // styled components
 const TodoItem = styled.li`
   display: flex;
@@ -65,6 +59,12 @@ const DeleteButton = styled.button`
     background-color: #ff7875;
   }
 `;
+
+interface TodoCardProps {
+  todo: Todo;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
+}
 
 const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
   const { t } = useTranslation();

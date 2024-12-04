@@ -1,7 +1,5 @@
 import TodoCard from "./TodoCard";
 import Todo from "../type/Todo";
-import { DEMOTASKS } from "../constants/constants";
-import { useCallback } from "react";
 
 interface TodoListProps {
   todos: Todo[];
@@ -10,38 +8,14 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
-  const storageTodos = JSON.parse(localStorage.getItem("todos") || DEMOTASKS);
-  const handleToggleComplete = useCallback(
-    (id: string) => {
-      toggleComplete(id);
-      const updatedStoredTodo = storageTodos.map((todo: Todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      });
-      localStorage.setItem("todos", JSON.stringify(updatedStoredTodo));
-    },
-    [storageTodos, toggleComplete]
-  );
-  const handleDeleteTodo = useCallback(
-    (id: string) => {
-      deleteTodo(id);
-      const deletedStoredTodo = storageTodos.filter(
-        (todo: Todo) => todo.id !== id
-      );
-      localStorage.setItem("todos", JSON.stringify(deletedStoredTodo));
-    },
-    [deleteTodo, storageTodos]
-  );
   return (
     <ul>
       {todos.map((todo) => (
         <TodoCard
           key={todo.id}
           todo={todo}
-          toggleComplete={handleToggleComplete}
-          deleteTodo={handleDeleteTodo}
+          toggleComplete={toggleComplete}
+          deleteTodo={deleteTodo}
         />
       ))}
     </ul>

@@ -18,11 +18,12 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add multi-language support: English and Deutsch
 - Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
 - Add Dark Theme
+- Add Redux and Toolkit to manage state of tasks
 
 ## More improvements in developing
 
+- Add state of theme and language into Redux
 - Add edit button in task card
-- Use state management package such as Redux Toolkit...etc
 - Add Pomodoro
 - Add test cases
 - Add CI / CD
