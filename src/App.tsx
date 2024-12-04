@@ -13,7 +13,12 @@ import {
 } from "@hello-pangea/dnd";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, handleDragEnd } from "./redux/todoReducer";
+import {
+  addTodo,
+  handleDragEnd,
+  toggleComplete,
+  deleteTodo,
+} from "./redux/todoReducer";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -81,6 +86,14 @@ function App() {
     dispatch(handleDragEnd(newTodos));
   };
 
+  const handleToggleComplete = (id: string) => {
+    dispatch(toggleComplete(id));
+  };
+
+  const handleDeleteTodo = (id: string) => {
+    dispatch(deleteTodo(id));
+  };
+
   const { i18n, t } = useTranslation();
   const onChangeLang = (lang_code: string) => {
     i18n.changeLanguage(lang_code);
@@ -123,7 +136,14 @@ function App() {
                         {...provided.dragHandleProps}
                         ref={provided.innerRef}
                       >
-                        {<TodoList todos={[item]} key={item.id} />}
+                        {
+                          <TodoList
+                            todos={[item]}
+                            key={item.id}
+                            toggleComplete={handleToggleComplete}
+                            deleteTodo={handleDeleteTodo}
+                          />
+                        }
                       </div>
                     )}
                   </Draggable>

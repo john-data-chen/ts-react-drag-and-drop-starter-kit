@@ -2,10 +2,6 @@ import styled from "styled-components";
 import Todo from "../type/Todo";
 import { useTranslation } from "react-i18next";
 
-interface TodoCardProps {
-  todo: Todo;
-}
-
 // styled components
 const TodoItem = styled.li`
   display: flex;
@@ -64,7 +60,13 @@ const DeleteButton = styled.button`
   }
 `;
 
-const TodoCard = ({ todo }: TodoCardProps) => {
+interface TodoCardProps {
+  todo: Todo;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
+}
+
+const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
   const { t } = useTranslation();
   return (
     <TodoItem key={todo.id}>
@@ -74,10 +76,15 @@ const TodoCard = ({ todo }: TodoCardProps) => {
         {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
       </Text>
 
-      <CompleteButton $completed={todo.completed}>
+      <CompleteButton
+        $completed={todo.completed}
+        onClick={() => toggleComplete(todo.id)}
+      >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <DeleteButton>{t("todo-card.delete")}</DeleteButton>
+      <DeleteButton onClick={() => deleteTodo(todo.id)}>
+        {t("todo-card.delete")}
+      </DeleteButton>
     </TodoItem>
   );
 };

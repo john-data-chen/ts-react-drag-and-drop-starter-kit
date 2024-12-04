@@ -21,7 +21,7 @@ export const todoSlice = createSlice({
       state.todos = [
         ...state.todos,
         {
-          id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
+          id: `${Date.now()}`,
           text: action.payload.text,
           dueDate: action.payload.dueDate || null,
           completed: false,
@@ -33,8 +33,21 @@ export const todoSlice = createSlice({
       state.todos = action.payload;
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
+    toggleComplete: (state, action: PayloadAction<string>) => {
+      state.todos = state.todos.map((todo) => {
+        if (todo.id === action.payload) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+      localStorage.setItem("todos", JSON.stringify(state.todos));
+    },
+    deleteTodo: (state, action: PayloadAction<string>) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      localStorage.setItem("todos", JSON.stringify(state.todos));
+  },
   },
 });
 
-export const { addTodo, handleDragEnd } = todoSlice.actions;
+export const { addTodo, handleDragEnd, toggleComplete, deleteTodo } = todoSlice.actions;
 export default todoSlice.reducer;
