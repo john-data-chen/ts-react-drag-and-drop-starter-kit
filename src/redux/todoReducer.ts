@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { DEMOTASKS } from "../constants/constants";
 import Todo from "../type/Todo";
 
@@ -18,13 +18,12 @@ export const todoSlice = createSlice({
       state,
       action: PayloadAction<{ text: string; dueDate: string | null }>
     ) => {
-      console.log("state", current(state));
       state.todos = [
         ...state.todos,
         {
           id: `${Date.now()}${Math.random().toString(36).substring(5)}`,
           text: action.payload.text,
-          dueDate: action.payload.dueDate,
+          dueDate: action.payload.dueDate || null,
           completed: false,
         },
       ];

@@ -55,7 +55,6 @@ function App() {
   const todosSelector = useSelector(
     (state: { todos: todosSelectorProps }) => state.todos
   );
-  console.log("todosSelector", todosSelector);
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
@@ -69,8 +68,8 @@ function App() {
   };
 
   const handleAddTodo = (text: string, dueDate: Date | null) => {
-    const dueDateString = dueDate ? dueDate.toLocaleString() : null;
-    dispatch(addTodo({ text, dueDate: dueDateString }));
+    const dueDateStr = dueDate ? dueDate.toISOString() : null;
+    dispatch(addTodo({ text, dueDate: dueDateStr }));
   };
 
   const onDragEnd = (event: DropResult) => {
