@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import "./EditTodoForm.css";
 import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
@@ -27,6 +27,7 @@ const Input = styled.input`
 
 const SaveButton = styled.button`
   background-color: #007bff;
+  margin-left: 1rem;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -46,12 +47,12 @@ const CancelButton = styled.button`
 
 interface EditFormProps {
   todo: Todo;
-  editTodo: (todo: Todo) => void;
-  isOpen: boolean;
+  editTodo: (id: string, text: string, dueDate: Date | null) => void;
   onCancel: () => void;
+  onSave: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-const EditTodoForm = ({ todo, editTodo, isOpen, onCancel }: EditFormProps) => {
+const EditTodoForm = ({ todo, editTodo, onCancel, onSave }: EditFormProps) => {
   const { t } = useTranslation();
   const [text, setText] = useState(todo.text);
   const [dueDate, setDueDate] = useState<Date | null>(
@@ -62,11 +63,17 @@ const EditTodoForm = ({ todo, editTodo, isOpen, onCancel }: EditFormProps) => {
     (e: { preventDefault: () => void }) => {
       e.preventDefault();
       if (text.trim()) {
-        todo.text = text;
-        todo.dueDate = dueDate ? dueDate.toISOString() : null;
+        onSave(todo.id, text, dueDate);
+        editTodo({
+          id: todo.id,
+          text: text,
+          dueDate: dueDate ? dueDate.toISOString() : null,
+        });
+        setText("");
+        setDueDate(null);
       }
     },
-    [text, dueDate, todo]
+    [text, dueDate, todo, setText, setDueDate, editTodo, onSave]
   );
   return (
     <FormContainer>
@@ -78,16 +85,16 @@ const EditTodoForm = ({ todo, editTodo, isOpen, onCancel }: EditFormProps) => {
           placeholder={t("edit-todo-form.todo-input")}
         />
         <DatePicker
-          minDate={new Date()}
           selected={dueDate}
+          minDate={new Date()}
           onChange={(date) => setDueDate(date)}
           placeholderText={t("edit-todo-form.due-date")}
-          className="datepicker"
+          className="datepickerInEditForm"
         />
-        <SaveButton onCanPlay={editTodo}>
+        <SaveButton onClick={(e) => handleSubmit(e)}>
           {t("edit-todo-form.save-button")}
         </SaveButton>
-        <CancelButton onClick={handleCancel}>
+        <CancelButton onClick={onCancel}>
           {t("edit-todo-form.cancel-button")}
         </CancelButton>
       </form>

@@ -1,6 +1,5 @@
-.datepicker {
+.datepickerInEditForm {
   flex: 1;
-  width: 40%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;

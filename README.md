@@ -19,10 +19,12 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
 - Add Dark Theme
 - Add Redux and Toolkit to manage state of tasks
+- Add edit button to edit task title and Due Date in task card
 
 ## More improvements in developing
 
-- Add edit button in task card
+- Adjust UI of edit task from
+- Add animations of interactions
 - Add Pomodoro
 - Add test cases
 - Add CI / CD

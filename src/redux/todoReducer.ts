@@ -47,11 +47,11 @@ export const todoSlice = createSlice({
       localStorage.setItem("todos", JSON.stringify(state.todos));
   },
 
-    editTodo: (state, action: PayloadAction<{ todo: Todo }>) => {
+    editTodo: (state, action: PayloadAction<{ id: string; text: string; dueDate: string | null }>) => {
       state.todos = state.todos.map((todo) => {
-        if (todo.id === action.payload.todo.id) {
-          todo.text = action.payload.todo.text;
-          todo.dueDate = action.payload.todo.dueDate;
+        if (todo.id === action.payload.id) {
+          todo.text = action.payload.text;
+          todo.dueDate = action.payload.dueDate;
         }
         return todo;
       });

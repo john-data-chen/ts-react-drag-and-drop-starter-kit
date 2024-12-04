@@ -86,7 +86,7 @@ interface TodoCardProps {
   todo: Todo;
   toggleComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
-  editTodo: (id: string, text: string, dueDate: Date | null) => void;
+  editTodo: (id: string, text: string, dueDate: string | null) => void;
 }
 
 const TodoCard = ({
@@ -95,13 +95,7 @@ const TodoCard = ({
   deleteTodo,
   editTodo,
 }: TodoCardProps) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-  const handleCancel = () => {
-    setIsEditing(false);
-  };
+  const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
     <TodoItem key={todo.id}>
@@ -117,14 +111,15 @@ const TodoCard = ({
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <EditButton onClick={handleEdit}>
+      <EditButton onClick={() => setIsEditingOpen(!isEditingOpen)}>
         {t("todo-card.edit")}
-        {isEditing && (
+        {isEditingOpen && (
           <EditTodoForm
             todo={todo}
             editTodo={editTodo}
-            isOpen={isEditing}
-            onCancel={handleCancel}
+            isOpen={isEditingOpen}
+            onCancel={() => setIsEditingOpen(false)}
+            onSave={() => setIsEditingOpen(false)}
           />
         )}
       </EditButton>
