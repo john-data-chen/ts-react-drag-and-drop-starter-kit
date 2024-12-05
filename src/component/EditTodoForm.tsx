@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import styled from "styled-components";
-import "./EditTodoForm.css";
 import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
 
