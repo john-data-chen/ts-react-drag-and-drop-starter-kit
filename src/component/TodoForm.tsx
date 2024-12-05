@@ -79,7 +79,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
           setDueDate(date);
         }}
         placeholderText={t("todo-form.due-date")}
-        dateFormat="yyyy-MM-dd"
+        dateFormat="yyyy/MM/d"
         className="datepicker"
       />
       <Button type="submit" disabled={!input.trim()}>

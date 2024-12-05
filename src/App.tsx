@@ -18,6 +18,7 @@ import {
   handleDragEnd,
   toggleComplete,
   deleteTodo,
+  editTodo,
 } from "./redux/todoReducer";
 
 const Title = styled.h1`
@@ -94,6 +95,11 @@ function App() {
     dispatch(deleteTodo(id));
   };
 
+  const handleEditTodo = (id: string, text: string, dueDate: Date | null) => {
+    const dueDateStr = dueDate ? dueDate.toISOString() : "";
+    dispatch(editTodo({ id, text, dueDate: dueDateStr }));
+  };
+
   const { i18n, t } = useTranslation();
   const onChangeLang = (lang_code: string) => {
     i18n.changeLanguage(lang_code);
@@ -142,6 +148,7 @@ function App() {
                             key={item.id}
                             toggleComplete={handleToggleComplete}
                             deleteTodo={handleDeleteTodo}
+                            handleEditTodo={handleEditTodo}
                           />
                         }
                       </div>

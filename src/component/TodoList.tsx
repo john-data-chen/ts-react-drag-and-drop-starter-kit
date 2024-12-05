@@ -5,9 +5,15 @@ interface TodoListProps {
   todos: Todo[];
   toggleComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
+const TodoList = ({
+  todos,
+  toggleComplete,
+  deleteTodo,
+  handleEditTodo,
+}: TodoListProps) => {
   return (
     <ul>
       {todos.map((todo) => (
@@ -16,6 +22,7 @@ const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
           todo={todo}
           toggleComplete={toggleComplete}
           deleteTodo={deleteTodo}
+          handleEditTodo={handleEditTodo}
         />
       ))}
     </ul>

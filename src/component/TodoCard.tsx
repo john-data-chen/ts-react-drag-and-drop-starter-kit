@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Todo from "../type/Todo";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import EditTodoForm from "./EditTodoForm";
 
 // styled components
 const TodoItem = styled.li`
@@ -64,13 +66,36 @@ const DeleteButton = styled.button`
   }
 `;
 
+const EditButton = styled.span`
+  background-color: #512da8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #6f42c1;
+  }
+`;
+
 interface TodoCardProps {
   todo: Todo;
   toggleComplete: (id: string) => void;
   deleteTodo: (id: string) => void;
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
+const TodoCard = ({
+  todo,
+  toggleComplete,
+  deleteTodo,
+  handleEditTodo,
+}: TodoCardProps) => {
+  const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
     <TodoItem key={todo.id}>
@@ -86,6 +111,16 @@ const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
+      <EditButton onClick={() => setIsEditingOpen(!isEditingOpen)}>
+        {t("todo-card.edit")}
+        {isEditingOpen && (
+          <EditTodoForm
+            todo={todo}
+            editTodo={handleEditTodo}
+            onCancel={() => setIsEditingOpen(false)}
+          />
+        )}
+      </EditButton>
       <DeleteButton onClick={() => deleteTodo(todo.id)}>
         {t("todo-card.delete")}
       </DeleteButton>
