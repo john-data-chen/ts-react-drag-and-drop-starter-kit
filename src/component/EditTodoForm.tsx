@@ -88,7 +88,9 @@ const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
             className="datepickerInEditForm"
           />
         </span>
-        <SaveButton>{t("edit-todo-form.save-button")}</SaveButton>
+        <SaveButton onClick={handleSubmit}>
+          {t("edit-todo-form.save-button")}
+        </SaveButton>
         <CancelButton onClick={onCancel}>
           {t("edit-todo-form.cancel-button")}
         </CancelButton>
