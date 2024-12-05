@@ -20,6 +20,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add Dark Theme
 - Add Redux and Toolkit to manage state of tasks
 - Add edit button to edit task title in task card
+- Add gzip compression to reduce deploy files size (Github pages only support gzip)
 
 ## More improvements in developing
 
