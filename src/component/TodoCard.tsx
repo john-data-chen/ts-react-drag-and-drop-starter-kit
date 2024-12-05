@@ -66,7 +66,7 @@ const DeleteButton = styled.button`
   }
 `;
 
-const EditButton = styled.button`
+const EditButton = styled.span`
   background-color: #512da8;
   color: white;
   border: none;

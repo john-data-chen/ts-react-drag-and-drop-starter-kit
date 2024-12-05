@@ -77,14 +77,17 @@ const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={t("edit-todo-form.todo-input")}
+          autoFocus
         />
-        <DatePicker
-          selected={dueDate}
-          minDate={new Date()}
-          onChange={(date) => setDueDate(date)}
-          placeholderText={t("edit-todo-form.due-date")}
-          className="datepickerInEditForm"
-        />
+        <span className="datePickerWrapper">
+          <DatePicker
+            selected={dueDate}
+            minDate={new Date()}
+            onChange={(date) => setDueDate(date)}
+            placeholderText={t("edit-todo-form.due-date")}
+            className="datepickerInEditForm"
+          />
+        </span>
         <SaveButton>{t("edit-todo-form.save-button")}</SaveButton>
         <CancelButton onClick={onCancel}>
           {t("edit-todo-form.cancel-button")}
