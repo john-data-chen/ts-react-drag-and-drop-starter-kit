@@ -1,7 +1,5 @@
 import { useState, useCallback } from "react";
 import styled from "styled-components";
-import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 import "./EditTodoForm.css";
 import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
@@ -78,13 +76,6 @@ const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
           onChange={(e) => setText(e.target.value)}
           placeholder={t("edit-todo-form.todo-input")}
           autoFocus
-        />
-        <DatePicker
-          selected={dueDate}
-          minDate={new Date()}
-          onChange={(date) => setDueDate(date)}
-          placeholderText={t("edit-todo-form.due-date")}
-          className="datepickerInEditForm"
         />
         <SaveButton onClick={handleSubmit}>
           {t("edit-todo-form.save-button")}
