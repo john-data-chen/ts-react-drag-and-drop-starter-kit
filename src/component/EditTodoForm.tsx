@@ -24,7 +24,7 @@ const Input = styled.input`
   border-radius: 4px;
 `;
 
-const SaveButton = styled.span`
+const SaveButton = styled.button`
   background-color: #007bff;
   margin-left: 1rem;
   color: white;
@@ -34,7 +34,7 @@ const SaveButton = styled.span`
   cursor: pointer;
 `;
 
-const CancelButton = styled.span`
+const CancelButton = styled.button`
   background-color: #dc3545;
   margin-left: 1rem;
   color: white;
@@ -86,11 +86,10 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
           dateFormat="yyyy/MM/d"
           placeholderText={t("edit-todo-form.due-date")}
         />
-
         <SaveButton onClick={handleSubmit} disabled={text.trim() === ""}>
           {t("edit-todo-form.save-button")}
         </SaveButton>
-        <CancelButton onClick={onCancel}>
+        <CancelButton onClick={closeEditForm}>
           {t("edit-todo-form.cancel-button")}
         </CancelButton>
       </form>
