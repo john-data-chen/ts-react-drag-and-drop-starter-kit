@@ -23,11 +23,11 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add gzip compression to reduce deploy files size (Github pages only support gzip)
 - Fix the issue of incorrect logic of Edit button, which makes Edit form auto close when pressing any area on the form
 - Add edit function of Due date
+- Adjust UI of edit task from and Refactor CSS of Date Picker
 
 ## More improvements in developing
 
 - Add RWD UI
-- Adjust UI of edit task from
 - Add animations of interactions
 - Add Pomodoro
 - Add test cases

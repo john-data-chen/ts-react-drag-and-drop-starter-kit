@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./TodoForm.css";
+import "./DatePicker.css";
 import { useTranslation } from "react-i18next";
 
 const Form = styled.form`
@@ -80,7 +80,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         }}
         placeholderText={t("todo-form.due-date")}
         dateFormat="yyyy/MM/d"
-        className="datepicker"
+        className="AddTaskDatePicker"
       />
       <Button type="submit" disabled={!input.trim()}>
         {t("todo-form.add-button")}
