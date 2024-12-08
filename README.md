@@ -13,7 +13,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add gh-pages to deploy to Github Pages
 - Add Date Picker in Add task
 - Add Drag and Drop in todo list
-- fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
+- Fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
 - Save todo list into local Storage
 - Add multi-language support: English and Deutsch
 - Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
@@ -21,10 +21,12 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add Redux and Toolkit to manage state of tasks
 - Add edit button to edit task title in task card
 - Add gzip compression to reduce deploy files size (Github pages only support gzip)
+- Fix the issue of incorrect logic of Edit button, which makes Edit form auto close when pressing any area on the form
+- Add edit function of Due date
 
 ## More improvements in developing
 
-- Add edit function of task due date (try to fix an issue blocks the function of Date Picker)
+- Add RWD UI
 - Adjust UI of edit task from
 - Add animations of interactions
 - Add Pomodoro
