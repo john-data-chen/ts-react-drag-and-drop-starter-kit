@@ -111,16 +111,16 @@ const TodoCard = ({
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <EditButton onClick={() => setIsEditingOpen(!isEditingOpen)}>
+      <EditButton onClick={() => setIsEditingOpen(true)}>
         {t("todo-card.edit")}
-        {isEditingOpen && (
-          <EditTodoForm
-            todo={todo}
-            editTodo={handleEditTodo}
-            onCancel={() => setIsEditingOpen(false)}
-          />
-        )}
       </EditButton>
+      {isEditingOpen && (
+        <EditTodoForm
+          todo={todo}
+          editTodo={handleEditTodo}
+          closeEditForm={() => setIsEditingOpen(false)}
+        />
+      )}
       <DeleteButton onClick={() => deleteTodo(todo.id)}>
         {t("todo-card.delete")}
       </DeleteButton>
