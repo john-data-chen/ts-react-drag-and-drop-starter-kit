@@ -4,9 +4,10 @@ import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./DatePicker.css";
 
 const FormContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -18,10 +19,13 @@ const FormContainer = styled.div`
 
 const Input = styled.input`
   width: 80%;
+  height: 1.5rem;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  margin-right: 1rem;
+  font-size: 1rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
 const SaveButton = styled.button`
@@ -36,6 +40,11 @@ const SaveButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+`;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const CancelButton = styled.button`
@@ -76,20 +85,22 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder={t("edit-todo-form.todo-input")}
-          autoFocus
-        />
-        <DatePicker
-          minDate={new Date()}
-          selected={dueDate}
-          onChange={(date) => setDueDate(date)}
-          dateFormat="yyyy/MM/d"
-          placeholderText={t("edit-todo-form.due-date")}
-        />
+        <Div>
+          <Input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder={t("edit-todo-form.todo-input")}
+          />
+          <DatePicker
+            minDate={new Date()}
+            selected={dueDate}
+            onChange={(date) => setDueDate(date)}
+            dateFormat="yyyy/MM/d"
+            placeholderText={t("edit-todo-form.due-date")}
+            className="EditTaskDatePicker"
+          />
+        </Div>
         <SaveButton onClick={handleSubmit} disabled={text.trim() === ""}>
           {t("edit-todo-form.save-button")}
         </SaveButton>
