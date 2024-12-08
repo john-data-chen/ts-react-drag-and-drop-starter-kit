@@ -2,6 +2,8 @@ import { useState, useCallback } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const FormContainer = styled.div`
   position: absolute;
@@ -45,10 +47,10 @@ const CancelButton = styled.span`
 interface EditFormProps {
   todo: Todo;
   editTodo: (id: string, text: string, dueDate: Date | null) => void;
-  onCancel: () => void;
+  closeEditForm: () => void;
 }
 
-const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
+const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
   const { t } = useTranslation();
   const [text, setText] = useState(todo.text);
   const [dueDate, setDueDate] = useState<Date | null>(
@@ -62,9 +64,10 @@ const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
         editTodo(todo.id, text, dueDate);
         setText("");
         setDueDate(null);
+        closeEditForm();
       }
     },
-    [text, dueDate, todo, setText, setDueDate, editTodo]
+    [text, dueDate, todo, setText, setDueDate, editTodo, closeEditForm]
   );
   return (
     <FormContainer>
@@ -76,7 +79,15 @@ const EditTodoForm = ({ todo, editTodo, onCancel }: EditFormProps) => {
           placeholder={t("edit-todo-form.todo-input")}
           autoFocus
         />
-        <SaveButton onClick={handleSubmit}>
+        <DatePicker
+          minDate={new Date()}
+          selected={dueDate}
+          onChange={(date) => setDueDate(date)}
+          dateFormat="yyyy/MM/d"
+          placeholderText={t("edit-todo-form.due-date")}
+        />
+
+        <SaveButton onClick={handleSubmit} disabled={text.trim() === ""}>
           {t("edit-todo-form.save-button")}
         </SaveButton>
         <CancelButton onClick={onCancel}>
