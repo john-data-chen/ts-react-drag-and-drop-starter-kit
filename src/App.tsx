@@ -20,6 +20,7 @@ import {
   deleteTodo,
   editTodo,
 } from "./redux/todoReducer";
+import { motion } from "motion/react";
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -37,7 +38,7 @@ const SelectLanguage = styled.select`
   font-size: 1rem;
 `;
 
-const ThemeSwitch = styled.button`
+const ThemeSwitch = styled(motion.button)`
   position: absolute;
   top: 20px;
   right: 160px;
@@ -112,7 +113,11 @@ function App() {
   }, [i18n, selectedLanguage]);
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <ThemeSwitch onClick={toggleTheme}>
+      <ThemeSwitch
+        onClick={toggleTheme}
+        whileHover={{ scale: 1.3 }}
+        whileTap={{ scale: 0.8 }}
+      >
         {isDarkMode ? "Light 🌞" : "Dark 🌜"}
       </ThemeSwitch>
       <GlobalStyles />
