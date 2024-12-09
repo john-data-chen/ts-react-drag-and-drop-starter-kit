@@ -1,5 +1,13 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import { normalize } from "styled-normalize";
+
 export const GlobalStyles = createGlobalStyle`
+  ${normalize}
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
@@ -15,15 +23,15 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const lightTheme = {
-  body: '#f7f7f7',
-  text: '#333',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',
-  buttonBackground: '#FFDF00',
+  body: "#f7f7f7",
+  text: "#333",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
+  buttonBackground: "#FFDF00",
 };
 
 export const darkTheme = {
-  body: '#333',
-  text: '#fff',
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.8)',
-  buttonBackground: '#FFF44F',
+  body: "#333",
+  text: "#fff",
+  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
+  buttonBackground: "#FFF44F",
 };
