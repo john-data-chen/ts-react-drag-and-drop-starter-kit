@@ -41,78 +41,129 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   select {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 1rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
   }
 
   p {
-  font-size: 1rem;
-  margin-top: 10px;
+    font-size: 1rem;
+    margin-top: 10px;
   }
 
   .themeSwitch {
-  background-color: ${({ theme }) => theme.buttonBackground};
+    background-color: ${({ theme }) => theme.buttonBackground};
   }
 
   .addTodoForm {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
 
   .addTodoInput {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-left: 40px;
-  font-size: 1rem;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 40px;
+    font-size: 1rem;
   }
 
   .addTaskButton {
-  background-color: #1890ff;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #096dd9;
-  }
+    &:hover {
+      background-color: #096dd9;
+    }
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   .AddTaskDatePicker {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 1rem;
-}
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+  }
 
-.EditTaskDatePicker {
-  flex: 1;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
+  .EditTaskDatePicker {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .editFormContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .editTaskInput {
+    width: 80%;
+    height: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+  .editFormWrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .saveEditButton {
+    background-color: #007bff;
+    margin-left: 1rem;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .cancelButton {
+    background-color: #dc3545;
+    margin-left: 1rem;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 `;
 
 export const lightTheme = {
