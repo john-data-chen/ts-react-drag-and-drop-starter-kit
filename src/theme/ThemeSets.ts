@@ -6,19 +6,33 @@ export const GlobalStyles = createGlobalStyle`
 
   *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    transition: background 0.2s ease-in, color 0.2s ease-in;
-    max-width: 1000px;
-    margin: auto;
-    padding: 50px;
-    border-radius: 10px;
     box-shadow: ${({ theme }) => theme.boxShadow};
+    font-size: 16px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    // theme switching transition
+    transition: background-color 1s ease;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
     text-align: center;
-    position: relative;
+    padding: 1rem;
+    @media (min-width: 500px) {
+      padding: 1rem;
+    }
+    @media (min-width: 768px) {
+      padding: 1.5rem;
+    }
+    @media (min-width: 1024px) {
+      padding: 2rem;
+    }
   }
 `;
 

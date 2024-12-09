@@ -111,8 +111,10 @@ function App() {
     i18n.changeLanguage(selectedLanguage);
     localStorage.setItem("i18nextLng", selectedLanguage);
   }, [i18n, selectedLanguage]);
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <GlobalStyles />
       <ThemeSwitch
         onClick={toggleTheme}
         whileHover={{ scale: 1.3 }}
@@ -120,7 +122,6 @@ function App() {
       >
         {isDarkMode ? "Light 🌞" : "Dark 🌜"}
       </ThemeSwitch>
-      <GlobalStyles />
       <SelectLanguage
         defaultValue={selectedLanguage}
         onChange={(e) => onChangeLang(e.target.value)}
