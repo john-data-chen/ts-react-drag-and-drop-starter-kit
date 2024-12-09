@@ -34,6 +34,31 @@ export const GlobalStyles = createGlobalStyle`
       padding: 2rem;
     }
   }
+
+  h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  }
+
+  select {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
+  }
+
+  p {
+  font-size: 1rem;
+  margin-top: 10px;
+  }
+
+  .themeSwitch {
+  background-color: ${({ theme }) => theme.buttonBackground};
+  }
 `;
 
 export const lightTheme = {
