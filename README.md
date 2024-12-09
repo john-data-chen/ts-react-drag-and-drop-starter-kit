@@ -25,11 +25,11 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add edit function of Due date
 - Adjust UI of edit task from and Refactor CSS of Date Picker
 - Update and migration to React 19
+- Add animations of interactions
 
 ## More improvements in developing
 
-- Add RWD UI
-- Add animations of interactions
+- Add RWD UI and fix UI issues
 - Add Pomodoro
 - Add test cases
 - Add CI / CD
