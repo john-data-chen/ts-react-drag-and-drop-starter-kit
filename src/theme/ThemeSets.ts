@@ -59,6 +59,60 @@ export const GlobalStyles = createGlobalStyle`
   .themeSwitch {
   background-color: ${({ theme }) => theme.buttonBackground};
   }
+
+  .addTodoForm {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  }
+
+  .addTodoInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 40px;
+  font-size: 1rem;
+  }
+
+  .addTaskButton {
+  background-color: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #096dd9;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  }
+
+  .AddTaskDatePicker {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.EditTaskDatePicker {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 `;
 
 export const lightTheme = {

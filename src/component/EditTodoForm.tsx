@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./DatePicker.css";
 import { motion } from "motion/react";
 
 const FormContainer = styled.div`
