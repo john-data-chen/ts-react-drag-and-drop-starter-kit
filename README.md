@@ -24,6 +24,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Fix the issue of incorrect logic of Edit button, which makes Edit form auto close when pressing any area on the form
 - Add edit function of Due date
 - Adjust UI of edit task from and Refactor CSS of Date Picker
+- Update and migration to React 19
 
 ## More improvements in developing
 
