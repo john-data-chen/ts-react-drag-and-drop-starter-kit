@@ -3,9 +3,10 @@ import Todo from "../type/Todo";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import EditTodoForm from "./EditTodoForm";
+import { motion } from "motion/react";
 
 // styled components
-const TodoItem = styled.li`
+const TodoItem = styled(motion.li)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +33,7 @@ const Text = styled.span<{ $completed: boolean }>`
   text-decoration: ${(props) => (props.$completed ? "line-through" : "none")};
 `;
 
-const CompleteButton = styled.button<{
+const CompleteButton = styled(motion.button)<{
   $completed: boolean;
 }>`
   background-color: ${(props) => (props.$completed ? "#52c41a" : "#1890ff")};
@@ -50,7 +51,7 @@ const CompleteButton = styled.button<{
   }
 `;
 
-const DeleteButton = styled.button`
+const DeleteButton = styled(motion.button)`
   background-color: red;
   color: white;
   border: none;
@@ -66,7 +67,7 @@ const DeleteButton = styled.button`
   }
 `;
 
-const EditButton = styled.span`
+const EditButton = styled(motion.button)`
   background-color: #512da8;
   color: white;
   border: none;
@@ -98,7 +99,7 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <TodoItem key={todo.id}>
+    <TodoItem key={todo.id} whileHover={{ scale: 1.1 }}>
       <Text $completed={todo.completed}>{todo.text}</Text>
       <Text $completed={todo.completed}>
         {t("todo-card.due-date")}
@@ -108,10 +109,16 @@ const TodoCard = ({
       <CompleteButton
         $completed={todo.completed}
         onClick={() => toggleComplete(todo.id)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <EditButton onClick={() => setIsEditingOpen(true)}>
+      <EditButton
+        onClick={() => setIsEditingOpen(true)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
         {t("todo-card.edit")}
       </EditButton>
       {isEditingOpen && (
@@ -121,7 +128,11 @@ const TodoCard = ({
           closeEditForm={() => setIsEditingOpen(false)}
         />
       )}
-      <DeleteButton onClick={() => deleteTodo(todo.id)}>
+      <DeleteButton
+        onClick={() => deleteTodo(todo.id)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
         {t("todo-card.delete")}
       </DeleteButton>
     </TodoItem>

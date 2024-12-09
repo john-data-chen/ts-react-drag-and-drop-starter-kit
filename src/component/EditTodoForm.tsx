@@ -5,6 +5,7 @@ import Todo from "../type/Todo";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css";
+import { motion } from "motion/react";
 
 const FormContainer = styled.div`
   position: fixed;
@@ -28,7 +29,7 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 
-const SaveButton = styled.button`
+const SaveButton = styled(motion.button)`
   background-color: #007bff;
   margin-left: 1rem;
   color: white;
@@ -42,12 +43,12 @@ const SaveButton = styled.button`
   }
 `;
 
-const Div = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
 
-const CancelButton = styled.button`
+const CancelButton = styled(motion.button)`
   background-color: #dc3545;
   margin-left: 1rem;
   color: white;
@@ -85,7 +86,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
-        <Div>
+        <Wrapper>
           <Input
             type="text"
             value={text}
@@ -100,11 +101,20 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
             placeholderText={t("edit-todo-form.due-date")}
             className="EditTaskDatePicker"
           />
-        </Div>
-        <SaveButton onClick={handleSubmit} disabled={text.trim() === ""}>
+        </Wrapper>
+        <SaveButton
+          onClick={handleSubmit}
+          disabled={text.trim() === ""}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           {t("edit-todo-form.save-button")}
         </SaveButton>
-        <CancelButton onClick={closeEditForm}>
+        <CancelButton
+          onClick={closeEditForm}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           {t("edit-todo-form.cancel-button")}
         </CancelButton>
       </form>

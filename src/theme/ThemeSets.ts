@@ -5,8 +5,8 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: auto;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: ${({ theme }) => theme.boxShadow};
     text-align: center;
