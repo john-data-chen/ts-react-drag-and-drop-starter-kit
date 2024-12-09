@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  // App styles
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
@@ -60,6 +61,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.buttonBackground};
   }
 
+  // TodoForm styles
   .addTodoForm {
     display: flex;
     justify-content: space-between;
@@ -105,6 +107,60 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1rem;
   }
 
+  // TodoCard styles
+  .todoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+    span {
+      text-align: left;
+    }
+
+    &:hover {
+      background-color: #e6f7ff;
+    }
+  }
+
+  .deleteTaskButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #ff7875;
+    }
+  }
+
+  .editTaskButton {
+    background-color: #512da8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #6f42c1;
+    }
+  }
+
+  // EditTodoForm styles
   .EditTaskDatePicker {
     flex: 1;
     padding: 10px;

@@ -5,27 +5,6 @@ import { useState } from "react";
 import EditTodoForm from "./EditTodoForm";
 import { motion } from "motion/react";
 
-// styled components
-const TodoItem = styled(motion.li)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-
-  span {
-    text-align: left;
-  }
-
-  &:hover {
-    background-color: #e6f7ff;
-  }
-`;
-
 const Text = styled.span<{ $completed: boolean }>`
   flex: 1;
   font-size: 1.2rem;
@@ -51,38 +30,6 @@ const CompleteButton = styled(motion.button)<{
   }
 `;
 
-const DeleteButton = styled(motion.button)`
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #ff7875;
-  }
-`;
-
-const EditButton = styled(motion.button)`
-  background-color: #512da8;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #6f42c1;
-  }
-`;
-
 interface TodoCardProps {
   todo: Todo;
   toggleComplete: (id: string) => void;
@@ -99,7 +46,7 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <TodoItem key={todo.id} whileHover={{ scale: 1.1 }}>
+    <motion.li className="todoItem" key={todo.id} whileHover={{ scale: 1.1 }}>
       <Text $completed={todo.completed}>{todo.text}</Text>
       <Text $completed={todo.completed}>
         {t("todo-card.due-date")}
@@ -114,13 +61,14 @@ const TodoCard = ({
       >
         {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
       </CompleteButton>
-      <EditButton
+      <motion.button
+        className="editTaskButton"
         onClick={() => setIsEditingOpen(true)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         {t("todo-card.edit")}
-      </EditButton>
+      </motion.button>
       {isEditingOpen && (
         <EditTodoForm
           todo={todo}
@@ -128,14 +76,15 @@ const TodoCard = ({
           closeEditForm={() => setIsEditingOpen(false)}
         />
       )}
-      <DeleteButton
+      <motion.button
+        className="deleteTaskButton"
         onClick={() => deleteTodo(todo.id)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         {t("todo-card.delete")}
-      </DeleteButton>
-    </TodoItem>
+      </motion.button>
+    </motion.li>
   );
 };
 
