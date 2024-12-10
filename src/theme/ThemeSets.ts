@@ -16,48 +16,43 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     box-shadow: ${({ theme }) => theme.boxShadow};
     font-size: 16px;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+    line-height: 1.5;
     // theme switching transition
     transition: background-color 1s ease;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: center;
+  }
+
+  .appContainer {
+    width: 100%;
+    max-width: 480px;
     padding: 1rem;
-    @media (min-width: 500px) {
-      padding: 1rem;
-    }
-    @media (min-width: 768px) {
-      padding: 1.5rem;
-    }
-    @media (min-width: 1024px) {
-      padding: 2rem;
-    }
   }
 
-  h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  .appTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
   }
 
-  select {
+  .languageSelector {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 1rem;
+    height: 2rem;
+    top: 0;
+    right: 0;
   }
 
-  p {
+  .draggableHint {
     font-size: 1rem;
     margin-top: 10px;
   }
 
-  .themeSwitch {
+  .themeSwitcher {
+    position: absolute;
+    height: 2rem;
+    top: 0;
+    left: 0;
     background-color: ${({ theme }) => theme.buttonBackground};
   }
 
