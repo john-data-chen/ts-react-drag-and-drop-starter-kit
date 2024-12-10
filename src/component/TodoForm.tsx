@@ -44,7 +44,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         }}
         placeholderText={t("todo-form.due-date")}
         dateFormat="yyyy/MM/d"
-        className="AddTaskDatePicker"
+        className="addTaskDatePicker"
       />
       <motion.button
         className="addTaskButton"

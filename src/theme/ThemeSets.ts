@@ -98,7 +98,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .AddTaskDatePicker {
+  .addTaskDatePicker {
     flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
