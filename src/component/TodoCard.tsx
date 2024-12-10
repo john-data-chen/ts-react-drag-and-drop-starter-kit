@@ -20,7 +20,7 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <motion.li className="todoItem" key={todo.id} whileHover={{ scale: 1.1 }}>
+    <li className="todoItem" key={todo.id}>
       <span className={todo.completed ? "completedTask" : ""}>
         <h3 className="todoText">{todo.text}</h3>
       </span>
@@ -36,7 +36,7 @@ const TodoCard = ({
             todo.completed ? "completeTaskButton" : "incompleteTaskButton"
           }
           onClick={() => toggleComplete(todo.id)}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
         >
           {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
@@ -44,7 +44,7 @@ const TodoCard = ({
         <motion.button
           className="editTaskButton"
           onClick={() => setIsEditingOpen(true)}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
         >
           {t("todo-card.edit")}
@@ -59,13 +59,13 @@ const TodoCard = ({
         <motion.button
           className="deleteTaskButton"
           onClick={() => deleteTodo(todo.id)}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
         >
           {t("todo-card.delete")}
         </motion.button>
       </span>
-    </motion.li>
+    </li>
   );
 };
 
