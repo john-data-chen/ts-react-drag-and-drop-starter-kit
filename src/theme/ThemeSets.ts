@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 
 export const GlobalStyles = createGlobalStyle`
+  // normalize and reset
   ${normalize}
 
   *, *::before, *::after {
@@ -12,279 +13,112 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 16px;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
 
   body {
-  width: 100%;
-  height: 100%;
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.text};
     // theme switching transition
-    transition: background-color 1s ease;
-    transition: color 1s ease;
-    margin: 0;
-    font-size: 1rem;
+    transition: background-color 2s ease;
+    transition: color 2s ease;
     line-height: 1.5;
-    min-height: 100vh;
-    padding: 1rem;
-    @media (min-width: 480px) {
-      padding: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      padding: 2rem;
-    }
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
   }
 
-#root {
-  width: 100%; /* 撐滿螢幕寬度 */
-  height: 100%; /* 撐滿螢幕高度 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+  // app styles
   .appContainer {
-    padding: 1rem;
+    padding: 2rem;
   }
 
-  .languageSelector {
-    position: absolute;
-    height: 2rem;
-    width: 5rem;
-    margin: 1rem;
-    top: 0;
-    right: 0;
+  .topContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 
   .themeSwitcher {
-    position: absolute;
+    flex-basis: auto;
+    flex-grow: auto;
+    margin-bottom: 1rem;
     height: 2rem;
-    width: 5rem;
-    margin: 1rem;
-    top: 0;
-    left: 0;
     background-color: ${({ theme }) => theme.buttonBackground};
+}
+  .languageSelector {
+    flex-basis: auto;
+    flex-grow: auto;
+    height: 2rem;
   }
 
   .appTitle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
+    text-align: center;
     font-size: 2rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  // TodoFrom styles
+  .addTodoForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addTodoInput {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    height: 2rem;
+    margin: 0.5rem;
+  }
+
+  .addTaskWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .addTaskDatePicker {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    height: 2rem;
+    margin: 0.5rem;
+  }
+
+  .addTaskButton {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 2rem;
+    margin: 0.5rem;
+    background-color: #1890ff;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #096dd9;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   .draggableHint {
     font-size: 1rem;
-    margin-top: 10px;
-  }
-
-  // TodoForm styles
-  .addTodoForm {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem;
-  }
-
-  .addTodoInput {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-left: 40px;
-    font-size: 1rem;
-  }
-
-  .addTaskButton {
-    background-color: #1890ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #096dd9;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-
-  .addTaskDatePicker {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 1rem;
-  }
-
-  // TodoCard styles
-  .todoItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-
-    span {
-      text-align: left;
-    }
-
-    &:hover {
-      background-color: #e6f7ff;
-    }
-  }
-
-  .taskTextWrapper {
-    flex: 1;
-    font-size: 1.2rem;
-    color: #333;
-    text-decoration: none;
-  }
-
-  .taskTextWrapper.completed {
-    text-decoration: line-through;
-    color: #999;
-  }
-
-  .completeTaskButton {
-    background-color: #52c41a;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #389e0d;
-    }
-  }
-
-  .incompleteTaskButton {
-    background-color: #1890ff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #096dd9;
-    }
-  }
-
-  .deleteTaskButton {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #ff7875;
-    }
-  }
-
-  .editTaskButton {
-    background-color: #512da8;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #6f42c1;
-    }
-  }
-
-  // EditTodoForm styles
-  .EditTaskDatePicker {
-    flex: 1;
-    padding: 10px;
-    margin-right: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  .editFormContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .editTaskInput {
-    width: 80%;
-    height: 1.5rem;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  .editFormWrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .saveEditButton {
-    background-color: #007bff;
-    margin-left: 1rem;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
-
-  .cancelButton {
-    background-color: #dc3545;
-    margin-left: 1rem;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
+    margin: 0.5rem;
+    text-align: center;
   }
 `;
 

@@ -36,25 +36,28 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         placeholder={t("todo-form.todo-input")}
         required
       />
-      <DatePicker
-        minDate={new Date()}
-        selected={dueDate}
-        onChange={(date: Date | null) => {
-          setDueDate(date);
-        }}
-        placeholderText={t("todo-form.due-date")}
-        dateFormat="yyyy/MM/d"
-        className="addTaskDatePicker"
-      />
-      <motion.button
-        className="addTaskButton"
-        type="submit"
-        disabled={!input.trim()}
-        whileHover={{ scale: 1.3 }}
-        whileTap={{ scale: 0.8 }}
-      >
-        {t("todo-form.add-button")}
-      </motion.button>
+      <div className="addTaskWrapper">
+        <DatePicker
+          minDate={new Date()}
+          selected={dueDate}
+          onChange={(date: Date | null) => {
+            setDueDate(date);
+          }}
+          placeholderText={t("todo-form.due-date")}
+          dateFormat="yyyy/MM/d"
+          className="addTaskDatePicker"
+        />
+        <motion.button
+          className="addTaskButton"
+          type="submit"
+          disabled={!input.trim()}
+          whileHover={{ scale: 1.3 }}
+          whileTap={input.trim() ? { scale: 0.8 } : { scale: 1 }}
+        >
+          {t("todo-form.add-button")}
+        </motion.button>
+      </div>
+      <p className="draggableHint">{t("draggable-hint")}</p>
     </form>
   );
 };
