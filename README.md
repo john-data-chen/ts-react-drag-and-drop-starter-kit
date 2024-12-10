@@ -27,12 +27,19 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Adjust UI of edit task from and Refactor CSS of Date Picker
 - Update and migrate to React 19
 - Add animations of interactions
+- Add RWD layout for small screen
 
 ## More improvements in developing
 
-- Add RWD UI and fix UI issues
+- Fix UI issues when change language to Deutsch
+- Add more RWD layout for different screen sizes
+- Fix issue of scale animations can't display in mobile devices
 - Add Pomodoro
 - Add test cases
 - Add CI / CD
 - Add Accessibility such as ARIA tags or keyboard support
 - Add more details into README or use Storybook to demonstrate
+
+## Known issues and root causes
+
+- Use motion alpha version for React 19, it might be the root cause of the issue of scale animations can't display in mobile devices
