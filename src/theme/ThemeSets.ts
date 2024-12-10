@@ -101,13 +101,10 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
     cursor: pointer;
     font-size: 1rem;
-
     transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #096dd9;
     }
-
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
@@ -136,6 +133,7 @@ export const GlobalStyles = createGlobalStyle`
     border-radius: 4px;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    position: relative;
   }
 
   .todoText {
@@ -226,6 +224,84 @@ export const GlobalStyles = createGlobalStyle`
 
     &:hover {
       background-color: #6f42c1;
+    }
+  }
+
+// EditTodoForm styles
+  .editForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+  }
+
+  .editTaskInput {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    height: 2rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .EditTaskDatePicker {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    height: 2rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .editTaskButtonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .saveEditButton {
+    background-color: #1890ff;
+    margin-right: 1rem;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #096dd9;
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .cancelButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff7875;
     }
   }
 `;

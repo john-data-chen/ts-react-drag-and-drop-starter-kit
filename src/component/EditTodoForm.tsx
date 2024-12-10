@@ -31,31 +31,30 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
     [text, dueDate, todo, setText, setDueDate, editTodo, closeEditForm]
   );
   return (
-    <div className="editFormContainer">
-      <form onSubmit={handleSubmit}>
-        <div className="editFormWrapper">
-          <input
-            className="editTaskInput"
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder={t("edit-todo-form.todo-input")}
-          />
-          <DatePicker
-            minDate={new Date()}
-            selected={dueDate}
-            onChange={(date) => setDueDate(date)}
-            dateFormat="yyyy/MM/d"
-            placeholderText={t("edit-todo-form.due-date")}
-            className="EditTaskDatePicker"
-          />
-        </div>
+    <form className="editForm" onSubmit={handleSubmit}>
+      <input
+        className="editTaskInput"
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder={t("edit-todo-form.todo-input")}
+        required
+      />
+      <DatePicker
+        minDate={new Date()}
+        selected={dueDate}
+        onChange={(date) => setDueDate(date)}
+        dateFormat="yyyy/MM/d"
+        placeholderText={t("edit-todo-form.due-date")}
+        className="EditTaskDatePicker"
+      />
+      <div className="editTaskButtonWrapper">
         <motion.button
           className="saveEditButton"
           onClick={handleSubmit}
-          disabled={text.trim() === ""}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          disabled={!text.trim()}
+          whileHover={text.trim() ? { scale: 1.2 } : { scale: 1 }}
+          whileTap={text.trim() ? { scale: 0.8 } : { scale: 1 }}
         >
           {t("edit-todo-form.save-button")}
         </motion.button>
@@ -67,8 +66,8 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
         >
           {t("edit-todo-form.cancel-button")}
         </motion.button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 
