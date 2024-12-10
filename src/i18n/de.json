@@ -4,7 +4,7 @@
   "todo-form": {
     "todo-input": "Aufgabe eingeben...",
     "due-date": "Fälligkeitsdatum",
-    "add-button": "Aufgabe hinzufügen"
+    "add-button": "Hinzufügen"
   },
   "todo-card": {
     "complete": "Vollständig",

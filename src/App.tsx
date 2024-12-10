@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
@@ -21,38 +21,6 @@ import {
   editTodo,
 } from "./redux/todoReducer";
 import { motion } from "motion/react";
-
-const Title = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-`;
-
-const SelectLanguage = styled.select`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-right: 10px;
-  font-size: 1rem;
-`;
-
-const ThemeSwitch = styled(motion.button)`
-  position: absolute;
-  top: 20px;
-  right: 160px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: ${({ theme }) => theme.buttonBackground};
-`;
-
-const DraggableHint = styled.p`
-  font-size: 1rem;
-  margin-top: 10px;
-`;
 
 interface todosSelectorProps {
   todos: Todo[];
@@ -111,61 +79,67 @@ function App() {
     i18n.changeLanguage(selectedLanguage);
     localStorage.setItem("i18nextLng", selectedLanguage);
   }, [i18n, selectedLanguage]);
+
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <ThemeSwitch
-        onClick={toggleTheme}
-        whileHover={{ scale: 1.3 }}
-        whileTap={{ scale: 0.8 }}
-      >
-        {isDarkMode ? "Light 🌞" : "Dark 🌜"}
-      </ThemeSwitch>
       <GlobalStyles />
-      <SelectLanguage
-        defaultValue={selectedLanguage}
-        onChange={(e) => onChangeLang(e.target.value)}
-      >
-        {LANGUAGES.map((lang) => (
-          <option key={lang.code} value={lang.code}>
-            {lang.label}
-          </option>
-        ))}
-      </SelectLanguage>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Title>{t("app-title")}</Title>
+      <div className="appContainer">
+        <div className="topContainer">
+          <motion.button
+            className="themeSwitcher"
+            onClick={toggleTheme}
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.8 }}
+          >
+            {isDarkMode ? "Light 🌞" : "Dark 🌜"}
+          </motion.button>
+          <select
+            className="languageSelector"
+            defaultValue={selectedLanguage}
+            onChange={(e) => onChangeLang(e.target.value)}
+          >
+            {LANGUAGES.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <h1 className="appTitle">{t("app-title")}</h1>
         <TodoForm addTodo={handleAddTodo} />
-        <DraggableHint>{t("draggable-hint")}</DraggableHint>
-        <Droppable droppableId="drop-id">
-          {(provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              {todosSelector.todos.map((item: Todo, i: number) => (
-                <div key={item.id}>
-                  <Draggable draggableId={item.id} index={i} key={item.id}>
-                    {(provided) => (
-                      <div
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        {
-                          <TodoList
-                            todos={[item]}
-                            key={item.id}
-                            toggleComplete={handleToggleComplete}
-                            deleteTodo={handleDeleteTodo}
-                            handleEditTodo={handleEditTodo}
-                          />
-                        }
-                      </div>
-                    )}
-                  </Draggable>
-                </div>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="drop-id">
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {todosSelector.todos.map((item: Todo, i: number) => (
+                  <div key={item.id}>
+                    <Draggable draggableId={item.id} index={i} key={item.id}>
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          {
+                            <TodoList
+                              todos={[item]}
+                              key={item.id}
+                              toggleComplete={handleToggleComplete}
+                              deleteTodo={handleDeleteTodo}
+                              handleEditTodo={handleEditTodo}
+                            />
+                          }
+                        </div>
+                      )}
+                    </Draggable>
+                  </div>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
     </ThemeProvider>
   );
 }

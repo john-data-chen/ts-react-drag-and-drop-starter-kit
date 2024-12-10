@@ -11,15 +11,23 @@ const resources = {
 
 const options = {
   // order and from where user language should be detected
-  order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+  order: [
+    "querystring",
+    "cookie",
+    "localStorage",
+    "navigator",
+    "htmlTag",
+    "path",
+    "subdomain",
+  ],
   // keys or params to lookup language from
-  lookupQuerystring: 'lng',
-  lookupCookie: 'i18next',
-  lookupLocalStorage: 'i18nextLng',
+  lookupQuerystring: "lng",
+  lookupCookie: "i18next",
+  lookupLocalStorage: "i18nextLng",
   lookupFromPathIndex: 0,
   lookupFromSubdomainIndex: 2,
   // cache user language on
-  caches: ['localStorage', 'cookie'],
+  caches: ["localStorage", "cookie"],
   // optional expire and domain for set cookie
   cookieMinutes: 10,
   cookieDomain: window.location.hostname,
@@ -33,7 +41,7 @@ i18n
   .init({
     ...options,
     resources,
-    lng: localStorage.getItem('i18nextLng') || "en",
+    lng: localStorage.getItem("i18nextLng") || "en",
     fallbackLng: "en",
     debug: true,
     interpolation: {
