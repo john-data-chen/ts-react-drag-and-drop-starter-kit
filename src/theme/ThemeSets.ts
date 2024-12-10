@@ -27,6 +27,11 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+
   // app styles
   .appContainer {
     padding: 2rem;
@@ -233,24 +238,25 @@ export const GlobalStyles = createGlobalStyle`
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 1rem;
     z-index: 10;
-    width: 100%;
-    height: 100%;
   }
 
   .editTaskInput {
     flex-grow: 1;
-    padding: 0.5rem;
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
+    margin-top: auto;
+    margin-bottom: 1rem;
     height: 2rem;
+    width: 100%;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
   }
 
   .EditTaskDatePicker {
@@ -259,6 +265,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
+    width: 100%;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
