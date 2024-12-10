@@ -57,7 +57,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
           {t("todo-form.add-button")}
         </motion.button>
       </div>
-      <p className="draggableHint">{t("draggable-hint")}</p>
+      <h2 className="draggableHint">{t("draggable-hint")}</h2>
     </form>
   );
 };

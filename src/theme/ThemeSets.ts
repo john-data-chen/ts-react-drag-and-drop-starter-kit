@@ -118,7 +118,12 @@ export const GlobalStyles = createGlobalStyle`
   .draggableHint {
     font-size: 1rem;
     margin: 0.5rem;
-    text-align: center;
+    text-align: left;
+  }
+  
+  // TodoList styles
+  .todoList {
+    margin: 1rem 2rem 1rem 2rem;
   }
 `;
 

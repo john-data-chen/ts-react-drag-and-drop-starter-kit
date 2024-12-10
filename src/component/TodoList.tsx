@@ -15,7 +15,7 @@ const TodoList = ({
   handleEditTodo,
 }: TodoListProps) => {
   return (
-    <ul>
+    <ul className="todoList">
       {todos.map((todo) => (
         <TodoCard
           key={todo.id}
