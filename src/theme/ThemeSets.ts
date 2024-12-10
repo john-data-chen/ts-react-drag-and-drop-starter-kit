@@ -134,7 +134,7 @@ export const GlobalStyles = createGlobalStyle`
     align-items: flex-start;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-bottom: 1rem;
   }
 
@@ -166,8 +166,8 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+    margin-left: auto;
   }
 
   .incompleteTaskButton {
