@@ -4,10 +4,11 @@ import { normalize } from "styled-normalize";
 export const GlobalStyles = createGlobalStyle`
   ${normalize}
 
-  *, *::before, *::after {
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   // App styles
@@ -27,20 +28,40 @@ export const GlobalStyles = createGlobalStyle`
     padding: 1rem;
   }
 
+    .topContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .languageSelector {
+    position: absolute;
+    height: 2rem;
+    width: 5rem;
+    margin: 1rem;
+    top: 0;
+    right: 0;
+  }
+
+    .themeSwitcher {
+    position: absolute;
+    height: 2rem;
+    width: 5rem;
+    margin: 1rem;
+    top: 0;
+    left: 0;
+    background-color: ${({ theme }) => theme.buttonBackground};
+  }
+
   .appTitle {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   font-size: 2rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
-  }
-
-  .languageSelector {
-    position: absolute;
-    height: 2rem;
-    top: 0;
-    right: 0;
   }
 
   .draggableHint {
@@ -48,19 +69,11 @@ export const GlobalStyles = createGlobalStyle`
     margin-top: 10px;
   }
 
-  .themeSwitcher {
-    position: absolute;
-    height: 2rem;
-    top: 0;
-    left: 0;
-    background-color: ${({ theme }) => theme.buttonBackground};
-  }
-
   // TodoForm styles
   .addTodoForm {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin: 1rem;
   }
 
   .addTodoInput {
