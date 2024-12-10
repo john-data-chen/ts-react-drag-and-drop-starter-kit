@@ -54,7 +54,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .appTitle {
     text-align: center;
-    font-size: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -112,7 +111,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .draggableHint {
-    font-size: 1rem;
     margin: 0.5rem;
     text-align: left;
   }
@@ -137,7 +135,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .todoText {
-    font-size: 2rem;
     margin-bottom: 0.5rem;
     word-break: break-all;
     word-wrap: break-word;
