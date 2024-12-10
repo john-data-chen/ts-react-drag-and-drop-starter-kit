@@ -139,6 +139,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .todoText {
+    font-size: 2rem;
     margin-bottom: 0.5rem;
     word-break: break-all;
     word-wrap: break-word;
@@ -164,6 +165,9 @@ export const GlobalStyles = createGlobalStyle`
   .todoButtonsWrapper {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .incompleteTaskButton {
@@ -171,12 +175,28 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
     border: none;
     padding: 0.5rem;
+    margin-right: 1rem;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
 
     &:hover {
       background-color: #096dd9;
+    }
+  }
+
+  .completeTaskButton {
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #73d13d;
     }
   }
 
@@ -199,7 +219,6 @@ export const GlobalStyles = createGlobalStyle`
     color: white;
     border: none;
     padding: 0.5rem;
-    margin-left: 1rem;
     margin-right: 1rem;
     cursor: pointer;
     font-size: 1rem;
