@@ -4,7 +4,7 @@
   "todo-form": {
     "todo-input": "Input Task...",
     "due-date": "Due Date",
-    "add-button": "Add Task"
+    "add-button": "Add"
   },
   "todo-card": {
     "complete": "Complete",
