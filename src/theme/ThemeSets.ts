@@ -25,7 +25,6 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
-    touch-action: manipulation;
   }
 
   // app styles
