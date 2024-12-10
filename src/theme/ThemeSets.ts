@@ -4,35 +4,49 @@ import { normalize } from "styled-normalize";
 export const GlobalStyles = createGlobalStyle`
   ${normalize}
 
-  * {
+  *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    width: 100%;
   }
 
-  // App styles
+  html {
+    font-size: 16px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
+  width: 100%;
+  height: 100%;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    box-shadow: ${({ theme }) => theme.boxShadow};
-    font-size: 16px;
-    line-height: 1.5;
     // theme switching transition
     transition: background-color 1s ease;
+    transition: color 1s ease;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: 1rem;
+    @media (min-width: 480px) {
+      padding: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      padding: 2rem;
+    }
   }
+
+#root {
+  width: 100%; /* 撐滿螢幕寬度 */
+  height: 100%; /* 撐滿螢幕高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   .appContainer {
-    width: 100%;
-    max-width: 480px;
     padding: 1rem;
-  }
-
-    .topContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
   }
 
   .languageSelector {
@@ -44,7 +58,7 @@ export const GlobalStyles = createGlobalStyle`
     right: 0;
   }
 
-    .themeSwitcher {
+  .themeSwitcher {
     position: absolute;
     height: 2rem;
     width: 5rem;
@@ -55,13 +69,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .appTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
   }
 
   .draggableHint {
@@ -277,13 +291,11 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme = {
   body: "#f7f7f7",
   text: "#333",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
   buttonBackground: "#FFDF00",
 };
 
 export const darkTheme = {
   body: "#333",
   text: "#fff",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.8)",
   buttonBackground: "#FFF44F",
 };

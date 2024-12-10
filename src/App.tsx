@@ -81,30 +81,28 @@ function App() {
   }, [i18n, selectedLanguage]);
 
   return (
-    <div className="AppContainer">
+    <div className="appContainer">
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <div className="topContainer">
-          <motion.button
-            className="themeSwitcher"
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.3 }}
-            whileTap={{ scale: 0.8 }}
-          >
-            {isDarkMode ? "Light 🌞" : "Dark 🌜"}
-          </motion.button>
-          <select
-            className="languageSelector"
-            defaultValue={selectedLanguage}
-            onChange={(e) => onChangeLang(e.target.value)}
-          >
-            {LANGUAGES.map((lang) => (
-              <option key={lang.code} value={lang.code}>
-                {lang.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <motion.button
+          className="themeSwitcher"
+          onClick={toggleTheme}
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.8 }}
+        >
+          {isDarkMode ? "Light 🌞" : "Dark 🌜"}
+        </motion.button>
+        <select
+          className="languageSelector"
+          defaultValue={selectedLanguage}
+          onChange={(e) => onChangeLang(e.target.value)}
+        >
+          {LANGUAGES.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.label}
+            </option>
+          ))}
+        </select>
         <DragDropContext onDragEnd={onDragEnd}>
           <h1 className="appTitle">{t("app-title")}</h1>
           <TodoForm addTodo={handleAddTodo} />
