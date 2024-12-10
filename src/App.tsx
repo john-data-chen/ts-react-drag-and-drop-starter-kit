@@ -88,7 +88,7 @@ function App() {
           <motion.button
             className="themeSwitcher"
             onClick={toggleTheme}
-            whileHover={{ scale: 1.3 }}
+            whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
           >
             {isDarkMode ? "Light 🌞" : "Dark 🌜"}
