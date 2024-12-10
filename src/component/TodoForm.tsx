@@ -51,7 +51,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
           className="addTaskButton"
           type="submit"
           disabled={!input.trim()}
-          whileHover={{ scale: 1.3 }}
+          whileHover={input.trim() ? { scale: 1.2 } : { scale: 1 }}
           whileTap={input.trim() ? { scale: 0.8 } : { scale: 1 }}
         >
           {t("todo-form.add-button")}
