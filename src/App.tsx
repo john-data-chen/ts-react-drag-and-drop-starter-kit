@@ -81,61 +81,65 @@ function App() {
   }, [i18n, selectedLanguage]);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <GlobalStyles />
-      <motion.button
-        onClick={toggleTheme}
-        whileHover={{ scale: 1.3 }}
-        whileTap={{ scale: 0.8 }}
-      >
-        {isDarkMode ? "Light 🌞" : "Dark 🌜"}
-      </motion.button>
-      <select
-        defaultValue={selectedLanguage}
-        onChange={(e) => onChangeLang(e.target.value)}
-      >
-        {LANGUAGES.map((lang) => (
-          <option key={lang.code} value={lang.code}>
-            {lang.label}
-          </option>
-        ))}
-      </select>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <h1>{t("app-title")}</h1>
-        <TodoForm addTodo={handleAddTodo} />
-        <p>{t("draggable-hint")}</p>
-        <Droppable droppableId="drop-id">
-          {(provided) => (
-            <div ref={provided.innerRef} {...provided.droppableProps}>
-              {todosSelector.todos.map((item: Todo, i: number) => (
-                <div key={item.id}>
-                  <Draggable draggableId={item.id} index={i} key={item.id}>
-                    {(provided) => (
-                      <div
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        {
-                          <TodoList
-                            todos={[item]}
-                            key={item.id}
-                            toggleComplete={handleToggleComplete}
-                            deleteTodo={handleDeleteTodo}
-                            handleEditTodo={handleEditTodo}
-                          />
-                        }
-                      </div>
-                    )}
-                  </Draggable>
-                </div>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-    </ThemeProvider>
+    <div className="AppContainer">
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <motion.button
+          className="themeSwitcher"
+          onClick={toggleTheme}
+          whileHover={{ scale: 1.3 }}
+          whileTap={{ scale: 0.8 }}
+        >
+          {isDarkMode ? "Light 🌞" : "Dark 🌜"}
+        </motion.button>
+        <select
+          className="languageSelector"
+          defaultValue={selectedLanguage}
+          onChange={(e) => onChangeLang(e.target.value)}
+        >
+          {LANGUAGES.map((lang) => (
+            <option key={lang.code} value={lang.code}>
+              {lang.label}
+            </option>
+          ))}
+        </select>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <h1 className="appTitle">{t("app-title")}</h1>
+          <TodoForm addTodo={handleAddTodo} />
+          <p className="draggableHint">{t("draggable-hint")}</p>
+          <Droppable droppableId="drop-id">
+            {(provided) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {todosSelector.todos.map((item: Todo, i: number) => (
+                  <div key={item.id}>
+                    <Draggable draggableId={item.id} index={i} key={item.id}>
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          {
+                            <TodoList
+                              todos={[item]}
+                              key={item.id}
+                              toggleComplete={handleToggleComplete}
+                              deleteTodo={handleDeleteTodo}
+                              handleEditTodo={handleEditTodo}
+                            />
+                          }
+                        </div>
+                      )}
+                    </Draggable>
+                  </div>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </ThemeProvider>
+    </div>
   );
 }
 
