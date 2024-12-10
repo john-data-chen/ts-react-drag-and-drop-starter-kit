@@ -128,6 +128,50 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .taskTextWrapper {
+    flex: 1;
+    font-size: 1.2rem;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .taskTextWrapper.completed {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  .completeTaskButton {
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #389e0d;
+    }
+  }
+
+  .incompleteTaskButton {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #096dd9;
+    }
+  }
+
   .deleteTaskButton {
     background-color: red;
     color: white;
