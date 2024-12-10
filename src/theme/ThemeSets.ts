@@ -18,11 +18,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.text};
-    // theme switching transition
-    transition: background-color 2s ease;
-    transition: color 2s ease;
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+    transition: background 0.2s ease-in, color 0.2s ease-in;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -74,13 +72,14 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-    margin: 0.5rem;
   }
 
   .addTaskWrapper {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .addTaskDatePicker {
@@ -89,7 +88,9 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 0 4px 4px 0;
     height: 2rem;
-    margin: 0.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    text-align: center;
   }
 
   .addTaskButton {
@@ -97,7 +98,6 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 2rem;
-    margin: 0.5rem;
     background-color: #1890ff;
     color: white;
     cursor: pointer;
