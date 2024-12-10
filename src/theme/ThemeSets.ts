@@ -119,10 +119,95 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0.5rem;
     text-align: left;
   }
-  
+
   // TodoList styles
   .todoList {
     margin: 1rem 2rem 1rem 2rem;
+  }
+
+  // TodoCard styles
+  .todoItem {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .todoText {
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  .dueDateWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .dueDateTitle {
+    margin-right: 0.5rem;
+  }
+
+  .completedTask {
+    text-decoration: line-through;
+    color: gray;
+  }
+
+  .todoButtonsWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .incompleteTaskButton {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #096dd9;
+    }
+  }
+
+  .deleteTaskButton {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #ff7875;
+    }
+  }
+
+  .editTaskButton {
+    background-color: #512da8;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #6f42c1;
+    }
   }
 `;
 

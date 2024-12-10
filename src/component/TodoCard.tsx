@@ -20,47 +20,51 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <motion.li className="todoItem" key={todo.id} whileHover={{ scale: 0.85 }}>
-      <span className={`taskTextWrapper ${todo.completed ? "completed" : ""}`}>
-        {todo.text}
+    <motion.li className="todoItem" key={todo.id} whileHover={{ scale: 1.1 }}>
+      <span className={todo.completed ? "completedTask" : ""}>
+        <h3 className="todoText">{todo.text}</h3>
       </span>
-      <span className={`taskTextWrapper ${todo.completed ? "completed" : ""}`}>
-        {t("todo-card.due-date")}{" "}
-        {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
+      <span className={todo.completed ? "completedTask" : ""}>
+        <span className="dueDateWrapper">
+          <h4 className="dueDateTitle">{t("todo-card.due-date")}</h4>
+          {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
+        </span>
       </span>
-      <motion.button
-        className={
-          todo.completed ? "completeTaskButton" : "incompleteTaskButton"
-        }
-        onClick={() => toggleComplete(todo.id)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
-      </motion.button>
-      <motion.button
-        className="editTaskButton"
-        onClick={() => setIsEditingOpen(true)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {t("todo-card.edit")}
-      </motion.button>
-      {isEditingOpen && (
-        <EditTodoForm
-          todo={todo}
-          editTodo={handleEditTodo}
-          closeEditForm={() => setIsEditingOpen(false)}
-        />
-      )}
-      <motion.button
-        className="deleteTaskButton"
-        onClick={() => deleteTodo(todo.id)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {t("todo-card.delete")}
-      </motion.button>
+      <span className="todoButtonsWrapper">
+        <motion.button
+          className={
+            todo.completed ? "completeTaskButton" : "incompleteTaskButton"
+          }
+          onClick={() => toggleComplete(todo.id)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
+        </motion.button>
+        <motion.button
+          className="editTaskButton"
+          onClick={() => setIsEditingOpen(true)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {t("todo-card.edit")}
+        </motion.button>
+        {isEditingOpen && (
+          <EditTodoForm
+            todo={todo}
+            editTodo={handleEditTodo}
+            closeEditForm={() => setIsEditingOpen(false)}
+          />
+        )}
+        <motion.button
+          className="deleteTaskButton"
+          onClick={() => deleteTodo(todo.id)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {t("todo-card.delete")}
+        </motion.button>
+      </span>
     </motion.li>
   );
 };
