@@ -4,8 +4,8 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 
 ## How to use
 
-- npm install: to install all packages you need
-- npm run dev: start the project
+- npm install: to install all packages
+- npm run dev: start the project in developing
 - npm run deploy: start deploy to GitHib Pages
 
 ## ChangeLog
@@ -27,14 +27,18 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Adjust UI of edit task from and Refactor CSS of Date Picker
 - Add animations of interactions
 - Add RWD layout for small screen
+- Fix UI issues of long text such as changing language to Deutsch
 
-## More improvements in developing
+## More in developing
 
-- Fix UI issues when change language to Deutsch
 - Add more RWD layout for different screen sizes
-- Fix issue of scale animations can't display in mobile devices
-- Add Pomodoro
+- Add Accessibility such as ARIA tags or keyboard support
 - Add test cases
 - Add CI / CD
-- Add Accessibility such as ARIA tags or keyboard support
 - Add more details into README or use Storybook to demonstrate
+- Fix languages menu display incorrect position (it should be fixed during add and change RWD layout)
+- Add Pomodoro
+
+## Known issues or limits
+
+- Touch screens can't support **hover** animations
