@@ -26,7 +26,6 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  // based on small screen layout
   #root {
     height: 100%;
     width: 100%;
@@ -35,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
   // app styles
   .appContainer {
     padding: 1rem;
+    // based on small screen layout
     max-width: 400px;
     display: flex;
     flex-direction: column;
@@ -364,6 +364,6 @@ export const lightTheme = {
 
 export const darkTheme = {
   body: "#333",
-  text: "#fff",
+  text: "#B2BEB5",
   buttonBackground: "#FFF44F",
 };

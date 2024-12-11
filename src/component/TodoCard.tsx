@@ -21,7 +21,11 @@ const TodoCard = ({
   const { t } = useTranslation();
   return (
     <motion.li
-      whileTap={{ scale: 1.05, borderColor: "red" }}
+      whileTap={{
+        scale: 1.05,
+        opacity: 1,
+        backgroundColor: "#FFF8DC",
+      }}
       className="todoItem"
       key={todo.id}
     >
