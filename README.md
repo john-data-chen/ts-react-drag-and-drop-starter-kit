@@ -28,17 +28,17 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Add animations of interactions
 - Add RWD layout for small screen
 - Fix UI issues of long text such as changing language to Deutsch
+- Add more RWD layout for different screen sizes
 
 ## More in developing
 
-- Add more RWD layout for different screen sizes
 - Add Accessibility such as ARIA tags or keyboard support
 - Add test cases
 - Add CI / CD
 - Add more details into README or use Storybook to demonstrate
-- Fix languages menu display incorrect position (it should be fixed during add and change RWD layout)
 - Add Pomodoro
 
 ## Known issues or limits
 
 - Touch screens can't support **hover** animations
+- Languages menu displays incorrect position only in browser developing tool, using the Chrome of the Android device to check is correct
