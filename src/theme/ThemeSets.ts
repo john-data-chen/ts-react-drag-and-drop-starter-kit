@@ -49,12 +49,14 @@ export const GlobalStyles = createGlobalStyle`
     flex-grow: auto;
     margin-bottom: 1rem;
     height: 2rem;
+    width: 5rem;
     background-color: ${({ theme }) => theme.buttonBackground};
 }
   .languageSelector {
     flex-basis: auto;
     flex-grow: auto;
     height: 2rem;
+    width: 5rem;
   }
 
   .appTitle {
