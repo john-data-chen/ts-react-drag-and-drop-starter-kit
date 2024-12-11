@@ -28,7 +28,6 @@ export const GlobalStyles = createGlobalStyle`
 
   // based on small screen layout
   #root {
-    max-width: 400px;
     height: 100%;
     width: 100%;
   }
@@ -36,6 +35,11 @@ export const GlobalStyles = createGlobalStyle`
   // app styles
   .appContainer {
     padding: 1rem;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .topContainer {
@@ -321,7 +325,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-size: 16px;
     }
-    #root {
+    .appContainer {
       max-width: 600px;
     }
   }
@@ -331,7 +335,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-size: 18px;
     }
-    #root {
+    .appContainer  {
       max-width: 1000px;
     }
   }
@@ -341,7 +345,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-size: 20px;
     }
-    #root {
+    .appContainer  {
       max-width: 1200px;
     }
   }
