@@ -74,24 +74,25 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
   }
 
+  .addTaskWrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .addTodoInput {
-    flex-grow: 1;
+    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-  }
-
-  .addTaskWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    width: 50%;
   }
 
   .addTaskDatePicker {
-    flex-grow: 1;
+    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 0 4px 4px 0;
@@ -99,6 +100,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-right: 1rem;
     cursor: pointer;
     text-align: center;
+    width: 50%;
   }
 
   .addTaskButton {
@@ -106,6 +108,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 2rem;
+    width: 5rem;
     background-color: #1890ff;
     color: white;
     cursor: pointer;
@@ -123,11 +126,6 @@ export const GlobalStyles = createGlobalStyle`
   .draggableHint {
     margin: 0.5rem;
     text-align: left;
-  }
-
-  // TodoList styles
-  .todoList {
-    margin: 1rem 2rem 1rem 2rem;
   }
 
   // TodoCard styles
