@@ -58,8 +58,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.buttonBackground};
 }
   .languageSelector {
-    flex-basis: auto;
-    flex-grow: auto;
     height: 2rem;
     width: 5rem;
   }
@@ -345,8 +343,17 @@ export const GlobalStyles = createGlobalStyle`
     body {
       font-size: 20px;
     }
+
     .appContainer  {
       max-width: 1200px;
+    }
+
+    .themeSwitcher {
+      width: 6rem;
+    }
+
+    .languageSelector {
+      width: 6rem;
     }
   }
 `;
