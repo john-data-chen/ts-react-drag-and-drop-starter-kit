@@ -1,8 +1,16 @@
 # React + TypeScript + Vite: Todo list
 
-you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
-
 ## How to use
+
+- you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
+
+## The project is based on
+
+- Node JS: v22.12.0
+- React: 18.3.1
+- Vite: 6.0.3
+
+## NPM commands
 
 - npm install: to install all packages
 - npm run dev: start the project in developing
@@ -27,7 +35,7 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 - Adjust UI of edit task from and Refactor CSS of Date Picker
 - Add animations of interactions
 - Add RWD layout for small screen
-- Fix UI issues of long text such as changing language to Deutsch
+- Adjust RWD to fix UI issues such as long text, small screen, animation...etc
 - Add more RWD layout for different screen sizes
 
 ## More in developing
@@ -41,4 +49,4 @@ you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
 ## Known issues or limits
 
 - Touch screens can't support **hover** animations
-- Languages menu displays incorrect position only in browser developing tool, using the Chrome of the Android device to check is correct
+- Languages menu displays incorrect position only in browser developer tool, using the Chrome of the Android device to check is correct
