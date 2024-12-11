@@ -10,9 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
   html {
-    font-size: 16px;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
   }
@@ -22,19 +20,22 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     line-height: 1.5;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  // based on small screen layout
   #root {
+    max-width: 400px;
     height: 100%;
     width: 100%;
   }
 
   // app styles
   .appContainer {
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .topContainer {
@@ -137,7 +138,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
   }
 
@@ -312,6 +313,37 @@ export const GlobalStyles = createGlobalStyle`
   .fixLongText {
     word-break: break-all;
     word-wrap: break-word;
+  }
+
+  // Responsive styles
+  // Mobile devices with bigger than 400px width
+  @media (min-width: 401px) and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+    #root {
+      max-width: 600px;
+    }
+  }
+
+  // Tablets
+  @media (min-width: 769px) and (max-width: 1200px) {
+    body {
+      font-size: 18px;
+    }
+    #root {
+      max-width: 1000px;
+    }
+  }
+
+  // Large screens
+  @media (min-width: 1201px) {
+    body {
+      font-size: 20px;
+    }
+    #root {
+      max-width: 1200px;
+    }
   }
 `;
 
