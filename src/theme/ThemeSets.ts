@@ -141,8 +141,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .todoText {
     margin-bottom: 0.5rem;
-    word-break: break-all;
-    word-wrap: break-word;
   }
 
   .dueDateWrapper {
@@ -307,6 +305,11 @@ export const GlobalStyles = createGlobalStyle`
     &:hover {
       background-color: #ff7875;
     }
+  }
+
+  .fixLongText {
+    word-break: break-all;
+    word-wrap: break-word;
   }
 `;
 

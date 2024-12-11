@@ -31,7 +31,9 @@ const TodoCard = ({
       <span className="todoButtonsWrapper">
         <motion.button
           className={
-            todo.completed ? "completeTaskButton" : "incompleteTaskButton"
+            todo.completed
+              ? "completeTaskButton fixLongText"
+              : "incompleteTaskButton fixLongText"
           }
           onClick={() => toggleComplete(todo.id)}
           whileHover={{ scale: 1.2 }}
@@ -40,7 +42,7 @@ const TodoCard = ({
           {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
         </motion.button>
         <motion.button
-          className="editTaskButton"
+          className="editTaskButton fixLongText"
           onClick={() => setIsEditingOpen(true)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
@@ -55,7 +57,7 @@ const TodoCard = ({
           />
         )}
         <motion.button
-          className="deleteTaskButton"
+          className="deleteTaskButton fixLongText"
           onClick={() => deleteTodo(todo.id)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
@@ -63,7 +65,7 @@ const TodoCard = ({
           {t("todo-card.delete")}
         </motion.button>
       </span>
-    </li>
+    </motion.li>
   );
 };
 
