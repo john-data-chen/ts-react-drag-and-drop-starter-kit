@@ -10,9 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
   html {
-    font-size: 16px;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
   }
@@ -22,6 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     line-height: 1.5;
+    font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
@@ -34,7 +33,13 @@ export const GlobalStyles = createGlobalStyle`
 
   // app styles
   .appContainer {
-    padding: 2rem;
+    padding: 1rem;
+    // based on small screen layout
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   .topContainer {
@@ -49,12 +54,12 @@ export const GlobalStyles = createGlobalStyle`
     flex-grow: auto;
     margin-bottom: 1rem;
     height: 2rem;
+    width: 5rem;
     background-color: ${({ theme }) => theme.buttonBackground};
 }
   .languageSelector {
-    flex-basis: auto;
-    flex-grow: auto;
     height: 2rem;
+    width: 5rem;
   }
 
   .appTitle {
@@ -69,24 +74,25 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
   }
 
+  .addTaskWrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .addTodoInput {
-    flex-grow: 1;
+    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-  }
-
-  .addTaskWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    width: 50%;
   }
 
   .addTaskDatePicker {
-    flex-grow: 1;
+    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 0 4px 4px 0;
@@ -94,6 +100,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-right: 1rem;
     cursor: pointer;
     text-align: center;
+    width: 50%;
   }
 
   .addTaskButton {
@@ -101,6 +108,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 2rem;
+    width: 5rem;
     background-color: #1890ff;
     color: white;
     cursor: pointer;
@@ -120,11 +128,6 @@ export const GlobalStyles = createGlobalStyle`
     text-align: left;
   }
 
-  // TodoList styles
-  .todoList {
-    margin: 1rem 2rem 1rem 2rem;
-  }
-
   // TodoCard styles
   .todoItem {
     display: flex;
@@ -135,14 +138,12 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
   }
 
   .todoText {
     margin-bottom: 0.5rem;
-    word-break: break-all;
-    word-wrap: break-word;
   }
 
   .dueDateWrapper {
@@ -308,6 +309,51 @@ export const GlobalStyles = createGlobalStyle`
       background-color: #ff7875;
     }
   }
+
+  .fixLongText {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+
+  // Responsive styles
+  // Mobile devices with bigger than 400px width
+  @media (min-width: 401px) and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+    .appContainer {
+      max-width: 600px;
+    }
+  }
+
+  // Tablets
+  @media (min-width: 769px) and (max-width: 1200px) {
+    body {
+      font-size: 18px;
+    }
+    .appContainer  {
+      max-width: 1000px;
+    }
+  }
+
+  // Large screens
+  @media (min-width: 1201px) {
+    body {
+      font-size: 20px;
+    }
+
+    .appContainer  {
+      max-width: 1200px;
+    }
+
+    .themeSwitcher {
+      width: 6rem;
+    }
+
+    .languageSelector {
+      width: 6rem;
+    }
+  }
 `;
 
 export const lightTheme = {
@@ -318,6 +364,6 @@ export const lightTheme = {
 
 export const darkTheme = {
   body: "#333",
-  text: "#fff",
+  text: "#B2BEB5",
   buttonBackground: "#FFF44F",
 };

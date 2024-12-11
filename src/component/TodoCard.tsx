@@ -20,11 +20,17 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <li className="todoItem" key={todo.id}>
+    <motion.li
+      whileTap={{
+        scale: 1.05,
+        opacity: 1,
+        backgroundColor: "#FFF8DC",
+      }}
+      className="todoItem"
+      key={todo.id}
+    >
       <span className={todo.completed ? "completedTask" : ""}>
-        <h3 className="todoText">{todo.text}</h3>
-      </span>
-      <span className={todo.completed ? "completedTask" : ""}>
+        <h3 className="todoText fixLongText">{todo.text}</h3>
         <span className="dueDateWrapper">
           <h4 className="dueDateTitle">{t("todo-card.due-date")}</h4>
           {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
@@ -33,7 +39,9 @@ const TodoCard = ({
       <span className="todoButtonsWrapper">
         <motion.button
           className={
-            todo.completed ? "completeTaskButton" : "incompleteTaskButton"
+            todo.completed
+              ? "completeTaskButton fixLongText"
+              : "incompleteTaskButton fixLongText"
           }
           onClick={() => toggleComplete(todo.id)}
           whileHover={{ scale: 1.2 }}
@@ -42,7 +50,7 @@ const TodoCard = ({
           {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
         </motion.button>
         <motion.button
-          className="editTaskButton"
+          className="editTaskButton fixLongText"
           onClick={() => setIsEditingOpen(true)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
@@ -57,7 +65,7 @@ const TodoCard = ({
           />
         )}
         <motion.button
-          className="deleteTaskButton"
+          className="deleteTaskButton fixLongText"
           onClick={() => deleteTodo(todo.id)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
@@ -65,7 +73,7 @@ const TodoCard = ({
           {t("todo-card.delete")}
         </motion.button>
       </span>
-    </li>
+    </motion.li>
   );
 };
 
