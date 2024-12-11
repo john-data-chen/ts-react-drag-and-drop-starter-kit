@@ -20,11 +20,9 @@ const TodoCard = ({
   const [isEditingOpen, setIsEditingOpen] = useState(false);
   const { t } = useTranslation();
   return (
-    <li className="todoItem" key={todo.id}>
+    <motion.li whileTap={{ scale: 1.2 }} className="todoItem" key={todo.id}>
       <span className={todo.completed ? "completedTask" : ""}>
-        <h3 className="todoText">{todo.text}</h3>
-      </span>
-      <span className={todo.completed ? "completedTask" : ""}>
+        <h3 className="todoText fixLongText">{todo.text}</h3>
         <span className="dueDateWrapper">
           <h4 className="dueDateTitle">{t("todo-card.due-date")}</h4>
           {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
