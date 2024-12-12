@@ -35,8 +35,8 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         onChange={(e) => setInput(e.target.value)}
         placeholder={t("todo-form.todo-input")}
         required
-        initial={{ width: "0vw", x: "50vw" }}
-        animate={{ width: "50vw", x: 0 }}
+        initial={{ width: "0", x: "50vw" }}
+        animate={{ width: "100%", x: 0 }}
         transition={{ duration: 1, origin: 1 }}
       />
       <DatePicker
