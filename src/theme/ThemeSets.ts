@@ -77,17 +77,14 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .addTodoInput {
-    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 1rem;
-    width: 100%;
     text-align: center;
   }
 
   .addTaskDatePicker {
-    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -100,12 +97,12 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    height: 2rem;
     width: 5rem;
     background-color: #1890ff;
     color: white;
     cursor: pointer;
     font-size: 1rem;
+    margin-bottom: 1rem;
     transition: background-color 0.3s ease;
     &:hover {
       background-color: #096dd9;
@@ -117,8 +114,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .draggableHint {
-    margin: 0.5rem;
     text-align: left;
+    margin-bottom: 1rem;
   }
 
   // TodoCard styles
@@ -131,7 +128,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
   }
 
