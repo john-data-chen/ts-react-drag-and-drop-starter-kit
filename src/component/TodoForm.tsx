@@ -28,28 +28,29 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
 
   return (
     <form className="addTodoForm" onSubmit={handleSubmit}>
-      <div className="addTaskWrapper">
-        <input
-          className="addTodoInput"
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={t("todo-form.todo-input")}
-          required
-        />
-        <DatePicker
-          minDate={new Date()}
-          selected={dueDate}
-          onChange={(date: Date | null) => {
-            setDueDate(date);
-          }}
-          placeholderText={t("todo-form.due-date")}
-          dateFormat="yyyy/MM/d"
-          className="addTaskDatePicker"
-        />
-      </div>
+      <motion.input
+        className="addTodoInput"
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder={t("todo-form.todo-input")}
+        required
+        initial={{ width: "0", x: "50vw" }}
+        animate={{ width: "100%", x: 0 }}
+        transition={{ duration: 1, origin: 1 }}
+      />
+      <DatePicker
+        minDate={new Date()}
+        selected={dueDate}
+        onChange={(date: Date | null) => {
+          setDueDate(date);
+        }}
+        placeholderText={t("todo-form.due-date")}
+        dateFormat="yyyy/MM/d"
+        className="addTaskDatePicker"
+      />
       <motion.button
-        className="addTaskButton"
+        className="addTaskButton fixLongText"
         type="submit"
         disabled={!input.trim()}
         whileHover={input.trim() ? { scale: 1.2 } : { scale: 1 }}

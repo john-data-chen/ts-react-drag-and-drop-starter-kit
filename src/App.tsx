@@ -91,7 +91,7 @@ function App() {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
           >
-            {isDarkMode ? "Light 🌞" : "Dark 🌜"}
+            {isDarkMode ? "🌞 " + t("theme.light") : "🌜 " + t("theme.dark")}
           </motion.button>
           <select
             className="languageSelector"

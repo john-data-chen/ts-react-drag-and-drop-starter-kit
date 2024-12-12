@@ -50,7 +50,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
       />
       <div className="editTaskButtonWrapper">
         <motion.button
-          className="saveEditButton"
+          className="editTaskButton"
           onClick={handleSubmit}
           disabled={!text.trim()}
           whileHover={text.trim() ? { scale: 1.2 } : { scale: 1 }}
@@ -59,7 +59,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
           {t("edit-todo-form.save-button")}
         </motion.button>
         <motion.button
-          className="cancelButton"
+          className="editTaskButton cancelButton"
           onClick={closeEditForm}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

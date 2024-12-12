@@ -54,12 +54,13 @@ export const GlobalStyles = createGlobalStyle`
     flex-grow: auto;
     margin-bottom: 1rem;
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
     background-color: ${({ theme }) => theme.buttonBackground};
 }
+
   .languageSelector {
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
   }
 
   .appTitle {
@@ -72,47 +73,36 @@ export const GlobalStyles = createGlobalStyle`
   .addTodoForm {
     display: flex;
     flex-direction: column;
-  }
-
-  .addTaskWrapper {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    align-items: flex-end;
   }
 
   .addTodoInput {
-    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    height: 2rem;
-    margin-right: 1rem;
-    width: 50%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
   }
 
   .addTaskDatePicker {
-    flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
-    height: 2rem;
-    margin-right: 1rem;
+    border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 1rem;
     text-align: center;
-    width: 50%;
   }
 
   .addTaskButton {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    height: 2rem;
     width: 5rem;
     background-color: #1890ff;
     color: white;
     cursor: pointer;
     font-size: 1rem;
+    margin-bottom: 1rem;
     transition: background-color 0.3s ease;
     &:hover {
       background-color: #096dd9;
@@ -124,8 +114,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .draggableHint {
-    margin: 0.5rem;
     text-align: left;
+    margin-bottom: 1rem;
   }
 
   // TodoCard styles
@@ -138,7 +128,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
   }
 
@@ -171,7 +161,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-left: auto;
   }
 
-  .incompleteTaskButton {
+  .button {
     background-color: #1890ff;
     color: white;
     border: none;
@@ -187,29 +177,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .completeTaskButton {
+    @extend .button;
     background-color: #52c41a;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #73d13d;
     }
   }
 
   .deleteTaskButton {
+    @extend .button;
     background-color: red;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #ff7875;
     }
@@ -217,14 +194,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .editTaskButton {
     background-color: #512da8;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #6f42c1;
     }
@@ -234,15 +203,14 @@ export const GlobalStyles = createGlobalStyle`
   .editForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
-    width: 100%;
+    width: 105%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 3px solid #FFBF00;
     border-radius: 4px;
     padding: 1rem;
     z-index: 10;
@@ -266,7 +234,6 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-    width: 100%;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
@@ -274,12 +241,12 @@ export const GlobalStyles = createGlobalStyle`
   .editTaskButtonWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     margin-top: 1rem;
   }
 
-  .saveEditButton {
+  .editTaskButton {
     background-color: #1890ff;
     margin-right: 1rem;
     color: white;
@@ -298,13 +265,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .cancelButton {
+    @extend .editTaskButton;
+    margin-right: 0;
     background-color: red;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-
     &:hover {
       background-color: #ff7875;
     }
@@ -359,11 +322,11 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme = {
   body: "#f7f7f7",
   text: "#333",
-  buttonBackground: "#FFDF00",
+  buttonBackground: "#FFC000",
 };
 
 export const darkTheme = {
   body: "#333",
   text: "#B2BEB5",
-  buttonBackground: "#FFF44F",
+  buttonBackground: "#FAFA33",
 };
