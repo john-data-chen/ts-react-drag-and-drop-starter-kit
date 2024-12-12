@@ -203,6 +203,7 @@ export const GlobalStyles = createGlobalStyle`
   .editForm {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     position: absolute;
     top: 60%;
     left: 50%;
@@ -233,7 +234,6 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-    width: 50%;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
