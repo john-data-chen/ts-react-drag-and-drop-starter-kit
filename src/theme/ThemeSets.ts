@@ -246,7 +246,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-top: 1rem;
   }
 
-  .saveEditButton {
+  .editTaskButton {
     background-color: #1890ff;
     margin-right: 1rem;
     color: white;
@@ -265,13 +265,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .cancelButton {
+    @extend .editTaskButton;
+    margin-right: 0;
     background-color: red;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-
     &:hover {
       background-color: #ff7875;
     }
