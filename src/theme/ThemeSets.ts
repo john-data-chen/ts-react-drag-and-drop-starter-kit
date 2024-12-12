@@ -57,6 +57,7 @@ export const GlobalStyles = createGlobalStyle`
     width: 5rem;
     background-color: ${({ theme }) => theme.buttonBackground};
 }
+
   .languageSelector {
     height: 2rem;
     width: 5rem;
@@ -72,35 +73,27 @@ export const GlobalStyles = createGlobalStyle`
   .addTodoForm {
     display: flex;
     flex-direction: column;
-  }
-
-  .addTaskWrapper {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    align-items: flex-end;
   }
 
   .addTodoInput {
     flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    height: 2rem;
-    margin-right: 1rem;
-    width: 50%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
   }
 
   .addTaskDatePicker {
     flex-basis: auto;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
-    height: 2rem;
-    margin-right: 1rem;
+    border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 1rem;
     text-align: center;
-    width: 50%;
   }
 
   .addTaskButton {
