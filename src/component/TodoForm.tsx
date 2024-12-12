@@ -50,7 +50,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         className="addTaskDatePicker"
       />
       <motion.button
-        className="addTaskButton"
+        className="addTaskButton fixLongText"
         type="submit"
         disabled={!input.trim()}
         whileHover={input.trim() ? { scale: 1.2 } : { scale: 1 }}

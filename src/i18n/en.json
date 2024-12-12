@@ -18,5 +18,9 @@
     "due-date": "Due Date",
     "save-button": "Save",
     "cancel-button": "Cancel"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
   }
 }

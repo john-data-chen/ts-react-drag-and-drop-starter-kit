@@ -18,5 +18,9 @@
     "due-date": "Fälligkeitsdatum",
     "save-button": "Speichern",
     "cancel-button": "Stornieren"
+  },
+  "theme": {
+    "dark": "Dunkel",
+    "light": "Licht"
   }
 }

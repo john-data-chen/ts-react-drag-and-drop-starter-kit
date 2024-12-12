@@ -54,13 +54,13 @@ export const GlobalStyles = createGlobalStyle`
     flex-grow: auto;
     margin-bottom: 1rem;
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
     background-color: ${({ theme }) => theme.buttonBackground};
 }
 
   .languageSelector {
     height: 2rem;
-    width: 5rem;
+    width: 6rem;
   }
 
   .appTitle {
@@ -322,11 +322,11 @@ export const GlobalStyles = createGlobalStyle`
 export const lightTheme = {
   body: "#f7f7f7",
   text: "#333",
-  buttonBackground: "#FFDF00",
+  buttonBackground: "#FFC000",
 };
 
 export const darkTheme = {
   body: "#333",
   text: "#B2BEB5",
-  buttonBackground: "#FFF44F",
+  buttonBackground: "#FAFA33",
 };
