@@ -34,17 +34,17 @@
 - Add edit function of Due date
 - Adjust UI of edit task from and Refactor CSS of Date Picker
 - Add animations of interactions
-- Add RWD layout for small screen
-- Adjust RWD to fix UI issues such as long text, small screen, animation...etc
-- Add more RWD layout for different screen sizes
+- Add RWD basic layout for small screen (based on 400px)
+- Add more RWD layout for different screen sizes: 768, 1200, and bigger than 1200px
+- Adjust animation and CSS to fix UI issues such as long text, screen size...etc
+- Import test packages
+- Add unit tests
 
 ## More in developing
 
-- Add Accessibility such as ARIA tags or keyboard support
-- Add test cases
 - Add CI / CD
-- Add more details into README or use Storybook to demonstrate
-- Add Pomodoro
+- Add Accessibility such as ARIA tags or keyboard support
+- Add more details into README
 
 ## Known issues or limits
 
