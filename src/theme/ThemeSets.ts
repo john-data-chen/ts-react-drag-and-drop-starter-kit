@@ -203,15 +203,13 @@ export const GlobalStyles = createGlobalStyle`
   .editForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
-    width: 100%;
+    width: 105%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 3px solid #FFBF00;
     border-radius: 4px;
     padding: 1rem;
     z-index: 10;
@@ -235,7 +233,7 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid #ccc;
     border-radius: 4px 0 0 4px;
     height: 2rem;
-    width: 100%;
+    width: 50%;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
@@ -243,7 +241,7 @@ export const GlobalStyles = createGlobalStyle`
   .editTaskButtonWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     margin-top: 1rem;
   }
