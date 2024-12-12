@@ -161,7 +161,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-left: auto;
   }
 
-  .incompleteTaskButton {
+  .button {
     background-color: #1890ff;
     color: white;
     border: none;
@@ -177,29 +177,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .completeTaskButton {
+    @extend .button;
     background-color: #52c41a;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #73d13d;
     }
   }
 
   .deleteTaskButton {
+    @extend .button;
     background-color: red;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #ff7875;
     }
@@ -207,14 +194,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .editTaskButton {
     background-color: #512da8;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
     &:hover {
       background-color: #6f42c1;
     }
