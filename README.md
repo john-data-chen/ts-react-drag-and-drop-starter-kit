@@ -9,12 +9,14 @@
 - Node JS: v22.12.0
 - React: 18.3.1
 - Vite: 6.0.3
+- TypeScript: 5.6.2
 
 ## NPM commands
 
 - npm install: to install all packages
-- npm run dev: start the project in developing
-- npm run deploy: start deploy to GitHib Pages
+- npm run dev: start the project in developing mode
+- npm run deploy: start deploy to GitHub Pages
+- npm run test: start testing
 
 ## ChangeLog
 
@@ -38,7 +40,8 @@
 - Add more RWD layout for different screen sizes: 768, 1200, and bigger than 1200px
 - Adjust animation and CSS to fix UI issues such as long text, screen size...etc
 - Import test packages
-- Add unit tests
+- Refactor components for testing
+- Add Unit test by Jest 29.7.0
 
 ## More in developing
 

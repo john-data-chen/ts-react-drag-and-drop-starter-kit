@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DEMOTASKS } from "../constants/constants";
+import { DEMO_TASKS } from "../constants/constants";
 import Todo from "../type/Todo";
 
 export interface TodoState {
@@ -7,7 +7,7 @@ export interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: JSON.parse(localStorage.getItem("todos") || DEMOTASKS),
+  todos: JSON.parse(localStorage.getItem("todos") || DEMO_TASKS),
 };
 
 export const todoSlice = createSlice({
@@ -39,15 +39,22 @@ export const todoSlice = createSlice({
           todo.completed = !todo.completed;
         }
         return todo;
-      })
+      });
       localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
       localStorage.setItem("todos", JSON.stringify(state.todos));
-  },
+    },
 
-    editTodo: (state, action: PayloadAction<{ id: string; text: string; dueDate: string | null }>) => {
+    editTodo: (
+      state,
+      action: PayloadAction<{
+        id: string;
+        text: string;
+        dueDate: string | null;
+      }>
+    ) => {
       state.todos = state.todos.map((todo) => {
         if (todo.id === action.payload.id) {
           todo.text = action.payload.text;
@@ -56,9 +63,10 @@ export const todoSlice = createSlice({
         return todo;
       });
       localStorage.setItem("todos", JSON.stringify(state.todos));
-    }
+    },
   },
 });
 
-export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } = todoSlice.actions;
+export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } =
+  todoSlice.actions;
 export default todoSlice.reducer;

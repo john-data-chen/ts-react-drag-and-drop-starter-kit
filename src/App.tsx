@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
 import Todo from "./type/Todo";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
-import { LANGUAGES } from "./constants/constants";
 import {
   DragDropContext,
   Draggable,
@@ -15,32 +14,47 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
+  editTodo,
+  deleteTodo,
   handleDragEnd,
   toggleComplete,
-  deleteTodo,
-  editTodo,
-} from "./redux/todoReducer";
-import { motion } from "motion/react";
-
-interface todosSelectorProps {
-  todos: Todo[];
-}
+} from "./redux/todoSlice";
+import { switchTheme } from "./redux/themeSlice";
+import ThemeToggle from "./component/ThemeToggle";
+import LanguageSelector from "./component/LanguageSelector";
 
 function App() {
   const todosSelector = useSelector(
-    (state: { todos: todosSelectorProps }) => state.todos
+    (state: {
+      todos: {
+        todos: Todo[];
+      };
+    }) => state.todos
   );
+  const themeSelector = useSelector(
+    (state: {
+      theme: {
+        code: "dark" | "light";
+      };
+    }) => state.theme.code
+  );
+  const languageSelector = useSelector(
+    (state: {
+      language: {
+        code: string;
+      };
+    }) => state.language.code
+  );
+
   const dispatch = useDispatch();
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    localStorage.getItem("i18nextLng") || "en"
-  );
-  const storeTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(storeTheme || "dark");
-  const isDarkMode = theme === "dark";
-  const toggleTheme = () => {
-    setTheme(isDarkMode ? "light" : "dark");
-    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
+  const isDarkMode = themeSelector === "dark";
+  const handleSwitchTheme = () => {
+    dispatch(switchTheme());
   };
+  const { i18n, t } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(languageSelector);
+  }, [i18n, languageSelector]);
 
   const handleAddTodo = (text: string, dueDate: Date | null) => {
     const dueDateStr = dueDate ? dueDate.toISOString() : null;
@@ -69,41 +83,16 @@ function App() {
     dispatch(editTodo({ id, text, dueDate: dueDateStr }));
   };
 
-  const { i18n, t } = useTranslation();
-  const onChangeLang = (lang_code: string) => {
-    i18n.changeLanguage(lang_code);
-    setSelectedLanguage(lang_code);
-    localStorage.setItem("i18nextLng", lang_code);
-  };
-  useEffect(() => {
-    i18n.changeLanguage(selectedLanguage);
-    localStorage.setItem("i18nextLng", selectedLanguage);
-  }, [i18n, selectedLanguage]);
-
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <div className="appContainer">
         <div className="topContainer">
-          <motion.button
-            className="themeSwitcher"
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-          >
-            {isDarkMode ? "🌞 " + t("theme.light") : "🌜 " + t("theme.dark")}
-          </motion.button>
-          <select
-            className="languageSelector"
-            defaultValue={selectedLanguage}
-            onChange={(e) => onChangeLang(e.target.value)}
-          >
-            {LANGUAGES.map((lang) => (
-              <option key={lang.code} value={lang.code}>
-                {lang.label}
-              </option>
-            ))}
-          </select>
+          <ThemeToggle
+            switchTheme={handleSwitchTheme}
+            isDarkMode={isDarkMode}
+          />
+          <LanguageSelector />
         </div>
         <h1 className="appTitle">{t("app-title")}</h1>
         <TodoForm addTodo={handleAddTodo} />
