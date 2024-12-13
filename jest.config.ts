@@ -10,4 +10,5 @@ export default {
       "<rootDir>/__mocks__/fileMock.js",
     "\\.(css|less)$": "identity-obj-proxy",
   },
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
 };
