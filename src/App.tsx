@@ -15,32 +15,33 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
+  editTodo,
+  deleteTodo,
   handleDragEnd,
   toggleComplete,
-  deleteTodo,
-  editTodo,
-} from "./redux/todoReducer";
-import { motion } from "motion/react";
+} from "./redux/todoSlice";
+
+import ThemeToggle from "./component/ThemeToggle";
 
 interface todosSelectorProps {
   todos: Todo[];
+}
+
+interface themeSelectorProps {
+  theme: "dark" | "light";
 }
 
 function App() {
   const todosSelector = useSelector(
     (state: { todos: todosSelectorProps }) => state.todos
   );
+  const themeSelector = useSelector(
+    (state: { theme: themeSelectorProps }) => state.theme
+  );
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
-  const storeTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(storeTheme || "dark");
-  const isDarkMode = theme === "dark";
-  const toggleTheme = () => {
-    setTheme(isDarkMode ? "light" : "dark");
-    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
-  };
 
   const handleAddTodo = (text: string, dueDate: Date | null) => {
     const dueDateStr = dueDate ? dueDate.toISOString() : null;
@@ -81,18 +82,13 @@ function App() {
   }, [i18n, selectedLanguage]);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ThemeProvider
+      theme={themeSelector.theme === "dark" ? darkTheme : lightTheme}
+    >
       <GlobalStyles />
       <div className="appContainer">
         <div className="topContainer">
-          <motion.button
-            className="themeSwitcher"
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-          >
-            {isDarkMode ? "🌞 " + t("theme.light") : "🌜 " + t("theme.dark")}
-          </motion.button>
+          <ThemeToggle />
           <select
             className="languageSelector"
             defaultValue={selectedLanguage}
