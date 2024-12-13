@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DEMOTASKS } from "../constants/constants";
+import { DEMO_TASKS } from "../constants/constants";
 import Todo from "../type/Todo";
 
 export interface TodoState {
@@ -7,7 +7,7 @@ export interface TodoState {
 }
 
 const initialState: TodoState = {
-  todos: JSON.parse(localStorage.getItem("todos") || DEMOTASKS),
+  todos: JSON.parse(localStorage.getItem("todos") || DEMO_TASKS),
 };
 
 export const todoSlice = createSlice({
