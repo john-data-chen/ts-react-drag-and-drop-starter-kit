@@ -20,25 +20,29 @@ import {
   handleDragEnd,
   toggleComplete,
 } from "./redux/todoSlice";
-
+import { switchTheme } from "./redux/themeSlice";
 import ThemeToggle from "./component/ThemeToggle";
-
-interface todosSelectorProps {
-  todos: Todo[];
-}
-
-interface themeSelectorProps {
-  theme: "dark" | "light";
-}
 
 function App() {
   const todosSelector = useSelector(
-    (state: { todos: todosSelectorProps }) => state.todos
+    (state: {
+      todos: {
+        todos: Todo[];
+      };
+    }) => state.todos
   );
   const themeSelector = useSelector(
-    (state: { theme: themeSelectorProps }) => state.theme
+    (state: {
+      theme: {
+        code: "dark" | "light";
+      };
+    }) => state.theme.code
   );
   const dispatch = useDispatch();
+  const isDarkMode = themeSelector === "dark";
+  const handleSwitchTheme = () => {
+    dispatch(switchTheme());
+  };
   const [selectedLanguage, setSelectedLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
@@ -82,13 +86,14 @@ function App() {
   }, [i18n, selectedLanguage]);
 
   return (
-    <ThemeProvider
-      theme={themeSelector.theme === "dark" ? darkTheme : lightTheme}
-    >
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <GlobalStyles />
       <div className="appContainer">
         <div className="topContainer">
-          <ThemeToggle />
+          <ThemeToggle
+            switchTheme={handleSwitchTheme}
+            isDarkMode={isDarkMode}
+          />
           <select
             className="languageSelector"
             defaultValue={selectedLanguage}

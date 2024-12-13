@@ -1,27 +1,21 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkMode } from "../redux/themeSlice";
 
-interface themeSelectorProps {
-  theme: "dark" | "light";
+interface ThemeToggleProps {
+  switchTheme: () => void;
+  isDarkMode: boolean;
 }
 
-const ThemeToggle = () => {
-  const themeSelector = useSelector(
-    (state: { theme: themeSelectorProps }) => state.theme
-  );
-  const isDarkMode = themeSelector.theme === "dark";
-  const dispatch = useDispatch();
-  const toggleTheme = () => {
-    dispatch(toggleDarkMode());
-  };
+const ThemeToggle: React.FC<ThemeToggleProps> = ({
+  switchTheme,
+  isDarkMode,
+}) => {
   const { t } = useTranslation();
 
   return (
     <motion.button
       className="themeSwitcher"
-      onClick={toggleTheme}
+      onClick={switchTheme}
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
     >
