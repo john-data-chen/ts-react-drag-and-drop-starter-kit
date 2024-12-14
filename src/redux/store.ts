@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { listenerMiddleware } from "./localStorageMiddleware";
-import themeReducer from "./themeSlice";
-import languageReducer from "./languageSlice";
+import themeReducer, { ThemeState } from "./themeSlice";
+import languageReducer, { LanguageState } from "./languageSlice";
 import todoReducer from "./todoSlice";
 import { DEMO_TASKS } from "../constants/constants";
 
@@ -14,11 +14,11 @@ const rootReducer = combineReducers({
 const getInitialState = () => ({
   theme: {
     mode: localStorage.getItem("theme")
-      ? JSON.parse(localStorage.getItem("theme") as string).mode
+      ? (localStorage.getItem("theme") as ThemeState["mode"])
       : "dark",
   },
   language: {
-    code: (localStorage.getItem("i18nextLng") as "en" | "de") || "en",
+    code: (localStorage.getItem("i18nextLng") as LanguageState["code"]) || "en",
   },
   todos: {
     todos: localStorage.getItem("todos")

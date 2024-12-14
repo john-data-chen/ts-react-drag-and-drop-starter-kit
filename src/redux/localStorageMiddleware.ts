@@ -26,7 +26,7 @@ listenerMiddleware.startListening({
   matcher: themeChange,
   effect: (action, listenerApi) => {
     const state = listenerApi.getState() as { theme: { mode: string } };
-    localStorage.setItem("theme", JSON.stringify(state.theme));
+    localStorage.setItem("theme", state.theme.mode);
   },
 });
 

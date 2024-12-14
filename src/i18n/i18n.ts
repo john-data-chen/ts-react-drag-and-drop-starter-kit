@@ -41,6 +41,7 @@ i18n
   .init({
     ...options,
     resources,
+    lng: localStorage.getItem("i18nextLng") || "en",
     fallbackLng: "en",
     debug: true,
     interpolation: {

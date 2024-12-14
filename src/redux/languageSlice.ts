@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface LanguageState {
+export interface LanguageState {
   code: "en" | "de";
 }
 
