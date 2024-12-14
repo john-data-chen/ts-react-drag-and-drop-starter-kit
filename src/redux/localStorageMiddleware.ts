@@ -24,7 +24,7 @@ const tasksChange = isAnyOf(
 
 listenerMiddleware.startListening({
   matcher: themeChange,
-  effect: (action, listenerApi) => {
+  effect: (_, listenerApi) => {
     const state = listenerApi.getState() as { theme: { mode: string } };
     localStorage.setItem("theme", state.theme.mode);
   },
@@ -32,7 +32,7 @@ listenerMiddleware.startListening({
 
 listenerMiddleware.startListening({
   matcher: languageChange,
-  effect: (action, listenerApi) => {
+  effect: (_, listenerApi) => {
     const state = listenerApi.getState() as { language: { code: string } };
     localStorage.setItem("i18nextLng", state.language.code);
   },
@@ -40,7 +40,7 @@ listenerMiddleware.startListening({
 
 listenerMiddleware.startListening({
   matcher: tasksChange,
-  effect: (action, listenerApi) => {
+  effect: (_, listenerApi) => {
     const state = listenerApi.getState() as { todos: { todos: Todo[] } };
     localStorage.setItem("todos", JSON.stringify(state.todos));
   },
