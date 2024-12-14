@@ -41,7 +41,7 @@ listenerMiddleware.startListening({
 listenerMiddleware.startListening({
   matcher: tasksChange,
   effect: (action, listenerApi) => {
-    const state = listenerApi.getState() as { tasks: { list: Todo[] } };
-    localStorage.setItem("tasks", JSON.stringify(state.tasks.list));
+    const state = listenerApi.getState() as { todos: { todos: Todo[] } };
+    localStorage.setItem("todos", JSON.stringify(state.todos));
   },
 });

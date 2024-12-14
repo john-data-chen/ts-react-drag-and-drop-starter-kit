@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DEMO_TASKS } from "../constants/constants";
 import Todo from "../type/Todo";
-
-export interface TodoState {
+interface TodoState {
   todos: Todo[];
 }
 
 const initialState: TodoState = {
-  todos: JSON.parse(localStorage.getItem("todos") || DEMO_TASKS),
+  todos: [],
 };
 
 export const todoSlice = createSlice({
@@ -18,15 +16,12 @@ export const todoSlice = createSlice({
       state,
       action: PayloadAction<{ text: string; dueDate: string | null }>
     ) => {
-      state.todos = [
-        ...state.todos,
-        {
-          id: `${Date.now()}`,
-          text: action.payload.text,
-          dueDate: action.payload.dueDate || null,
-          completed: false,
-        },
-      ];
+      state.todos.push({
+        id: Date.now().toString(),
+        text: action.payload.text,
+        dueDate: action.payload.dueDate,
+        completed: false,
+      });
     },
     handleDragEnd: (state, action) => {
       state.todos = action.payload;

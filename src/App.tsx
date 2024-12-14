@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo from "./type/Todo";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
 import {
   DragDropContext,
@@ -22,15 +21,13 @@ import {
 import { switchTheme } from "./redux/themeSlice";
 import ThemeToggle from "./component/ThemeToggle";
 import LanguageSelector from "./component/LanguageSelector";
+import { RootState } from "./redux/store";
 
 function App() {
-  const todosSelector = useSelector(
-    (state: {
-      todos: {
-        todos: Todo[];
-      };
-    }) => state.todos
-  );
+  const todosSelector = useSelector((state: RootState) => state.todos.todos);
+  const todoList = todosSelector;
+  console.log(todoList);
+
   const themeSelector = useSelector(
     (state: {
       theme: {
@@ -64,7 +61,7 @@ function App() {
   const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
     if (!destination) return;
-    const newTodos = [...todosSelector.todos];
+    const newTodos = [...todoList];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     dispatch(handleDragEnd(newTodos));
@@ -100,9 +97,9 @@ function App() {
           <Droppable droppableId="drop-id">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
-                {todosSelector.todos.map((item: Todo, i: number) => (
-                  <div key={item.id}>
-                    <Draggable draggableId={item.id} index={i} key={item.id}>
+                {todoList.map((todo, i) => (
+                  <div key={todo.id}>
+                    <Draggable draggableId={todo.id} index={i} key={todo.id}>
                       {(provided) => (
                         <div
                           {...provided.draggableProps}
@@ -111,8 +108,8 @@ function App() {
                         >
                           {
                             <TodoList
-                              todos={[item]}
-                              key={item.id}
+                              todos={[todo]}
+                              key={todo.id}
                               toggleComplete={handleToggleComplete}
                               deleteTodo={handleDeleteTodo}
                               handleEditTodo={handleEditTodo}
