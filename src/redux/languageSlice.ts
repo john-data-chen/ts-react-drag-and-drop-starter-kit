@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface LanguageState {
-  code: string;
+  code: "en" | "de";
 }
 
 const initialState: LanguageState = {
-  code: localStorage.getItem("i18nextLng") || "en",
+  code: "en",
 };
 
 export const languageSlice = createSlice({
@@ -14,7 +14,6 @@ export const languageSlice = createSlice({
   reducers: {
     changeLanguage: (state) => {
       state.code = state.code === "en" ? "de" : "en";
-      localStorage.setItem("i18nextLng", state.code);
     },
   },
 });

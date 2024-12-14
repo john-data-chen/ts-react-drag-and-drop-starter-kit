@@ -27,11 +27,9 @@ export const todoSlice = createSlice({
           completed: false,
         },
       ];
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     handleDragEnd: (state, action) => {
       state.todos = action.payload;
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     toggleComplete: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.map((todo) => {
@@ -40,11 +38,9 @@ export const todoSlice = createSlice({
         }
         return todo;
       });
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
 
     editTodo: (
@@ -62,7 +58,6 @@ export const todoSlice = createSlice({
         }
         return todo;
       });
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
   },
 });
