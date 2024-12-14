@@ -1,14 +1,23 @@
-import { configureStore } from "@reduxjs/toolkit";
-import todosReducer from "./todoSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { listenerMiddleware } from "./localStorageMiddleware";
 import themeReducer from "./themeSlice";
-import languageReducer from "./languageSlice";
 
-const store = configureStore({
-  reducer: {
-    todos: todosReducer,
-    theme: themeReducer,
-    language: languageReducer,
+const rootReducer = combineReducers({
+  theme: themeReducer,
+});
+
+const getInitialState = () => ({
+  theme: {
+    mode: (localStorage.getItem("theme") as "dark" | "light") || "light",
   },
 });
 
-export default store;
+export const store = configureStore({
+  reducer: rootReducer,
+  preloadedState: getInitialState(),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().prepend(listenerMiddleware.middleware),
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

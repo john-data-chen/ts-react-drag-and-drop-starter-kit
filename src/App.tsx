@@ -34,9 +34,9 @@ function App() {
   const themeSelector = useSelector(
     (state: {
       theme: {
-        code: "dark" | "light";
+        mode: "dark" | "light";
       };
-    }) => state.theme.code
+    }) => state.theme.mode
   );
   const languageSelector = useSelector(
     (state: {
