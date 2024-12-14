@@ -11,19 +11,19 @@ const rootReducer = combineReducers({
   todos: todoReducer,
 });
 
-const todosInLocalStorage = localStorage.getItem("todos")
-  ? JSON.parse(localStorage.getItem("todos") as string).todos
-  : DEMO_TASKS;
-
 const getInitialState = () => ({
   theme: {
-    mode: (localStorage.getItem("theme") as "dark" | "light") || "light",
+    mode: localStorage.getItem("theme")
+      ? JSON.parse(localStorage.getItem("theme") as string).mode
+      : "dark",
   },
   language: {
     code: (localStorage.getItem("i18nextLng") as "en" | "de") || "en",
   },
   todos: {
-    todos: todosInLocalStorage,
+    todos: localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos") as string).todos
+      : DEMO_TASKS,
   },
 });
 

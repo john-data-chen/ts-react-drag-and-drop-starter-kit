@@ -25,22 +25,11 @@ import { RootState } from "./redux/store";
 
 function App() {
   const todosSelector = useSelector((state: RootState) => state.todos.todos);
-  const todoList = todosSelector;
-  console.log(todoList);
 
-  const themeSelector = useSelector(
-    (state: {
-      theme: {
-        mode: "dark" | "light";
-      };
-    }) => state.theme.mode
-  );
+  const themeSelector = useSelector((state: RootState) => state.theme.mode);
+
   const languageSelector = useSelector(
-    (state: {
-      language: {
-        code: string;
-      };
-    }) => state.language.code
+    (state: RootState) => state.language.code
   );
 
   const dispatch = useDispatch();
@@ -61,7 +50,7 @@ function App() {
   const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
     if (!destination) return;
-    const newTodos = [...todoList];
+    const newTodos = [...todosSelector];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     dispatch(handleDragEnd(newTodos));
@@ -97,7 +86,7 @@ function App() {
           <Droppable droppableId="drop-id">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
-                {todoList.map((todo, i) => (
+                {todosSelector.map((todo, i) => (
                   <div key={todo.id}>
                     <Draggable draggableId={todo.id} index={i} key={todo.id}>
                       {(provided) => (
