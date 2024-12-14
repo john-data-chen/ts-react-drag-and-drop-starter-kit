@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { current } from "@reduxjs/toolkit";
 
-interface ThemeState {
-  code: string;
+export interface ThemeState {
+  mode: "dark" | "light";
 }
 
 const initialState: ThemeState = {
-  code: localStorage.getItem("theme") || "dark",
+  mode: "dark",
 };
 
 export const themeSlice = createSlice({
@@ -13,8 +14,8 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     switchTheme: (state) => {
-      state.code = state.code === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", state.code);
+      state.mode = state.mode === "dark" ? "light" : "dark";
+      // console.log(current(state));
     },
   },
 });

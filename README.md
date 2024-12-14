@@ -42,6 +42,7 @@
 - Import test packages
 - Refactor components for testing
 - Add Unit test by Jest 29.7.0
+- Refactor side effects of local Storage into Redux middleware
 
 ## More in developing
 

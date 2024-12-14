@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DEMO_TASKS } from "../constants/constants";
 import Todo from "../type/Todo";
-
-export interface TodoState {
+interface TodoState {
   todos: Todo[];
 }
 
 const initialState: TodoState = {
-  todos: JSON.parse(localStorage.getItem("todos") || DEMO_TASKS),
+  todos: [],
 };
 
 export const todoSlice = createSlice({
@@ -18,20 +16,15 @@ export const todoSlice = createSlice({
       state,
       action: PayloadAction<{ text: string; dueDate: string | null }>
     ) => {
-      state.todos = [
-        ...state.todos,
-        {
-          id: `${Date.now()}`,
-          text: action.payload.text,
-          dueDate: action.payload.dueDate || null,
-          completed: false,
-        },
-      ];
-      localStorage.setItem("todos", JSON.stringify(state.todos));
+      state.todos.push({
+        id: Date.now().toString(),
+        text: action.payload.text,
+        dueDate: action.payload.dueDate,
+        completed: false,
+      });
     },
     handleDragEnd: (state, action) => {
       state.todos = action.payload;
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     toggleComplete: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.map((todo) => {
@@ -40,11 +33,9 @@ export const todoSlice = createSlice({
         }
         return todo;
       });
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
 
     editTodo: (
@@ -62,7 +53,6 @@ export const todoSlice = createSlice({
         }
         return todo;
       });
-      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
   },
 });

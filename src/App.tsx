@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
-import Todo from "./type/Todo";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
 import {
   DragDropContext,
@@ -22,28 +21,15 @@ import {
 import { switchTheme } from "./redux/themeSlice";
 import ThemeToggle from "./component/ThemeToggle";
 import LanguageSelector from "./component/LanguageSelector";
+import { RootState } from "./redux/store";
 
 function App() {
-  const todosSelector = useSelector(
-    (state: {
-      todos: {
-        todos: Todo[];
-      };
-    }) => state.todos
-  );
-  const themeSelector = useSelector(
-    (state: {
-      theme: {
-        code: "dark" | "light";
-      };
-    }) => state.theme.code
-  );
+  const todosSelector = useSelector((state: RootState) => state.todos.todos);
+
+  const themeSelector = useSelector((state: RootState) => state.theme.mode);
+
   const languageSelector = useSelector(
-    (state: {
-      language: {
-        code: string;
-      };
-    }) => state.language.code
+    (state: RootState) => state.language.code
   );
 
   const dispatch = useDispatch();
@@ -64,7 +50,7 @@ function App() {
   const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
     if (!destination) return;
-    const newTodos = [...todosSelector.todos];
+    const newTodos = [...todosSelector];
     const [removed] = newTodos.splice(source.index, 1);
     newTodos.splice(destination.index, 0, removed);
     dispatch(handleDragEnd(newTodos));
@@ -100,9 +86,9 @@ function App() {
           <Droppable droppableId="drop-id">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
-                {todosSelector.todos.map((item: Todo, i: number) => (
-                  <div key={item.id}>
-                    <Draggable draggableId={item.id} index={i} key={item.id}>
+                {todosSelector.map((todo, i) => (
+                  <div key={todo.id}>
+                    <Draggable draggableId={todo.id} index={i} key={todo.id}>
                       {(provided) => (
                         <div
                           {...provided.draggableProps}
@@ -111,8 +97,8 @@ function App() {
                         >
                           {
                             <TodoList
-                              todos={[item]}
-                              key={item.id}
+                              todos={[todo]}
+                              key={todo.id}
                               toggleComplete={handleToggleComplete}
                               deleteTodo={handleDeleteTodo}
                               handleEditTodo={handleEditTodo}
