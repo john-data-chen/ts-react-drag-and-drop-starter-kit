@@ -1,6 +1,6 @@
 import { createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { switchTheme } from "./themeSlice";
-import { changeLanguage } from "./languageSlice";
+import { changeLanguageState } from "./languageSlice";
 import {
   addTodo,
   editTodo,
@@ -13,7 +13,7 @@ import Todo from "../type/Todo";
 export const listenerMiddleware = createListenerMiddleware();
 
 const themeChange = isAnyOf(switchTheme);
-const languageChange = isAnyOf(changeLanguage);
+const languageChange = isAnyOf(changeLanguageState);
 const tasksChange = isAnyOf(
   addTodo,
   editTodo,

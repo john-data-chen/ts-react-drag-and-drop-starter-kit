@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import TodoList from "./component/TodoList";
@@ -20,14 +19,13 @@ import {
 } from "./redux/todoSlice";
 import { switchTheme } from "./redux/themeSlice";
 import ThemeToggle from "./component/ThemeToggle";
+import { changeLanguageState } from "./redux/languageSlice";
 import LanguageSelector from "./component/LanguageSelector";
 import { RootState } from "./redux/store";
 
 function App() {
   const todosSelector = useSelector((state: RootState) => state.todos.todos);
-
   const themeSelector = useSelector((state: RootState) => state.theme.mode);
-
   const languageSelector = useSelector(
     (state: RootState) => state.language.code
   );
@@ -38,10 +36,10 @@ function App() {
     dispatch(switchTheme());
   };
   const { i18n, t } = useTranslation();
-  useEffect(() => {
-    i18n.changeLanguage(languageSelector);
-  }, [i18n, languageSelector]);
-
+  const onChangeLang = (languageCode: string) => {
+    i18n.changeLanguage(languageCode);
+    dispatch(changeLanguageState());
+  };
   const handleAddTodo = (text: string, dueDate: Date | null) => {
     const dueDateStr = dueDate ? dueDate.toISOString() : null;
     dispatch(addTodo({ text, dueDate: dueDateStr }));
@@ -78,7 +76,10 @@ function App() {
             switchTheme={handleSwitchTheme}
             isDarkMode={isDarkMode}
           />
-          <LanguageSelector />
+          <LanguageSelector
+            selectedLanguage={languageSelector}
+            onChangeLang={(languageCode) => onChangeLang(languageCode)}
+          />
         </div>
         <h1 className="appTitle">{t("app-title")}</h1>
         <TodoForm addTodo={handleAddTodo} />

@@ -12,11 +12,11 @@ export const languageSlice = createSlice({
   name: "language",
   initialState,
   reducers: {
-    changeLanguage: (state) => {
+    changeLanguageState: (state) => {
       state.code = state.code === "en" ? "de" : "en";
     },
   },
 });
 
-export const { changeLanguage } = languageSlice.actions;
+export const { changeLanguageState } = languageSlice.actions;
 export default languageSlice.reducer;

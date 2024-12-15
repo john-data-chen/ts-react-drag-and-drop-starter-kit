@@ -41,13 +41,14 @@
 - Adjust animation and CSS to fix UI issues such as long text, screen size...etc
 - Import test packages
 - Refactor components for testing
-- Add Unit test by Jest 29.7.0
+- Add Unit test by Jest
 - Refactor side effects of local Storage into Redux middleware
+- Add Accessibility such as ARIA tags
 
 ## More in developing
 
 - Add CI / CD
-- Add Accessibility such as ARIA tags or keyboard support
+- Add Accessibility keyboard support
 - Add more details into README
 
 ## Known issues or limits

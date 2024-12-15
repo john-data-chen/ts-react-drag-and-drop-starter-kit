@@ -1,20 +1,23 @@
+import React from "react";
 import { LANGUAGES } from "../constants/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { changeLanguage } from "../redux/languageSlice";
+import { useTranslation } from "react-i18next";
 
-const LanguageSelector = () => {
-  const selectedLanguage = useSelector(
-    (state: { language: { code: string } }) => state.language.code
-  );
-  const dispatch = useDispatch();
-  const onChangeLang = () => {
-    dispatch(changeLanguage());
-  };
+interface LanguageSelectorProps {
+  selectedLanguage: string;
+  onChangeLang: (languageCode: string) => void;
+}
+
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({
+  selectedLanguage,
+  onChangeLang,
+}) => {
+  const { t } = useTranslation();
   return (
     <select
       className="languageSelector"
-      defaultValue={selectedLanguage}
-      onChange={onChangeLang}
+      value={selectedLanguage}
+      onChange={(e) => onChangeLang(e.target.value)}
+      aria-label={t("language-selector.aria-label")}
     >
       {LANGUAGES.map((lang) => (
         <option key={lang.code} value={lang.code}>

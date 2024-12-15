@@ -25,5 +25,8 @@
     "dark-icon": "🌜",
     "light-icon": "🌞",
     "aria-label": "Switch Theme"
+  },
+  "language-selector": {
+    "aria-label": "Select Language"
   }
 }
