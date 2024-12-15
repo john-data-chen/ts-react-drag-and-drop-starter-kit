@@ -1,17 +1,37 @@
 import { render, fireEvent } from "@testing-library/react";
-import ThemeToggle from "../component/ThemeToggle";
+import ThemeToggle from "./../component/ThemeToggle";
+
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+  }),
+}));
 
 describe("ThemeToggle Component", () => {
-  const mockSwitchTheme = jest.fn();
-
-  test("test_theme_toggle_switches_theme", () => {
-    const { getByRole } = render(
-      <ThemeToggle switchTheme={mockSwitchTheme} isDarkMode={false} />
+  test("test_theme_toggle_switch", () => {
+    const switchThemeMock = jest.fn();
+    const { getByTestId } = render(
+      <ThemeToggle switchTheme={switchThemeMock} isDarkMode={false} />
     );
 
-    const button = getByRole("button");
+    const button = getByTestId("themeSwitcher");
     fireEvent.click(button);
 
-    expect(mockSwitchTheme).toHaveBeenCalledTimes(1);
+    expect(switchThemeMock).toHaveBeenCalledTimes(1);
+  });
+
+  test("test_theme_toggle_display", () => {
+    const { getByTestId, rerender } = render(
+      <ThemeToggle switchTheme={() => {}} isDarkMode={false} />
+    );
+
+    let button = getByTestId("themeSwitcher");
+    expect(button).toHaveTextContent("theme.dark-icon");
+    expect(button).toHaveTextContent("theme.dark");
+
+    rerender(<ThemeToggle switchTheme={() => {}} isDarkMode={true} />);
+    button = getByTestId("themeSwitcher");
+    expect(button).toHaveTextContent("theme.light-icon");
+    expect(button).toHaveTextContent("theme.light");
   });
 });
