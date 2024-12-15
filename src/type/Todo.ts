@@ -1,6 +1,7 @@
 interface Todo {
-  id: number;
+  id: string;
   text: string;
+  dueDate: string | null;
   completed: boolean;
 }
 

@@ -1,75 +1,77 @@
-import styled from "styled-components";
 import Todo from "../type/Todo";
-
-interface TodoItemProps extends React.HTMLAttributes<HTMLLIElement> {
-  completed: boolean;
-}
-
-const TodoItem = styled.li<TodoItemProps>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #e6f7ff;
-  }
-`;
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import EditTodoForm from "./EditTodoForm";
+import { motion } from "motion/react";
 
 interface TodoCardProps {
   todo: Todo;
-  toggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  completed: boolean;
-}
-
-const Text = styled.span<TextProps>`
-  flex: 1;
-  font-size: 1.2rem;
-  color: ${(props) => (props.completed ? "#b0b0b0" : "#333")};
-  text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
-`;
-
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  completed?: boolean;
-}
-
-const Button = styled.button<ButtonProps>`
-  background-color: ${(props) => (props.completed ? "#52c41a" : "#1890ff")};
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-
-  &:hover {
-    background-color: ${(props) => (props.completed ? "#52c41a" : "#096dd9")};
-  }
-`;
-
-const TodoCard = ({ todo, toggleComplete, deleteTodo }: TodoCardProps) => {
+const TodoCard = ({
+  todo,
+  toggleComplete,
+  deleteTodo,
+  handleEditTodo,
+}: TodoCardProps) => {
+  const [isEditingOpen, setIsEditingOpen] = useState(false);
+  const { t } = useTranslation();
   return (
-    <TodoItem completed={todo.completed}>
-      <Text completed={todo.completed}>{todo.text}</Text>
-      <Button
-        completed={todo.completed}
-        onClick={() => toggleComplete(todo.id)}
-      >
-        {todo.completed ? "Completed" : "Complete"}
-      </Button>
-      <Button onClick={() => deleteTodo(todo.id)}>Delete</Button>
-    </TodoItem>
+    <motion.li
+      whileTap={{
+        scale: 1.05,
+        opacity: 1,
+        backgroundColor: "#FFF8DC",
+      }}
+      className="todoItem"
+      key={todo.id}
+    >
+      <span className={todo.completed ? "completedTask" : ""}>
+        <h3 className="todoText fixLongText">{todo.text}</h3>
+        <span className="dueDateWrapper">
+          <h4 className="dueDateTitle">{t("todo-card.due-date")}</h4>
+          {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
+        </span>
+      </span>
+      <span className="todoButtonsWrapper">
+        <motion.button
+          className={
+            "button fixLongText" + (todo.completed ? " completeTaskButton" : "")
+          }
+          onClick={() => toggleComplete(todo.id)}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {todo.completed ? t("todo-card.completed") : t("todo-card.complete")}
+        </motion.button>
+        <motion.button
+          className="button editTaskButton fixLongText"
+          onClick={() => setIsEditingOpen(true)}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {t("todo-card.edit")}
+        </motion.button>
+        {isEditingOpen && (
+          <EditTodoForm
+            todo={todo}
+            editTodo={handleEditTodo}
+            closeEditForm={() => setIsEditingOpen(false)}
+          />
+        )}
+        <motion.button
+          className="button deleteTaskButton fixLongText"
+          onClick={() => deleteTodo(todo.id)}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          {t("todo-card.delete")}
+        </motion.button>
+      </span>
+    </motion.li>
   );
 };
 

@@ -1,0 +1,32 @@
+{
+  "app-title": "Verschiebbare To-Do-Liste",
+  "draggable-hint": "Sie können die Aufgaben per Drag & Drop neu anordnen",
+  "todo-form": {
+    "todo-input": "Aufgabe eingeben...",
+    "due-date": "Fälligkeitsdatum",
+    "add-button": "Hinzufügen"
+  },
+  "todo-card": {
+    "complete": "Vollständig",
+    "completed": "Vollendet",
+    "due-date": "Fälligkeitsdatum: ",
+    "delete": "Löschen",
+    "edit": "Bearbeiten"
+  },
+  "edit-todo-form": {
+    "todo-input": "Aufgabe eingeben...",
+    "due-date": "Fälligkeitsdatum",
+    "save-button": "Speichern",
+    "cancel-button": "Stornieren"
+  },
+  "theme": {
+    "dark": "Dunkel",
+    "light": "Licht",
+    "dark-icon": "🌜",
+    "light-icon": "🌞",
+    "aria-label": "Thema Schalten"
+  },
+  "language-selector": {
+    "aria-label": "Sprache Schalten"
+  }
+}

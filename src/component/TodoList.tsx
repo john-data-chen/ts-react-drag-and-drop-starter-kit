@@ -3,19 +3,26 @@ import Todo from "../type/Todo";
 
 interface TodoListProps {
   todos: Todo[];
-  toggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  toggleComplete: (id: string) => void;
+  deleteTodo: (id: string) => void;
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
 }
 
-const TodoList = ({ todos, toggleComplete, deleteTodo }: TodoListProps) => {
+const TodoList = ({
+  todos,
+  toggleComplete,
+  deleteTodo,
+  handleEditTodo,
+}: TodoListProps) => {
   return (
-    <ul>
+    <ul className="todoList">
       {todos.map((todo) => (
         <TodoCard
           key={todo.id}
           todo={todo}
           toggleComplete={toggleComplete}
           deleteTodo={deleteTodo}
+          handleEditTodo={handleEditTodo}
         />
       ))}
     </ul>
