@@ -15,6 +15,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   return (
     <motion.button
       className="themeSwitcher"
+      data-testid="themeSwitcher"
       onClick={switchTheme}
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
