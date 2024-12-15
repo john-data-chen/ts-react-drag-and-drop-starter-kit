@@ -15,11 +15,15 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   return (
     <motion.button
       className="themeSwitcher"
+      data-testid="themeSwitcher"
       onClick={switchTheme}
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
+      aria-label={t("theme.aria-label")}
     >
-      {isDarkMode ? "🌞 " + t("theme.light") : "🌜 " + t("theme.dark")}
+      {isDarkMode
+        ? t("theme.light-icon") + t("theme.light")
+        : t("theme.dark-icon") + t("theme.dark")}
     </motion.button>
   );
 };
