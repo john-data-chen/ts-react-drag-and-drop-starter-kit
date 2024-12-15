@@ -21,6 +21,9 @@
   },
   "theme": {
     "dark": "Dark",
-    "light": "Light"
+    "light": "Light",
+    "dark-icon": "🌜",
+    "light-icon": "🌞",
+    "aria-label": "Switch Theme"
   }
 }
