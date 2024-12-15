@@ -15,7 +15,7 @@ export default defineConfig({
     removeAttribute({
       extensions: ["ts", "tsx"],
       attributes: ["data-testid"],
-      ignoreFolders: ["src/tests"],
+      ignoreFolders: ["./src/__tests__"],
     }),
   ],
 });
