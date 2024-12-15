@@ -44,6 +44,7 @@
 - Add Unit test by Jest
 - Refactor side effects of local Storage into Redux middleware
 - Add Accessibility such as ARIA tags
+- Add CI of Github action
 
 ## More in developing
 
