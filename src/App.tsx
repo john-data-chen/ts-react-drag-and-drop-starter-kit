@@ -17,29 +17,19 @@ import {
   handleDragEnd,
   toggleComplete,
 } from "./redux/todoSlice";
-import { switchTheme } from "./redux/themeSlice";
-import ThemeToggle from "./component/ThemeToggle";
-import { changeLanguageState } from "./redux/languageSlice";
-import LanguageSelector from "./component/LanguageSelector";
 import { RootState } from "./redux/store";
+import LanguageSelector from "./component/LanguageSelector";
+import { useLanguage } from "./hooks/useLanguage";
+import ThemeToggle from "./component/ThemeToggle";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
   const todosSelector = useSelector((state: RootState) => state.todos.todos);
-  const themeSelector = useSelector((state: RootState) => state.theme.mode);
-  const languageSelector = useSelector(
-    (state: RootState) => state.language.code
-  );
-
+  const { isDarkMode, handleSwitchTheme } = useTheme();
+  const { languageCode, handleLanguageChange } = useLanguage();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
-  const isDarkMode = themeSelector === "dark";
-  const handleSwitchTheme = () => {
-    dispatch(switchTheme());
-  };
-  const { i18n, t } = useTranslation();
-  const onChangeLang = (languageCode: string) => {
-    i18n.changeLanguage(languageCode);
-    dispatch(changeLanguageState());
-  };
+
   const handleAddTodo = (text: string, dueDate: Date | null) => {
     const dueDateStr = dueDate ? dueDate.toISOString() : null;
     dispatch(addTodo({ text, dueDate: dueDateStr }));
@@ -77,8 +67,8 @@ function App() {
             isDarkMode={isDarkMode}
           />
           <LanguageSelector
-            selectedLanguage={languageSelector}
-            onChangeLang={(languageCode) => onChangeLang(languageCode)}
+            selectedLanguage={languageCode}
+            onChangeLang={handleLanguageChange}
           />
         </div>
         <h1 className="appTitle">{t("app-title")}</h1>
