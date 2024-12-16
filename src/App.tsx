@@ -2,13 +2,13 @@ import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
 import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
 import { DragDropContext } from "@hello-pangea/dnd";
-import { useTranslation } from "react-i18next";
 import LanguageSelector from "./component/LanguageSelector";
 import { useLanguage } from "./hooks/useLanguage";
 import ThemeToggle from "./component/ThemeToggle";
 import { useTheme } from "./hooks/useTheme";
 import { useTodos } from "./hooks/useTodos";
 import TodoDragDropList from "./component/TodoDragDropList";
+import AppTitle from "./component/AppTitle";
 
 function App() {
   const {
@@ -21,7 +21,6 @@ function App() {
   } = useTodos();
   const { isDarkMode, handleSwitchTheme } = useTheme();
   const { languageCode, handleLanguageChange } = useLanguage();
-  const { t } = useTranslation();
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
@@ -37,7 +36,7 @@ function App() {
             onChangeLang={handleLanguageChange}
           />
         </div>
-        <h1 className="appTitle">{t("app-title")}</h1>
+        <AppTitle />
         <TodoForm addTodo={handleAddTodo} />
         <DragDropContext onDragEnd={handleDragEndTodos}>
           <TodoDragDropList
