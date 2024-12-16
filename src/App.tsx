@@ -7,7 +7,6 @@ import { useTheme } from "./hooks/useTheme";
 import { useTodos } from "./hooks/useTodos";
 import TodoDragDropList from "./component/TodoDragDropList";
 import AppTitle from "./component/AppTitle";
-import "./component/ThemeWrapper";
 import { ThemeWrapper } from "./component/ThemeWrapper";
 
 function App() {
