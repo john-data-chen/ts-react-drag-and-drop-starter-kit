@@ -1,6 +1,4 @@
-import { ThemeProvider } from "styled-components";
 import TodoForm from "./component/TodoForm";
-import { lightTheme, darkTheme, GlobalStyles } from "./theme/ThemeSets";
 import { DragDropContext } from "@hello-pangea/dnd";
 import LanguageSelector from "./component/LanguageSelector";
 import { useLanguage } from "./hooks/useLanguage";
@@ -9,6 +7,8 @@ import { useTheme } from "./hooks/useTheme";
 import { useTodos } from "./hooks/useTodos";
 import TodoDragDropList from "./component/TodoDragDropList";
 import AppTitle from "./component/AppTitle";
+import "./component/ThemeWrapper";
+import { ThemeWrapper } from "./component/ThemeWrapper";
 
 function App() {
   const {
@@ -23,8 +23,7 @@ function App() {
   const { languageCode, handleLanguageChange } = useLanguage();
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <GlobalStyles />
+    <ThemeWrapper>
       <div className="appContainer">
         <div className="topContainer">
           <ThemeToggle
@@ -47,7 +46,7 @@ function App() {
           />
         </DragDropContext>
       </div>
-    </ThemeProvider>
+    </ThemeWrapper>
   );
 }
 
