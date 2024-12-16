@@ -1,20 +1,9 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import en from "./en.json";
-import de from "./de.json";
-
-const resources = {
-  en: { translation: en },
-  de: { translation: de },
-};
-
-const options = {
+export const i18nConfig = {
   // order and from where user language should be detected
   order: [
+    "localStorage",
     "querystring",
     "cookie",
-    "localStorage",
     "navigator",
     "htmlTag",
     "path",
@@ -34,19 +23,3 @@ const options = {
   // optional htmlTag with lang attribute, the default is:
   htmlTag: document.documentElement,
 };
-
-i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .init({
-    ...options,
-    resources,
-    lng: localStorage.getItem("i18nextLng") || "en",
-    fallbackLng: "en",
-    debug: true,
-    interpolation: {
-      escapeValue: false,
-    },
-  });
-
-export default i18n;
