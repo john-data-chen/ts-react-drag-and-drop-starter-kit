@@ -27,19 +27,48 @@ const TodoCard = ({
         backgroundColor: "#FFF8DC",
       }}
       className="todoItem"
+      data-testid="todoItem"
       key={todo.id}
     >
       <span className={todo.completed ? "completedTask" : ""}>
-        <h3 className="todoText fixLongText">{todo.text}</h3>
+        <h3
+          className="todoText fixLongText"
+          data-testid={`todoId: ${todo.id}`}
+          aria-label={`todo title: ${todo.text}`}
+        >
+          {todo.text}
+        </h3>
         <span className="dueDateWrapper">
-          <h4 className="dueDateTitle">{t("todo-card.due-date")}</h4>
-          {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : "None"}
+          <h4
+            className="dueDateTitle"
+            data-testid="dueDateTitle"
+            aria-label={t("todo-card.due-date")}
+          >
+            {t("todo-card.due-date")}
+          </h4>
+          <p
+            className="dueDate fixLongText"
+            data-testid="dueDate"
+            aria-label={
+              todo.dueDate
+                ? new Date(todo.dueDate).toLocaleDateString()
+                : "None"
+            }
+          >
+            {todo.dueDate
+              ? new Date(todo.dueDate).toLocaleDateString()
+              : "None"}
+          </p>
         </span>
       </span>
       <span className="todoButtonsWrapper">
         <motion.button
           className={
             "button fixLongText" + (todo.completed ? " completeTaskButton" : "")
+          }
+          data-testid="completeTaskButton"
+          aria-label={
+            todo.completed ? t("todo-card.completed") : t("todo-card.complete")
           }
           onClick={() => toggleComplete(todo.id)}
           whileHover={{ scale: 1.2 }}
@@ -49,6 +78,8 @@ const TodoCard = ({
         </motion.button>
         <motion.button
           className="button editTaskButton fixLongText"
+          data-testid="editTaskButton"
+          aria-label={t("todo-card.edit")}
           onClick={() => setIsEditingOpen(true)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
@@ -64,6 +95,8 @@ const TodoCard = ({
         )}
         <motion.button
           className="button deleteTaskButton fixLongText"
+          data-testid="deleteTaskButton"
+          aria-label={t("todo-card.delete")}
           onClick={() => deleteTodo(todo.id)}
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9 }}
