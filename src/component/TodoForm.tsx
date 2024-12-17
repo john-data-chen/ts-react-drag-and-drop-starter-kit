@@ -21,7 +21,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         setDueDate(null);
       }
     },
-    [input, setInput, dueDate, setDueDate, addTodo]
+    [input, dueDate, addTodo]
   );
 
   const { t } = useTranslation();
@@ -30,11 +30,13 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
     <form className="addTodoForm" onSubmit={handleSubmit}>
       <motion.input
         className="addTodoInput"
+        data-testid="addTodoInput"
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder={t("todo-form.todo-input")}
         required
+        aria-label={t("todo-form.todo-input")}
         initial={{ width: "0", x: "50vw" }}
         animate={{ width: "100%", x: 0 }}
         transition={{ duration: 1, origin: 1 }}
@@ -43,16 +45,28 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         minDate={new Date()}
         selected={dueDate}
         onChange={(date: Date | null) => {
-          setDueDate(date);
+          try {
+            if (date && isNaN(date.getTime())) {
+              throw new Error("Invalid date selected");
+            }
+            setDueDate(date);
+          } catch (error) {
+            console.error("Date selection error:", error);
+            setDueDate(null);
+          }
         }}
         placeholderText={t("todo-form.due-date")}
         dateFormat="yyyy/MM/d"
         className="addTaskDatePicker"
+        data-testid="addTaskDatePicker"
+        aria-label={t("todo-form.due-date")}
       />
       <motion.button
         className="addTaskButton fixLongText"
+        data-testid="addTaskButton"
         type="submit"
         disabled={!input.trim()}
+        aria-label={t("todo-form.add-button")}
         whileHover={input.trim() ? { scale: 1.2 } : { scale: 1 }}
         whileTap={input.trim() ? { scale: 0.8 } : { scale: 1 }}
       >
