@@ -16,8 +16,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.backgroundColor};
+    color: ${({ theme }) => theme.textColor};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     line-height: 1.5;
     font-size: 14px;
@@ -55,7 +55,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 1rem;
     height: 2rem;
     width: 6rem;
-    background-color: ${({ theme }) => theme.buttonBackground};
+    background-color: ${({ theme }) => theme.switchColor};
 }
 
   .languageSelector {
@@ -320,13 +320,13 @@ export const GlobalStyles = createGlobalStyle`
 `;
 
 export const lightTheme = {
-  body: "#f7f7f7",
-  text: "#333",
-  buttonBackground: "#FFC000",
+  backgroundColor: "#f7f7f7",
+  textColor: "#333",
+  switchColor: "#FFC000",
 };
 
 export const darkTheme = {
-  body: "#333",
-  text: "#B2BEB5",
-  buttonBackground: "#FAFA33",
+  backgroundColor: "#333",
+  textColor: "#B2BEB5",
+  switchColor: "#FAFA33",
 };
