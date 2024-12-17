@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
-import EditTodoForm from "./../component/EditTodoForm";
-import Todo from "../type/Todo";
-import { DEMO_TASKS } from "../constants/constants";
+import EditTodoForm from "../../component/EditTodoForm";
+import Todo from "../../type/Todo";
+import { DEMO_TASKS } from "../../constants/constants";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({

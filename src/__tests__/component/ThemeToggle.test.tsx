@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react";
-import ThemeToggle from "./../component/ThemeToggle";
+import ThemeToggle from "../../component/ThemeToggle";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import AppTitle from "../component/AppTitle";
+import AppTitle from "../../component/AppTitle";
 import { useTranslation } from "react-i18next";
 
 jest.mock("react-i18next", () => ({

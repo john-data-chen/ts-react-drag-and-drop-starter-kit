@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
-import LanguageSelector from "./../component/LanguageSelector";
-import { LANGUAGES } from "../constants/constants";
+import LanguageSelector from "../../component/LanguageSelector";
+import { LANGUAGES } from "../../constants/constants";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({
