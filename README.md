@@ -1,4 +1,4 @@
-# React + TypeScript + Vite: Todo list
+# React + TypeScript + Vite: Todo list [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 
 ## How to use
 
