@@ -14,7 +14,7 @@ describe("TodoForm", () => {
     mockAddTodo.mockClear();
   });
 
-  it("test_submit_valid_todo_with_date", async () => {
+  it("test_submit_valid_todo_without_date", async () => {
     render(<TodoForm addTodo={mockAddTodo} />);
 
     const input = screen.getByTestId("addTodoInput");
@@ -26,7 +26,7 @@ describe("TodoForm", () => {
     expect(mockAddTodo).toHaveBeenCalledWith("Test todo", null);
   });
 
-  it("test_submit_valid_todo_without_date", async () => {
+  it("test_submit_button_is_disabled", async () => {
     render(<TodoForm addTodo={mockAddTodo} />);
 
     const input = screen.getByTestId("addTodoInput");
@@ -36,5 +36,6 @@ describe("TodoForm", () => {
     fireEvent.click(submitButton);
 
     expect(mockAddTodo).not.toHaveBeenCalled();
+    expect(submitButton).toBeDisabled();
   });
 });
