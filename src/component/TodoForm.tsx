@@ -9,19 +9,28 @@ interface TodoFormProps {
 }
 
 const TodoForm = ({ addTodo }: TodoFormProps) => {
-  const [input, setInput] = useState("");
-  const [dueDate, setDueDate] = useState<Date | null>(null);
+  const useFormState = () => {
+    const [formState, setFormState] = useState({
+      input: "",
+      dueDate: null as Date | null,
+    });
+
+    const resetForm = () => setFormState({ input: "", dueDate: null });
+
+    return { formState, setFormState, resetForm };
+  };
+
+  const { formState, setFormState, resetForm } = useFormState();
 
   const handleSubmit = useCallback(
     (e: { preventDefault: () => void }) => {
       e.preventDefault();
-      if (input.trim()) {
-        addTodo(input, dueDate);
-        setInput("");
-        setDueDate(null);
+      if (formState.input.trim()) {
+        addTodo(formState.input, formState.dueDate);
+        resetForm();
       }
     },
-    [input, dueDate, addTodo]
+    [formState, addTodo, resetForm]
   );
 
   const { t } = useTranslation();
@@ -32,8 +41,8 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         className="addTodoInput"
         data-testid="addTodoInput"
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={formState.input}
+        onChange={(e) => setFormState({ ...formState, input: e.target.value })}
         placeholder={t("todo-form.todo-input")}
         required
         aria-label={t("todo-form.todo-input")}
@@ -43,16 +52,16 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
       />
       <DatePicker
         minDate={new Date()}
-        selected={dueDate}
+        selected={formState.dueDate}
         onChange={(date: Date | null) => {
           try {
             if (date && isNaN(date.getTime())) {
               throw new Error("Invalid date selected");
             }
-            setDueDate(date);
+            setFormState({ ...formState, dueDate: date });
           } catch (error) {
             console.error("Date selection error:", error);
-            setDueDate(null);
+            setFormState({ ...formState, dueDate: null });
           }
         }}
         placeholderText={t("todo-form.due-date")}
@@ -65,10 +74,10 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         className="addTaskButton fixLongText"
         data-testid="addTaskButton"
         type="submit"
-        disabled={!input.trim()}
+        disabled={!formState.input.trim()}
         aria-label={t("todo-form.add-button")}
-        whileHover={input.trim() ? { scale: 1.2 } : { scale: 1 }}
-        whileTap={input.trim() ? { scale: 0.8 } : { scale: 1 }}
+        whileHover={formState.input.trim() ? { scale: 1.2 } : { scale: 1 }}
+        whileTap={formState.input.trim() ? { scale: 0.8 } : { scale: 1 }}
       >
         {t("todo-form.add-button")}
       </motion.button>
