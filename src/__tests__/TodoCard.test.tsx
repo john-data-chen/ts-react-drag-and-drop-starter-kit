@@ -26,9 +26,16 @@ describe("TodoCard Component", () => {
       />
     );
 
-    const completeButton = getByTestId("completeTaskButton");
-    fireEvent.click(completeButton);
+    const incompleteTaskButton = getByTestId(
+      mockTodo.completed ? "completeTaskButton" : "incompleteTaskButton"
+    );
+    fireEvent.click(incompleteTaskButton);
+    expect(toggleCompleteMock).toHaveBeenCalledWith(mockTodo.id);
 
+    const completeTaskButton = getByTestId(
+      mockTodo.completed ? "completeTaskButton" : "incompleteTaskButton"
+    );
+    fireEvent.click(completeTaskButton);
     expect(toggleCompleteMock).toHaveBeenCalledWith(mockTodo.id);
   });
 
