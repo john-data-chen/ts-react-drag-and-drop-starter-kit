@@ -24,14 +24,11 @@ describe("ThemeToggle Component", () => {
     const { getByTestId, rerender } = render(
       <ThemeToggle switchTheme={() => {}} isDarkMode={false} />
     );
-
     let button = getByTestId("themeSwitcher");
-    expect(button).toHaveTextContent("theme.dark-icon");
-    expect(button).toHaveTextContent("theme.dark");
+    expect(button).toHaveTextContent(`${"theme.dark-icon"}${"theme.dark"}`);
 
     rerender(<ThemeToggle switchTheme={() => {}} isDarkMode={true} />);
     button = getByTestId("themeSwitcher");
-    expect(button).toHaveTextContent("theme.light-icon");
-    expect(button).toHaveTextContent("theme.light");
+    expect(button).toHaveTextContent(`${"theme.light-icon"}${"theme.light"}`);
   });
 });
