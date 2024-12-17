@@ -80,9 +80,7 @@ const TodoCard = memo(
             className={`fixLongText button ${
               todo.completed ? "completeTaskButton" : "incompleteTaskButton"
             }`}
-            data-testid={
-              todo.completed ? "completeTaskButton" : "incompleteTaskButton"
-            }
+            data-testid="completeTaskToggle"
             aria-label={todo.completed ? completedText : completeText}
             onClick={() => toggleComplete(todo.id)}
             {...buttonMotionProps}

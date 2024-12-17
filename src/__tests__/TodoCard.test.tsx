@@ -17,7 +17,7 @@ describe("TodoCard Component", () => {
   const handleEditTodoMock = jest.fn();
 
   test("test_toggle_complete_status", () => {
-    const { getByTestId } = render(
+    const { getByTestId, rerender } = render(
       <TodoCard
         todo={mockTodo}
         toggleComplete={toggleCompleteMock}
@@ -25,18 +25,29 @@ describe("TodoCard Component", () => {
         handleEditTodo={handleEditTodoMock}
       />
     );
-
-    const incompleteTaskButton = getByTestId(
-      mockTodo.completed ? "completeTaskButton" : "incompleteTaskButton"
-    );
-    fireEvent.click(incompleteTaskButton);
+    const completeTaskToggle = getByTestId("completeTaskToggle");
+    expect(completeTaskToggle).toHaveTextContent("todo-card.complete");
+    fireEvent.click(completeTaskToggle);
     expect(toggleCompleteMock).toHaveBeenCalledWith(mockTodo.id);
-
-    const completeTaskButton = getByTestId(
-      mockTodo.completed ? "completeTaskButton" : "incompleteTaskButton"
+    rerender(
+      <TodoCard
+        todo={{ ...mockTodo, completed: true }}
+        toggleComplete={toggleCompleteMock}
+        deleteTodo={deleteTodoMock}
+        handleEditTodo={handleEditTodoMock}
+      />
     );
-    fireEvent.click(completeTaskButton);
-    expect(toggleCompleteMock).toHaveBeenCalledWith(mockTodo.id);
+    expect(completeTaskToggle).toHaveTextContent("todo-card.completed");
+    fireEvent.click(completeTaskToggle);
+    rerender(
+      <TodoCard
+        todo={{ ...mockTodo, completed: false }}
+        toggleComplete={toggleCompleteMock}
+        deleteTodo={deleteTodoMock}
+        handleEditTodo={handleEditTodoMock}
+      />
+    );
+    expect(completeTaskToggle).toHaveTextContent("todo-card.complete");
   });
 
   test("test_edit_form_toggle", () => {
