@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import Todo from "../type/Todo";
 import DatePicker from "react-datepicker";
@@ -18,39 +18,67 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
     todo.dueDate ? new Date(todo.dueDate) : null
   );
 
+  useEffect(() => {
+    setText(todo.text);
+    setDueDate(todo.dueDate ? new Date(todo.dueDate) : null);
+  }, [todo]);
+
+  const minDate = useMemo(() => new Date(), []);
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+
   const handleSubmit = useCallback(
-    (e: { preventDefault: () => void }) => {
+    async (e: { preventDefault: () => void }) => {
       e.preventDefault();
       if (text.trim()) {
-        editTodo(todo.id, text, dueDate);
-        setText("");
-        setDueDate(null);
-        closeEditForm();
+        try {
+          await editTodo(todo.id, text, dueDate);
+          setText("");
+          setDueDate(null);
+          closeEditForm();
+        } catch (error) {
+          console.error("Failed to update todo:", error);
+          // Optionally, display an error message to the user
+        }
       }
     },
     [text, dueDate, todo, setText, setDueDate, editTodo, closeEditForm]
   );
+
   return (
-    <form className="editForm" data-testid="editForm" onSubmit={handleSubmit}>
+    <form
+      className="editForm"
+      data-testid="editForm"
+      onSubmit={handleSubmit}
+      aria-label="Edit Todo Form"
+    >
       <input
         className="editTaskInput"
+        data-testid="editTaskInput"
+        aria-label={t("edit-todo-form.todo-input")}
         type="text"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleTextChange}
         placeholder={t("edit-todo-form.todo-input")}
         required
       />
       <DatePicker
-        minDate={new Date()}
+        minDate={minDate}
         selected={dueDate}
         onChange={(date: Date | null) => setDueDate(date)}
         dateFormat="yyyy/MM/d"
         placeholderText={t("edit-todo-form.due-date")}
         className="EditTaskDatePicker"
+        data-testid="EditTaskDatePicker"
+        aria-label={t("edit-todo-form.due-date")}
       />
       <div className="editTaskButtonWrapper">
         <motion.button
-          className="editTaskButton"
+          className="saveEditButton"
+          data-testid="saveEditButton"
+          aria-label={t("edit-todo-form.save-button")}
           onClick={handleSubmit}
           disabled={!text.trim()}
           whileHover={text.trim() ? { scale: 1.2 } : { scale: 1 }}
@@ -59,7 +87,9 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
           {t("edit-todo-form.save-button")}
         </motion.button>
         <motion.button
-          className="editTaskButton cancelButton"
+          className="saveEditButton cancelEditButton"
+          data-testid="cancelEditButton"
+          aria-label={t("edit-todo-form.cancel-button")}
           onClick={closeEditForm}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
