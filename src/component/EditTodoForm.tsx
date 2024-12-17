@@ -31,7 +31,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
     [text, dueDate, todo, setText, setDueDate, editTodo, closeEditForm]
   );
   return (
-    <form className="editForm" onSubmit={handleSubmit}>
+    <form className="editForm" data-testid="editForm" onSubmit={handleSubmit}>
       <input
         className="editTaskInput"
         type="text"
