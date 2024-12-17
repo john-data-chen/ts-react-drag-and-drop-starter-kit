@@ -1,16 +1,13 @@
 name: CD
 
 on:
-  pull_request:
-    types:
-      - closed
+  pull_request_target:
+    types: [closed]
     branches: [main]
-
-  workflow_dispatch:
 
 jobs:
   build-and-deploy:
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
