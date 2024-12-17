@@ -35,11 +35,9 @@ const TodoCard = memo(
     };
 
     const cardMotionProps = {
-      whileTap: {
-        scale: 1.05,
-        opacity: 1,
-        backgroundColor: "#FFF8DC",
-      },
+      initial: { opacity: 0, y: 100 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.5 },
     };
 
     return (
@@ -48,6 +46,8 @@ const TodoCard = memo(
         data-testid="todoItem"
         key={todo.id}
         {...cardMotionProps}
+        aria-label={`todo item: ${todo.text}`}
+        role="listitem"
       >
         <span className={todo.completed ? "completedTask" : ""}>
           <h3
