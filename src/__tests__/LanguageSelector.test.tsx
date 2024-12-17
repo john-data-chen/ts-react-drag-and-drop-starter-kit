@@ -2,6 +2,12 @@ import { render, fireEvent } from "@testing-library/react";
 import LanguageSelector from "./../component/LanguageSelector";
 import { LANGUAGES } from "../constants/constants";
 
+jest.mock("react-i18next", () => ({
+  useTranslation: () => ({
+    t: (key: string) => key,
+  }),
+}));
+
 describe("LanguageSelector Component", () => {
   it("test_render_language_options", () => {
     const { getByTestId } = render(
