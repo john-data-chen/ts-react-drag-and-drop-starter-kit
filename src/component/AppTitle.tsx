@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function AppTitle() {
+function AppTitle() {
   const { t } = useTranslation();
   return (
     <h1 className="appTitle" data-testid="appTitle" aria-label={t("app-title")}>
@@ -8,3 +9,5 @@ export default function AppTitle() {
     </h1>
   );
 }
+
+export default memo(AppTitle);
