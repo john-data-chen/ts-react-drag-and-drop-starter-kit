@@ -43,7 +43,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
       <DatePicker
         minDate={new Date()}
         selected={dueDate}
-        onChange={(date) => setDueDate(date)}
+        onChange={(date: Date | null) => setDueDate(date)}
         dateFormat="yyyy/MM/d"
         placeholderText={t("edit-todo-form.due-date")}
         className="EditTaskDatePicker"
