@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import TodoForm from "./../component/TodoForm";
+import TodoForm from "../component/TodoForm";
 
 jest.mock("react-i18next", () => ({
   useTranslation: () => ({

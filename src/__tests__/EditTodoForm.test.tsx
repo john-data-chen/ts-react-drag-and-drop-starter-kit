@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react";
-import EditTodoForm from "./../component/EditTodoForm";
+import EditTodoForm from "../component/EditTodoForm";
 import Todo from "../type/Todo";
 import { DEMO_TASKS } from "../constants/constants";
 

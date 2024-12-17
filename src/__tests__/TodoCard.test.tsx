@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react";
-import TodoCard from "./../component/TodoCard";
+import TodoCard from "../component/TodoCard";
 import Todo from "../type/Todo";
 import { DEMO_TASKS } from "../constants/constants";
 
