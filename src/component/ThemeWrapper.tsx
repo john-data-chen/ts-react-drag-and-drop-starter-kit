@@ -6,7 +6,7 @@ import { lightTheme, darkTheme, GlobalStyles } from "../theme/ThemeSets";
 interface ThemeWrapperProps {
   children: React.ReactNode;
 }
-export const ThemeWrapper = ({ children }: ThemeWrapperProps) => {
+export const ThemeWrapper = React.memo(({ children }: ThemeWrapperProps) => {
   const { isDarkMode } = useTheme();
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
@@ -14,4 +14,4 @@ export const ThemeWrapper = ({ children }: ThemeWrapperProps) => {
       {children}
     </ThemeProvider>
   );
-};
+});
