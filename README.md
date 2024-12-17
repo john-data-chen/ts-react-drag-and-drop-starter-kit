@@ -43,12 +43,12 @@
 - Refactor components for testing
 - Add Unit test by Jest
 - Refactor side effects of local Storage into Redux middleware
-- Add Accessibility such as ARIA tags
+- Add Accessibility such as ARIA tags and keyboard support
 - Add CI and CD of Github action
+- Add codecov in CI of Github action
 
 ## More in developing
 
-- Add Accessibility keyboard support
 - Add more details into README
 
 ## Known issues or limits
