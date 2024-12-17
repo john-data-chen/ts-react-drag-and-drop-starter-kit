@@ -93,17 +93,21 @@ export const GlobalStyles = createGlobalStyle`
     text-align: center;
   }
 
-  .addTaskButton {
+  .button {
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 5rem;
-    background-color: #1890ff;
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    margin-bottom: 1rem;
     transition: background-color 0.3s ease;
+  }
+
+  .addTaskButton {
+    extend: .button;
+    width: 5rem;
+    margin-bottom: 1rem;
+    background-color: #1890ff;
     &:hover {
       background-color: #096dd9;
     }
@@ -161,16 +165,10 @@ export const GlobalStyles = createGlobalStyle`
     margin-left: auto;
   }
 
-  .button {
-    background-color: #1890ff;
-    color: white;
-    border: none;
-    padding: 0.5rem;
+  .incompleteTaskButton {
+    @extend .button;
     margin-right: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-
+    background-color: #1890ff;
     &:hover {
       background-color: #096dd9;
     }
@@ -178,9 +176,19 @@ export const GlobalStyles = createGlobalStyle`
 
   .completeTaskButton {
     @extend .button;
+    margin-right: 1rem;
     background-color: #52c41a;
     &:hover {
       background-color: #73d13d;
+    }
+  }
+
+  .editTaskButton {
+    @extend .button;
+    margin-right: 1rem;
+    background-color: #512da8;
+    &:hover {
+      background-color: #6f42c1;
     }
   }
 
@@ -189,13 +197,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: red;
     &:hover {
       background-color: #ff7875;
-    }
-  }
-
-  .editTaskButton {
-    background-color: #512da8;
-    &:hover {
-      background-color: #6f42c1;
     }
   }
 
@@ -247,14 +248,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .saveEditButton {
+    @extend .button;
     background-color: #1890ff;
     margin-right: 1rem;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     &:hover {
       background-color: #096dd9;
     }
@@ -265,7 +261,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .cancelEditButton {
-    @extend .editTaskButton;
+    @extend .button;
     margin-right: 0;
     background-color: red;
     &:hover {

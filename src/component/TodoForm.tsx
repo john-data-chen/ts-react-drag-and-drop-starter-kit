@@ -61,7 +61,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         aria-label={t("todo-form.due-date")}
       />
       <motion.button
-        className="addTaskButton fixLongText"
+        className="button addTaskButton fixLongText"
         data-testid="addTaskButton"
         type="submit"
         disabled={!formState.input.trim()}

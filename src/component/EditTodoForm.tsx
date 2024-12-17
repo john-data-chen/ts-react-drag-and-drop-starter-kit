@@ -76,7 +76,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
       />
       <div className="editTaskButtonWrapper">
         <motion.button
-          className="saveEditButton"
+          className="button saveEditButton"
           data-testid="saveEditButton"
           aria-label={t("edit-todo-form.save-button")}
           onClick={handleSubmit}
@@ -87,7 +87,7 @@ const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
           {t("edit-todo-form.save-button")}
         </motion.button>
         <motion.button
-          className="saveEditButton cancelEditButton"
+          className="button cancelEditButton"
           data-testid="cancelEditButton"
           aria-label={t("edit-todo-form.cancel-button")}
           onClick={closeEditForm}

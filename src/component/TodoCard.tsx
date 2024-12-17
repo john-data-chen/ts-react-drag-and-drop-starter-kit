@@ -77,10 +77,12 @@ const TodoCard = memo(
         </span>
         <span className="todoButtonsWrapper">
           <motion.button
-            className={`button fixLongText${
-              todo.completed ? " completeTaskButton" : ""
+            className={`fixLongText button ${
+              todo.completed ? "completeTaskButton" : "incompleteTaskButton"
             }`}
-            data-testid="completeTaskButton"
+            data-testid={
+              todo.completed ? "completeTaskButton" : "incompleteTaskButton"
+            }
             aria-label={todo.completed ? completedText : completeText}
             onClick={() => toggleComplete(todo.id)}
             {...buttonMotionProps}
