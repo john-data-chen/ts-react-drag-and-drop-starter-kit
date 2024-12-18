@@ -1,5 +1,6 @@
 # Todo List Application <br>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b40540b03ba84c29be1ad6be32f617d6)](https://app.codacy.com/gh/john-data-chen/to-do-list-app?utm_source=github.com&utm_medium=referral&utm_content=john-data-chen/to-do-list-app&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A modern Todo List project built with React, TypeScript, and Vite, featuring comprehensive testing and accessibility support.
