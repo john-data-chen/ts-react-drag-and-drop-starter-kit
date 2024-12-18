@@ -1,19 +1,19 @@
-import Todo from "../type/Todo";
-import TodoList from "./TodoList";
-import { Draggable, Droppable } from "@hello-pangea/dnd";
+import Todo from '../type/Todo'
+import TodoList from './TodoList'
+import { Draggable, Droppable } from '@hello-pangea/dnd'
 
 interface TodoDragDropListProps {
-  todos: Todo[];
-  handleToggleComplete: (id: string) => void;
-  handleDeleteTodo: (id: string) => void;
-  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void;
+  todos: Todo[]
+  handleToggleComplete: (id: string) => void
+  handleDeleteTodo: (id: string) => void
+  handleEditTodo: (id: string, text: string, dueDate: Date | null) => void
 }
 
 const TodoDragDropList = ({
   todos,
   handleToggleComplete,
   handleDeleteTodo,
-  handleEditTodo,
+  handleEditTodo
 }: TodoDragDropListProps) => {
   return (
     <Droppable droppableId="drop-id">
@@ -46,7 +46,7 @@ const TodoDragDropList = ({
         </div>
       )}
     </Droppable>
-  );
-};
+  )
+}
 
-export default TodoDragDropList;
+export default TodoDragDropList

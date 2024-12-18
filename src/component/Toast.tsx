@@ -1,5 +1,5 @@
-import { ToastContainer, Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Toast() {
   return (
@@ -19,7 +19,7 @@ function Toast() {
       role="alert"
       aria-live="assertive"
     />
-  );
+  )
 }
 
-export default Toast;
+export default Toast

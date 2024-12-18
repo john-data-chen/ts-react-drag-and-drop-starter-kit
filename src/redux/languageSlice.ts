@@ -1,22 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 export interface LanguageState {
-  code: "en" | "de";
+  code: 'en' | 'de'
 }
 
 const initialState: LanguageState = {
-  code: "en",
-};
+  code: 'en'
+}
 
 export const languageSlice = createSlice({
-  name: "language",
+  name: 'language',
   initialState,
   reducers: {
     changeLanguageState: (state) => {
-      state.code = state.code === "en" ? "de" : "en";
-    },
-  },
-});
+      state.code = state.code === 'en' ? 'de' : 'en'
+    }
+  }
+})
 
-export const { changeLanguageState } = languageSlice.actions;
-export default languageSlice.reducer;
+export const { changeLanguageState } = languageSlice.actions
+export default languageSlice.reducer

@@ -1,17 +1,14 @@
-import { motion } from "motion/react";
-import { useTranslation } from "react-i18next";
-import { memo } from "react";
+import { motion } from 'motion/react'
+import { useTranslation } from 'react-i18next'
+import { memo } from 'react'
 
 interface ThemeToggleProps {
-  switchTheme: () => void;
-  isDarkMode: boolean;
+  switchTheme: () => void
+  isDarkMode: boolean
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({
-  switchTheme,
-  isDarkMode,
-}) => {
-  const { t } = useTranslation();
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ switchTheme, isDarkMode }) => {
+  const { t } = useTranslation()
 
   return (
     <motion.button
@@ -23,13 +20,13 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
       whileTap={{ scale: 0.8 }}
       role="switch"
       aria-checked={isDarkMode}
-      aria-label={t("theme.aria-label")}
+      aria-label={t('theme.aria-label')}
     >
       {isDarkMode
-        ? `${t("theme.light-icon")}${t("theme.light")}`
-        : `${t("theme.dark-icon")}${t("theme.dark")}`}
+        ? `${t('theme.light-icon')}${t('theme.light')}`
+        : `${t('theme.dark-icon')}${t('theme.dark')}`}
     </motion.button>
-  );
-};
+  )
+}
 
-export default memo(ThemeToggle);
+export default memo(ThemeToggle)
