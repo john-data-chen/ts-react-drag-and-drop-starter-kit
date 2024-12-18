@@ -1,4 +1,6 @@
-# Todo List Application [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
+# Todo List Application <br>
+
+[![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A modern Todo List project built with React, TypeScript, and Vite, featuring comprehensive testing and accessibility support.
 
@@ -24,8 +26,11 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 - React: v18.3.1
 - Vite: v6.0.3
 - TypeScript: v5.6.2
-- Jest (unit testing)
+- Jest (Unit Testing)
 - GitHub Actions (CI/CD)
+- ESLint (Code Quality)
+- Prettier (Code Style)
+- Husky (Automated code verification)
 
 ### Technical Decisions
 
@@ -55,15 +60,14 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 - Comprehensive testing framework with good TypeScript support
 - Snapshot testing capabilities
 - Large community and extensive documentation
-- Integration with GitHub Actions CI/CD
+- Integration with GitHub Actions CI/CD and Codecov coverage reports
 
-## 🔜 Upcoming Features
+## 🔜 Upcoming Improvements
 
-- [ ] CI: auto lint and format code
+- [x] Code Quality: Automated lint and style checks
 - [ ] Test: Integration tests for Redux
 - [ ] Test: E2E tests for critical user flows
-- [ ] Test: Snapshot tests for UI components
-- [ ] Security: add Security Strategy
+- [ ] Security: add validations in Security Strategy
 
 ## 🚀 Getting Started
 
@@ -76,6 +80,12 @@ npm run dev
 
 # Run tests
 npm run test
+
+# ESLint check
+npm run lint
+
+# Prettier check
+npx prettier . --check
 
 # Deploy to GitHub Pages
 npm run deploy
@@ -94,9 +104,15 @@ it works fine on Phone <br>
 
 ## 📋 Technical Documentation
 
-### 📊 Code Quality & Testing
+### ✅ Code Quality and Style Auto Check
 
-- Unit Testing with Jest
+- Automated code quality checks using ESLint with TypeScript integration
+- Standardized code formatting using Prettier
+- Pre-commit hooks with Husky for automated code verification
+- VS Code integration for real-time code quality feedback
+
+### 📊 Testing
+
 - Codecov integration for coverage reports: [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 - Continuous Integration via GitHub Actions
 
