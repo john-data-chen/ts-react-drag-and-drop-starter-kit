@@ -48,10 +48,10 @@ npm run deploy
 - Touch screens don't support hover animations
 - Language menu position incorrect only in Chrome Developer Tool of PC / Laptop (works correctly on Phone devices)
 
-Chrome Developer Tool of PC / Laptop
+Chrome Developer Tool of PC / Laptop <br>
 ![Screenshot of language menu on PC / laptop](/src/assets/language%20menu%20on%20PC.png)
 
-on Phone
+on Phone <br>
 ![Screenshot of language menu on Phones](/src/assets/language%20menu%20on%20phone.png)
 
 ## 🔜 Upcoming Features
