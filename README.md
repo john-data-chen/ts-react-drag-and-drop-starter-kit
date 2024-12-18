@@ -27,6 +27,44 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 - Jest (unit testing)
 - GitHub Actions (CI/CD)
 
+### Technical Decisions
+
+#### Build Tool: Vite
+
+- Faster development server startup through native ES modules
+- Efficient Hot Module Replacement (HMR)
+- Optimized production builds with built-in Rollup configuration
+- Better TypeScript integration compared to Create React App
+
+#### TypeScript
+
+- Enhanced code maintainability and readability
+- Early error detection during development
+- Better IDE support and autocompletion
+- Improved team collaboration through type definitions
+
+#### Redux Toolkit
+
+- Simplified state management with less boilerplate
+- Built-in immutability support
+- Integrated TypeScript support
+- Efficient dev tools for debugging
+
+#### Jest for Testing
+
+- Comprehensive testing framework with good TypeScript support
+- Snapshot testing capabilities
+- Large community and extensive documentation
+- Integration with GitHub Actions CI/CD
+
+## 🔜 Upcoming Features
+
+- [ ] CI: auto lint and format code
+- [ ] Test: Integration tests for Redux
+- [ ] Test: E2E tests for critical user flows
+- [ ] Test: Snapshot tests for UI components
+- [ ] Security: add Security Strategy
+
 ## 🚀 Getting Started
 
 ```bash
@@ -43,23 +81,16 @@ npm run test
 npm run deploy
 ```
 
-## 🐛 Known Issues
+## 🐛 Known Issues or Limitations
 
-- Touch screens don't support hover animations
-- Language menu position incorrect only in Chrome Developer Tool of PC / Laptop (works correctly on Phone devices)
+- Touch Screen Hover Limitation: Touch screens don't support hover animations
+- Language Menu Rendering Issue: Language menu displays position incorrectly only in Chrome Developer Tool of PC or Laptop (it works fine on Phone)
 
 Chrome Developer Tool of PC / Laptop <br>
 ![Screenshot of language menu on PC / laptop](/src/assets/language%20menu%20on%20PC.png)
 
-on Phone <br>
+it works fine on Phone <br>
 ![Screenshot of language menu on Phones](/src/assets/language%20menu%20on%20phone.png)
-
-## 🔜 Upcoming Features
-
-- [ ] CI: auto lint and format code
-- [ ] Test: Integration tests for Redux
-- [ ] Test: E2E tests for critical user flows
-- [ ] Test: Snapshot tests for UI components
 
 ## 📋 Technical Documentation
 
@@ -107,41 +138,29 @@ src/
 
 ### Accessibility Features
 
-- ARIA labels
+- ARIA labels for Screen reader support
 - Keyboard navigation
-- Screen reader support
 - Sufficient color contrasts
 
 ### Testing Strategy
 
-- Unit tests for components
+- Unit tests for components, coverage is over 80%, target is 100%.
+- Add more such as Integration and E2E tests
 
-### Technical Decisions
+### CI Strategy in Github Action
 
-#### Build Tool: Vite
+it is triggered when
 
-- Faster development server startup through native ES modules
-- Efficient Hot Module Replacement (HMR)
-- Optimized production builds with built-in Rollup configuration
-- Better TypeScript integration compared to Create React App
+- push to dev and main branches
+- PR to main branch
 
-#### TypeScript
+### Deployment Strategy
 
-- Enhanced code maintainability and readability
-- Early error detection during development
-- Better IDE support and autocompletion
-- Improved team collaboration through type definitions
+- CD in Github Action is triggered when PR to main branch
+- NPM deploy command to deploy manually in the emergency
 
-#### Redux Toolkit
+### Security Strategy
 
-- Simplified state management with less boilerplate
-- Built-in immutability support
-- Integrated TypeScript support
-- Efficient dev tools for debugging
-
-#### Jest for Testing
-
-- Comprehensive testing framework with good TypeScript support
-- Snapshot testing capabilities
-- Large community and extensive documentation
-- Integration with GitHub Actions CI/CD
+- CSRF protection
+- XSS prevention
+- Input data validation
