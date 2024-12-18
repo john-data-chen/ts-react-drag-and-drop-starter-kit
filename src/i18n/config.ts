@@ -1,4 +1,4 @@
-export const i18nConfig = {
+const i18nConfig = {
   // order and from where user language should be detected
   order: [
     "localStorage",
@@ -23,3 +23,5 @@ export const i18nConfig = {
   // optional htmlTag with lang attribute, the default is:
   htmlTag: document.documentElement,
 };
+
+export default i18nConfig;

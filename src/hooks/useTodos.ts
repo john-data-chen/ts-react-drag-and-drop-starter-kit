@@ -9,7 +9,7 @@ import {
 } from "../redux/todoSlice";
 import { DropResult } from "@hello-pangea/dnd";
 
-export const useTodos = () => {
+const useTodos = () => {
   const todos = useSelector((state: RootState) => state.todos.todos);
   const dispatch = useDispatch();
 
@@ -45,3 +45,5 @@ export const useTodos = () => {
     handleEditTodo,
   };
 };
+
+export default useTodos;

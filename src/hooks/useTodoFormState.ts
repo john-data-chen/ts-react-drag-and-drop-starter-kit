@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useFormState = () => {
+const useFormState = () => {
   const [formState, setFormState] = useState({
     input: "",
     dueDate: null as Date | null,
@@ -10,3 +10,5 @@ export const useFormState = () => {
 
   return { formState, setFormState, resetForm };
 };
+
+export default useFormState;

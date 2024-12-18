@@ -1,12 +1,12 @@
 import React from "react";
-import { useTheme } from "../hooks/useTheme";
+import useTheme from "../hooks/useTheme";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "../theme/ThemeSets";
 
 interface ThemeWrapperProps {
   children: React.ReactNode;
 }
-export const ThemeWrapper = React.memo(({ children }: ThemeWrapperProps) => {
+const ThemeWrapper = React.memo(({ children }: ThemeWrapperProps) => {
   const { isDarkMode } = useTheme();
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
@@ -15,3 +15,5 @@ export const ThemeWrapper = React.memo(({ children }: ThemeWrapperProps) => {
     </ThemeProvider>
   );
 });
+
+export default ThemeWrapper;

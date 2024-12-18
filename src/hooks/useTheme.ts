@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { switchTheme } from "../redux/themeSlice";
 
-export const useTheme = () => {
+const useTheme = () => {
   const themeMode = useSelector((state: RootState) => state.theme.mode);
   const dispatch = useDispatch();
 
@@ -11,3 +11,5 @@ export const useTheme = () => {
 
   return { isDarkMode, handleSwitchTheme };
 };
+
+export default useTheme;

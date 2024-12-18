@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import { ThemeWrapper } from "../component/ThemeWrapper";
-import { useTheme } from "../hooks/useTheme";
+import ThemeWrapper from "../component/ThemeWrapper";
+import useTheme from "../hooks/useTheme";
 import { lightTheme, darkTheme } from "../theme/ThemeSets";
 
 jest.mock("../hooks/useTheme");

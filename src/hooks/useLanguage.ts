@@ -3,7 +3,7 @@ import { RootState } from "../redux/store";
 import { changeLanguageState } from "../redux/languageSlice";
 import { useTranslation } from "react-i18next";
 
-export const useLanguage = () => {
+const useLanguage = () => {
   const languageCode = useSelector((state: RootState) => state.language.code);
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
@@ -15,3 +15,5 @@ export const useLanguage = () => {
 
   return { languageCode, handleLanguageChange };
 };
+
+export default useLanguage;
