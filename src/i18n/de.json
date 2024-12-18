@@ -28,5 +28,10 @@
   },
   "language-selector": {
     "aria-label": "Sprache Schalten"
+  },
+  "toast": {
+    "add-success": "Aufgabe erfolgreich hinzugefügt",
+    "delete-success": "Aufgabe erfolgreich gelöscht",
+    "edit-success": "Aufgabe erfolgreich bearbeitet"
   }
 }

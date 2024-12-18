@@ -28,5 +28,10 @@
   },
   "language-selector": {
     "aria-label": "Select Language"
+  },
+  "toast": {
+    "add-success": "Task added successfully",
+    "delete-success": "Task deleted successfully",
+    "edit-success": "Task edited successfully"
   }
 }

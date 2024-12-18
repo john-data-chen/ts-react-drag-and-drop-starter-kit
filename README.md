@@ -46,6 +46,7 @@
 - Add Accessibility such as ARIA tags and keyboard support
 - Add CI and CD of Github action
 - Add codecov in CI of Github action
+- Add toastify of deleting task
 
 ## More in developing
 

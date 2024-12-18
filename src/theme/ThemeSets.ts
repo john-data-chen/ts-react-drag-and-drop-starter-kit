@@ -274,6 +274,10 @@ export const GlobalStyles = createGlobalStyle`
     word-wrap: break-word;
   }
 
+  .Toastify__toast {
+    width: 50%;
+  }
+
   // Responsive styles
   // Mobile devices with bigger than 400px width
   @media (min-width: 401px) and (max-width: 768px) {
@@ -283,6 +287,10 @@ export const GlobalStyles = createGlobalStyle`
     .appContainer {
       max-width: 600px;
     }
+    .Toastify__toast {
+      width: var(--toastify-toast-width);
+    }
+
   }
 
   // Tablets
@@ -292,6 +300,9 @@ export const GlobalStyles = createGlobalStyle`
     }
     .appContainer  {
       max-width: 1000px;
+    }
+    .Toastify__toast {
+      width: var(--toastify-toast-width);
     }
   }
 
@@ -311,6 +322,10 @@ export const GlobalStyles = createGlobalStyle`
 
     .languageSelector {
       width: 6rem;
+    }
+
+    .Toastify__toast {
+      width: var(--toastify-toast-width);
     }
   }
 `;
