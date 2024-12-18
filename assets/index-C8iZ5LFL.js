@@ -394,10 +394,6 @@ ${Se.current.stack}
     .appContainer {
       max-width: 600px;
     }
-    .Toastify__toast {
-      width: var(--toastify-toast-width);
-    }
-
   }
 
   // Tablets
