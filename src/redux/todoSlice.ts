@@ -1,62 +1,58 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Todo from "../type/Todo";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import Todo from '../type/Todo'
 interface TodoState {
-  todos: Todo[];
+  todos: Todo[]
 }
 
 const initialState: TodoState = {
-  todos: [],
-};
+  todos: []
+}
 
 export const todoSlice = createSlice({
-  name: "todos",
+  name: 'todos',
   initialState,
   reducers: {
-    addTodo: (
-      state,
-      action: PayloadAction<{ text: string; dueDate: string | null }>
-    ) => {
+    addTodo: (state, action: PayloadAction<{ text: string; dueDate: string | null }>) => {
       state.todos.push({
         id: Date.now().toString(),
         text: action.payload.text,
         dueDate: action.payload.dueDate,
-        completed: false,
-      });
+        completed: false
+      })
     },
     handleDragEnd: (state, action) => {
-      state.todos = action.payload;
+      state.todos = action.payload
     },
     toggleComplete: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.map((todo) => {
         if (todo.id === action.payload) {
-          todo.completed = !todo.completed;
+          todo.completed = !todo.completed
         }
-        return todo;
-      });
+        return todo
+      })
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
-      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload)
     },
 
     editTodo: (
       state,
       action: PayloadAction<{
-        id: string;
-        text: string;
-        dueDate: string | null;
+        id: string
+        text: string
+        dueDate: string | null
       }>
     ) => {
       state.todos = state.todos.map((todo) => {
         if (todo.id === action.payload.id) {
-          todo.text = action.payload.text;
-          todo.dueDate = action.payload.dueDate;
+          todo.text = action.payload.text
+          todo.dueDate = action.payload.dueDate
         }
-        return todo;
-      });
-    },
-  },
-});
+        return todo
+      })
+    }
+  }
+})
 
-export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } =
-  todoSlice.actions;
-export default todoSlice.reducer;
+export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } = todoSlice.actions
+export default todoSlice.reducer

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { normalize } from "styled-normalize";
+import { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
 
 export const GlobalStyles = createGlobalStyle`
   // normalize and reset
@@ -324,16 +324,16 @@ export const GlobalStyles = createGlobalStyle`
       width: var(--toastify-toast-width);
     }
   }
-`;
+`
 
 export const lightTheme = {
-  backgroundColor: "#f7f7f7",
-  textColor: "#333",
-  switchColor: "#FFC000",
-};
+  backgroundColor: '#f7f7f7',
+  textColor: '#333',
+  switchColor: '#FFC000'
+}
 
 export const darkTheme = {
-  backgroundColor: "#333",
-  textColor: "#B2BEB5",
-  switchColor: "#FAFA33",
-};
+  backgroundColor: '#333',
+  textColor: '#B2BEB5',
+  switchColor: '#FAFA33'
+}
