@@ -1,58 +1,147 @@
-# React + TypeScript + Vite: Todo list [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
+# Todo List Application [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 
-## How to use
+A modern Todo List project built with React, TypeScript, and Vite, featuring comprehensive testing and accessibility support.
 
-- you can see [demo](https://john-data-chen.github.io/to-do-list-app/) here
+[Demo](your-demo-link)
 
-## The project is based on
+![Screenshots of drag and drip](/src/assets/drag%20demo.gif)
 
-- Node JS: v22.12.0
-- React: 18.3.1
-- Vite: 6.0.3
-- TypeScript: 5.6.2
+## 🔄 Changelog
 
-## NPM commands
+### Version 1.0.0
 
-- npm install: to install all packages
-- npm run dev: start the project in developing mode
-- npm run deploy: start deploy to GitHub Pages
-- npm run test: start testing
+- ✨ Drag & Drop functionality
+- 🌍 Multi-language support (English/German)
+- 🌓 Dark/Light Theme
+- 📱 Responsive Design (400px, 768px, 1200px+)
+- 💾 Local Storage persistence
+- ⌨️ Keyboard and Screen Reader support
+- ✏️ Task Editing Capabilities
 
-## ChangeLog
+## 🛠️ Technical Stack
 
-- Init commit
-- Add gh-pages to deploy to GitHub Pages
-- Add Date Picker in Add task
-- Add Drag and Drop in todo list
-- Fix the warning and error of Received "true" for non-boolean attribute active in console / a known issue of styled-components
-- Save todo list into local Storage
-- Add multi-language support: English and Deutsch
-- Add Browser language detection: auto switch to Deutsch when new user's browser is Deutsch first
-- Add Dark Theme
-- Add Redux and Toolkit to manage state of tasks
-- Add edit button to edit task title in task card
-- Add gzip compression to reduce deploy files size (Github pages only support gzip)
-- Fix the issue of incorrect logic of Edit button, which makes Edit form auto close when pressing any area on the form
-- Add edit function of Due date
-- Adjust UI of edit task from and Refactor CSS of Date Picker
-- Add animations of interactions
-- Add RWD basic layout for small screen (based on 400px)
-- Add more RWD layout for different screen sizes: 768, 1200, and bigger than 1200px
-- Adjust animation and CSS to fix UI issues such as long text, screen size...etc
-- Import test packages
-- Refactor components for testing
-- Add Unit test by Jest
-- Refactor side effects of local Storage into Redux middleware
-- Add Accessibility such as ARIA tags and keyboard support
-- Add CI and CD of Github action
-- Add codecov in CI of Github action
-- Add toastify of deleting task
+- Node.js: v22.12.0
+- React: v18.3.1
+- Vite: v6.0.3
+- TypeScript: v5.6.2
+- Jest (unit testing)
+- GitHub Actions (CI/CD)
 
-## More in developing
+## 🚀 Getting Started
 
-- Add more details into README
+```bash
+# Install dependencies
+npm install
 
-## Known issues or limits
+# Start development server
+npm run dev
 
-- Touch screens can't support **hover** animations
-- Languages menu displays incorrect position only in browser developer tool, using the Chrome of the Android device to check is correct
+# Run tests
+npm run test
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+## 🐛 Known Issues
+
+- Touch screens don't support hover animations
+- Language menu position incorrect only in Chrome Developer Tool of PC / Laptop (works correctly on Phone devices)
+
+Chrome Developer Tool of PC / Laptop
+![Screenshot of language menu on PC / laptop](/src/assets/language%20menu%20on%20PC.png)
+
+on Phone
+![Screenshot of language menu on Phones](/src/assets/language%20menu%20on%20phone.png)
+
+## 🔜 Upcoming Features
+
+- [ ] CI: auto lint and format code
+- [ ] Test: Integration tests for Redux
+- [ ] Test: E2E tests for critical user flows
+- [ ] Test: Snapshot tests for UI components
+
+## 📋 Technical Documentation
+
+### 📊 Code Quality & Testing
+
+- Unit Testing with Jest
+- Codecov integration for coverage reports: [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
+- Continuous Integration via GitHub Actions
+
+### 📱 Responsive Design
+
+Optimized for multiple screen sizes:
+
+- Mobile: 400px
+- Tablet: 768px
+- Desktop: 1200px
+- Large Desktop: >1200px
+
+### Project Structure
+
+```
+src/
+├── __tests__/
+├── assets/
+├── component/
+├── constants/
+├── hooks/
+├── i18n/
+├── redux/
+├── theme/
+└── types/
+```
+
+### State Management
+
+- Redux Toolkit for global state management
+- Custom middleware for LocalStorage integration
+- Typed action creators for task management
+
+### Performance Optimizations
+
+- Gzip compression
+- Refactor and Code splitting
+- Memoization for complex calculations
+
+### Accessibility Features
+
+- ARIA labels
+- Keyboard navigation
+- Screen reader support
+- Sufficient color contrasts
+
+### Testing Strategy
+
+- Unit tests for components
+
+### Technical Decisions
+
+#### Build Tool: Vite
+
+- Faster development server startup through native ES modules
+- Efficient Hot Module Replacement (HMR)
+- Optimized production builds with built-in Rollup configuration
+- Better TypeScript integration compared to Create React App
+
+#### TypeScript
+
+- Enhanced code maintainability and readability
+- Early error detection during development
+- Better IDE support and autocompletion
+- Improved team collaboration through type definitions
+
+#### Redux Toolkit
+
+- Simplified state management with less boilerplate
+- Built-in immutability support
+- Integrated TypeScript support
+- Efficient dev tools for debugging
+
+#### Jest for Testing
+
+- Comprehensive testing framework with good TypeScript support
+- Snapshot testing capabilities
+- Large community and extensive documentation
+- Integration with GitHub Actions CI/CD
