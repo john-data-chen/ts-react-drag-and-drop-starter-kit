@@ -287,10 +287,6 @@ export const GlobalStyles = createGlobalStyle`
     .appContainer {
       max-width: 600px;
     }
-    .Toastify__toast {
-      width: var(--toastify-toast-width);
-    }
-
   }
 
   // Tablets
