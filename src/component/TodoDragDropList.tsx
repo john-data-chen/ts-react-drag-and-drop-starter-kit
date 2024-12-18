@@ -28,15 +28,12 @@ const TodoDragDropList = ({
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                   >
-                    {
-                      <TodoList
-                        todos={[todo]}
-                        key={todo.id}
-                        toggleComplete={handleToggleComplete}
-                        deleteTodo={handleDeleteTodo}
-                        handleEditTodo={handleEditTodo}
-                      />
-                    }
+                    <TodoList
+                      todos={[todo]}
+                      toggleComplete={handleToggleComplete}
+                      deleteTodo={handleDeleteTodo}
+                      handleEditTodo={handleEditTodo}
+                    />
                   </div>
                 )}
               </Draggable>
