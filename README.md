@@ -64,16 +64,14 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 #### Jest for Testing
 
 - Comprehensive testing framework with good TypeScript support
-- Snapshot testing capabilities
-- Large community and extensive documentation
 - Integration with GitHub Actions CI/CD and Codecov coverage reports
 
 ## 🔜 Upcoming Improvements
 
 - [x] Code Quality: Automated lint and style checks
+- [x] Test: Integration tests for Redux
 - [ ] Accessibility: Add more ARIA labels and Adjust color contrasts
 - [ ] Animations: Add more animations of interactions for touch screens
-- [ ] Test: Integration tests for Redux
 - [ ] Test: E2E tests for critical user flows
 - [ ] Security: add validations in Security Strategy
 
@@ -176,7 +174,7 @@ src/
 ### Testing Strategy
 
 - Unit tests for components, coverage is over 80%, target is 100%.
-- Add more such as Integration and E2E tests
+- Add Integration test of Redux state management
 
 ### CI Strategy in Github Action
 
