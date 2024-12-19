@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 // import { current } from "@reduxjs/toolkit";
 
+type Theme = 'dark' | 'light'
+
 export interface ThemeState {
-  mode: 'dark' | 'light'
+  mode: Theme
 }
 
 const initialState: ThemeState = {
