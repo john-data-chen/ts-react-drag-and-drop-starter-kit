@@ -60,7 +60,7 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 ## 🔜 Upcoming Improvements
 
 - [x] Code Quality: Automated lint and style checks
-- [x] Test: Integration tests for Redux
+- [x] Test: Integration test of Redux state management
 - [ ] Test: E2E tests for more user cases
 - [ ] Accessibility: Add more ARIA labels and Adjust color contrasts
 - [ ] Animations: Add more animations of interactions for touch screens
@@ -122,7 +122,7 @@ src/
 ├── i18n/
 ├── redux/
 ├── theme/
-└── types/
+└── type/
 ```
 
 ### Performance Optimizations
