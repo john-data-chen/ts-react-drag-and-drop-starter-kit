@@ -61,7 +61,7 @@ A modern Todo List project built with React, TypeScript, and Vite, featuring com
 
 - [x] Code Quality: Automated lint and style checks
 - [x] Test: Integration test of Redux state management
-- [ ] Test: E2E tests for more user cases
+- [x] Test: E2E tests for more user cases
 - [ ] Accessibility: Add more ARIA labels and Adjust color contrasts
 - [ ] Animations: Add more animations of interactions for touch screens
 
@@ -74,8 +74,11 @@ npm install
 # Start development server
 npm run dev
 
-# Run tests
+# Run unit and integration tests by Jest
 npm run test
+
+# Run E2E tests by Playwright
+npx playwright test
 
 # Deploy to GitHub Pages
 npm run deploy
