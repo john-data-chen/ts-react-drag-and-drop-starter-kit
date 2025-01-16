@@ -1,5 +1,5 @@
 {
-  "app-title": "Draggable Todo List",
+  "app-title": "Drag and Drop Todo List",
   "draggable-hint": "You can drag and drop the tasks to reorder",
   "todo-form": {
     "todo-input": "Input Task...",
