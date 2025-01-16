@@ -13,10 +13,10 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 ## 🌟 Key Features
 
-- ⭐️ **Intuitive interaction**: drag & drop and animations
-- ♿ **Accessibility**: Screen reader support and keyboard navigation
-- 🌍 **Localization**: Full support for English and German
-- 📱 **Responsive Design**: Consistent experience across devices
+- ⭐️ **Intuitive interaction**: drag & drop and animations.
+- ♿ **Accessibility**: Screen reader support and keyboard navigation.
+- 🌍 **Localization**: Full support for English and German.
+- 📱 **Responsive Design**: Consistent experience across desktop and mobile devices.
 
 ## Minor Features
 
@@ -27,19 +27,21 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 - **Test Coverage in Codecov**: 85%+
 - **Code Quality in Codacy**: B
-- **Optimized performance**: for both desktop and mobile devices.
-- **CI/CD automation**: in GitHub actions.
+- **Multi-Platform Testing**: for desktop and mobile devices.
+- **CI/CD Automation**: in GitHub actions.
 
 ## 🛠️ Technical Stack
 
 [![React Dependencies](https://img.shields.io/librariesio/release/npm/react)](https://libraries.io/npm/react)
 
-- **Requirements**: Node.JS v22.12.0
-- **Frontend**: React 18.3.1, TypeScript 5.6.2, Redux Toolkit
-- **Build & Quality**: Vite, Jest, Playwright, ESLint , Prettier, Husky
+- **Requirements**: Node.JS v22.12.0 or higher
+- **Frontend**: React 18.3.1, TypeScript, Redux Toolkit
+- **Build & Quality**: PNPM, Vite, Jest, Playwright, ESLint , Prettier, Husky
 - **CI/CD**: GitHub Actions, Codecov, Codacy
 
 ## 🚀 Getting Started
+
+I use [PNPM@10.0.0](https://pnpm.io/) to increased CI/CD installation performance, you can use any package manager, but you need to use **NPM** to deploy!
 
 ```bash
 # Install dependencies
@@ -54,19 +56,18 @@ npm run test
 # Run E2E tests by Playwright
 npx playwright test
 
-# Deploy to GitHub Pages
+# Use NPM to deploy to GitHub Pages
 npm run deploy
 ```
 
 ## 🔜 Upcoming Improvements
 
 Limited by the GitHub Page architecture, this project won't be updated anymore.
-I will add functions into the another project **Next Board** such as
+I will add functions into the another project [Next Board](https://github.com/john-data-chen/next-board) such as
 
 - [ ] Use Next.js to be a full stack project
 - [ ] Use Shadcn UI to fitting WAI-ARIA and more browsers
 - [ ] Login to manage users, projects and tasks in security
-- [ ] Pomodoro
 
 and more...
 
