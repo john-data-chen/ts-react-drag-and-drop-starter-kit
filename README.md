@@ -1,5 +1,6 @@
 # Todo List Application <br>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b40540b03ba84c29be1ad6be32f617d6)](https://app.codacy.com/gh/john-data-chen/to-do-list-app?utm_source=github.com&utm_medium=referral&utm_content=john-data-chen/to-do-list-app&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/293ce47e93cc4119ab97a0d79ee11c41)](https://app.codacy.com/gh/john-data-chen/to-do-list-app/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
