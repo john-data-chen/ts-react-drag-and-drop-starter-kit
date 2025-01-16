@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -30,6 +32,11 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: john-data-chen/to-do-list-app
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
