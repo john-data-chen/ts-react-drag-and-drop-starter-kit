@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://john-data-chen.github.io/to-do-list-app",
+  "homepage": "https://john-data-chen.github.io/ts-react-starter-kit/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
