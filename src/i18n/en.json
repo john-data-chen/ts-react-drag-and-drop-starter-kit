@@ -1,0 +1,37 @@
+{
+  "app-title": "A Drag & Drop Todo List",
+  "draggable-hint": "You can drag and drop the tasks to reorder",
+  "todo-form": {
+    "todo-input": "Input Task...",
+    "due-date": "Due Date",
+    "add-button": "Add"
+  },
+  "todo-card": {
+    "complete": "Complete",
+    "completed": "Completed",
+    "due-date": "Due Date: ",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "edit-todo-form": {
+    "todo-input": "Input Task...",
+    "due-date": "Due Date",
+    "save-button": "Save",
+    "cancel-button": "Cancel"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "dark-icon": "🌜",
+    "light-icon": "🌞",
+    "aria-label": "Switch Theme"
+  },
+  "language-selector": {
+    "aria-label": "Select Language"
+  },
+  "toast": {
+    "add-success": "Task added successfully",
+    "delete-success": "Task deleted successfully",
+    "edit-success": "Task edited successfully"
+  }
+}
