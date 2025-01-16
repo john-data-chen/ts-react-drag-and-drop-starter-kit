@@ -1,5 +1,5 @@
 {
-  "app-title": "Verschiebbare To-Do-Liste",
+  "app-title": "Eine Drag & Drop-To-Do-Liste",
   "draggable-hint": "Sie können die Aufgaben per Drag & Drop neu anordnen",
   "todo-form": {
     "todo-input": "Aufgabe eingeben...",
