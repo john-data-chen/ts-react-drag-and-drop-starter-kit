@@ -41,7 +41,7 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 ## 🚀 Getting Started
 
-I use [PNPM@10.0.0](https://pnpm.io/) to increased CI/CD installation performance, you can use any package manager, but you need to use **NPM** to deploy!
+I use [PNPM@10.0.0](https://pnpm.io/) to increased CI/CD installation performance, you can use any package manager, but you need to use **NPM** to E2E test and deploy!
 
 ```bash
 # Install dependencies
@@ -53,10 +53,11 @@ npm run dev
 # Run unit and integration tests by Jest
 npm run test
 
+# Below commands need to use NPM!
 # Run E2E tests by Playwright
 npx playwright test
 
-# Use NPM to deploy to GitHub Pages
+# Deploy to GitHub Pages
 npm run deploy
 ```
 
