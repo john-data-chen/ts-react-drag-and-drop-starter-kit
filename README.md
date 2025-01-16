@@ -1,7 +1,6 @@
 # Todo List Application <br>
 
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/293ce47e93cc4119ab97a0d79ee11c41)](https://app.codacy.com/gh/john-data-chen/to-do-list-app/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
 
@@ -26,7 +25,6 @@ A production-ready Todo List application demonstrating modern frontend architect
 **Key Accomplishments**:
 
 - **Test Coverage in Codecov**: 85%+
-- **Code Quality in Codacy**: B
 - **Optimized performance**: for both desktop and mobile devices.
 - **CI/CD automation**: in GitHub actions.
 
@@ -37,7 +35,7 @@ A production-ready Todo List application demonstrating modern frontend architect
 - **Requirements**: Node.JS v22.12.0
 - **Frontend**: React 18.3.1, TypeScript 5.6.2, Redux Toolkit
 - **Build & Quality**: Vite, Jest, Playwright, ESLint , Prettier, Husky
-- **CI/CD**: GitHub Actions, Codecov, Codacy
+- **CI/CD**: GitHub Actions, Codecov
 
 ## 🚀 Getting Started
 
@@ -66,7 +64,6 @@ I will add functions into the another project **Next Board** such as
 - [ ] Use Next.js to be a full stack project
 - [ ] Use Shadcn UI to fitting WAI-ARIA and more browsers
 - [ ] Login to manage users, projects and tasks in security
-- [ ] Pomodoro
 
 and more...
 
