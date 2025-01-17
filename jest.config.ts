@@ -11,5 +11,5 @@ export default {
     '\\.(css|less)$': 'identity-obj-proxy'
   },
   setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
-  testPathIgnorePatterns: ['<rootDir>/src/__tests__/e2e/']
+  testPathIgnorePatterns: ['<rootDir>/__tests__/e2e/']
 }

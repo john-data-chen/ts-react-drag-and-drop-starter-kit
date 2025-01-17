@@ -1,9 +1,10 @@
 import { render } from '@testing-library/react'
-import ThemeWrapper from '../component/ThemeWrapper'
-import useTheme from '../hooks/useTheme'
-import { lightTheme, darkTheme } from '../theme/ThemeSets'
+import ThemeWrapper from '../src/component/ThemeWrapper'
+import useTheme from '../src/hooks/useTheme'
+import { lightTheme, darkTheme } from '../src/theme/ThemeSets'
+import React from 'react'
 
-jest.mock('../hooks/useTheme')
+jest.mock('../src/hooks/useTheme')
 const mockUseTheme = useTheme as jest.MockedFunction<typeof useTheme>
 
 describe('ThemeWrapper', () => {
