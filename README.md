@@ -1,7 +1,7 @@
 # Todo List Application <br>
 
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 ![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
 
@@ -26,7 +26,7 @@ A production-ready Todo List application demonstrating modern frontend architect
 **Key Accomplishments**:
 
 - **Test Coverage in Codecov**: 85%+
-- **Test Maintainability Rating in SonarQube**: A
+- **Reliability Rating in SonarQube**: A
 - **Optimized performance**: for both desktop and mobile devices.
 - **CI/CD automation**: in GitHub actions.
 
