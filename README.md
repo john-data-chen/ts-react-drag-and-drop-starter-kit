@@ -48,8 +48,9 @@ A React-based template demonstrating modern frontend architecture and engineerin
 ## 🚀 Getting Started
 
 - Press **Use this template** to create a new repository.
-- Modify the `package.json`: modify the `homepage` fields such as `https://[your-github-username].github.io/[repository-name]/`.
-- Modify the `vite.config.ts`: modify the `base` field to match the `homepage` field, such as `/[repository-name]/`.
+- Modify `package.json`: modify the `homepage` fields such as `https://[your-github-username].github.io/[repository-name]/`.
+- Modify `vite.config.ts`: modify the `base` field to match the `homepage` field, such as `/[repository-name]/`.
+- Modify `App.test.ts`: modify testing url such as `http://localhost:5173/[repository-name]/`
 
 ### NPM commands
 
