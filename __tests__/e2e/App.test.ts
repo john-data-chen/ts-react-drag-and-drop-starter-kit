@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test'
 
 test('has title', async ({ page }) => {
-  await page.goto('http://localhost:5173')
+  await page.goto('http://localhost:5173/to-do-list-app/')
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Todo List/)
 })
 
 test('delete all tasks', async ({ page }) => {
-  await page.goto('http://localhost:5173')
+  await page.goto('http://localhost:5173/to-do-list-app/')
 
   await page.getByLabel('todo item: Delete the Demo').getByLabel('Delete', { exact: true }).click()
   await page.getByLabel('Delete').click()
@@ -16,7 +16,7 @@ test('delete all tasks', async ({ page }) => {
 })
 
 test('add new task', async ({ page }) => {
-  await page.goto('http://localhost:5173')
+  await page.goto('http://localhost:5173/to-do-list-app/')
 
   await page.getByPlaceholder('Input Task...').click()
   await page.getByPlaceholder('Input Task...').fill('1')
@@ -32,7 +32,7 @@ test('add new task', async ({ page }) => {
 })
 
 test('toggle complete button', async ({ page }) => {
-  await page.goto('http://localhost:5173')
+  await page.goto('http://localhost:5173/to-do-list-app/')
 
   await page
     .getByLabel('todo item: Delete the Demo Tasks before you use')
@@ -41,7 +41,7 @@ test('toggle complete button', async ({ page }) => {
 })
 
 test('edit todo', async ({ page }) => {
-  await page.goto('http://localhost:5173')
+  await page.goto('http://localhost:5173/to-do-list-app/')
 
   await page
     .getByLabel('todo item: Delete the Demo Tasks before you use')

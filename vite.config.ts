@@ -5,7 +5,7 @@ import removeAttribute from '@castlenine/vite-remove-attribute'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/to-do-list-app/',
   plugins: [
     react(),
     compression({
