@@ -6,7 +6,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
 
-A production-ready Todo List application demonstrating modern frontend architecture and engineering best practices. Built with accessibility and internationalization as core features, perfect for enterprise deployment.
+A React-based template demonstrating modern frontend architecture and engineering best practices, designed for beginner developers.
 
 [Live Demo](https://john-data-chen.github.io/to-do-list-app/)
 
@@ -35,10 +35,12 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 [![React Dependencies](https://img.shields.io/librariesio/release/npm/react)](https://libraries.io/npm/react)
 
-- **Requirements**: Node.JS v22.12.0 or higher
-- **Frontend**: React 18.3.1, TypeScript, Redux Toolkit
-- **Build & Quality**: Vite, Jest, Playwright, ESLint , Prettier, Husky, Commitizen
-- **CI/CD**: GitHub Actions, Codecov, SonarQube
+- **Requirements**: [Node.JS](https://nodejs.org/en/download/) v22.13.0 or higher
+- **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Redux Toolkit](https://redux-toolkit.js.org/), [GitHub Pages](https://github.com/tschaub/gh-pages)
+- **Styling**: [Styled-components](https://styled-components.com/)
+- **Testing**: [Jest](https://jestjs.io/), [Playwright](https://playwright.dev/)
+- **Linting**: [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+- **CI/CD**: [GitHub Actions](https://github.com/features/actions), [Codecov](https://codecov.io/), [SonarQube](https://sonarcloud.io/)
 
 ## 🚀 Getting Started
 
@@ -59,16 +61,13 @@ npx playwright test
 npm run deploy
 ```
 
-## 🔜 Upcoming Improvements
+## 🔜 Roadmap
 
-Limited by the GitHub Page architecture, this project won't be updated anymore.
-I will add functions into the another project **Next Board** such as
+This template is feature-complete but limited by GitHub Pages architecture. Future updates will be added into the another project **Next Board** such as
 
 - [ ] Use Next.js to be a full stack project
 - [ ] Use Shadcn UI to fitting WAI-ARIA and more browsers
 - [ ] Login to manage users, projects and tasks in security
-
-and more...
 
 ## 📖 Detailed Technical Documentation
 
@@ -120,3 +119,11 @@ src/
 
 - **Automated Deployment**: GitHub Actions triggers on PR to the main branch, ensuring smooth updates.
 - **Manual Emergency Deployment**: Use `npm run deploy` for urgent fixes.
+
+### 🤝 Contribution
+
+Contributions are welcome! If you find a bug or want to suggest a feature, feel free to open an issue or submit a pull request.
+
+### 📃 License
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
