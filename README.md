@@ -98,8 +98,8 @@ Optimized for multiple screen sizes:
 ### Project Structure
 
 ```
+__tests__/ # Test cases
 src/
-├── __tests__/ # Test cases
 ├── assets/ # Static files such as images
 ├── component/ # Reusable React components
 ├── constants/ # Application-wide constants

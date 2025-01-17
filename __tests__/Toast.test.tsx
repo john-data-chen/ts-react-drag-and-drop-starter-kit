@@ -1,7 +1,8 @@
 import { act, render, screen } from '@testing-library/react'
 import { toast } from 'react-toastify'
-import Toast from './../component/Toast'
+import Toast from '../src/component/Toast'
 import { useTranslation } from 'react-i18next'
+import React from 'react'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
