@@ -3,6 +3,7 @@
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
 
 A production-ready Todo List application demonstrating modern frontend architecture and engineering best practices. Built with accessibility and internationalization as core features, perfect for enterprise deployment.
@@ -27,7 +28,7 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 - **Test Coverage in Codecov**: 85%+
 - **Reliability Rating in SonarQube**: A
-- **Optimized performance**: for both desktop and mobile devices.
+- **Cross-browser Testing**: for both desktop and mobile devices.
 - **CI/CD automation**: in GitHub actions.
 
 ## 🛠️ Technical Stack
@@ -36,7 +37,7 @@ A production-ready Todo List application demonstrating modern frontend architect
 
 - **Requirements**: Node.JS v22.12.0 or higher
 - **Frontend**: React 18.3.1, TypeScript, Redux Toolkit
-- **Build & Quality**: Vite, Jest, Playwright, ESLint , Prettier, Husky
+- **Build & Quality**: Vite, Jest, Playwright, ESLint , Prettier, Husky, Commitizen
 - **CI/CD**: GitHub Actions, Codecov, SonarQube
 
 ## 🚀 Getting Started
