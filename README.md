@@ -1,4 +1,4 @@
-# Todo List Application <br>
+# Production-Ready React TypeScript Todo Template | Drag & Drop + i18n <br>
 
 [![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
@@ -6,23 +6,28 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
 
-A React-based template demonstrating modern frontend architecture and engineering best practices, designed for beginner developers.
+## ✨ Why Choose This Template:
 
-[Live Demo](https://john-data-chen.github.io/to-do-list-app/)
+The **Enterprise-grade React TypeScript template** with 85%+ test coverage, featuring drag & drop functionality, WAI-ARIA accessibility, and i18n support. It is designed for saving time while adhering to best practices and including:
+
+- 🚀 Production-Ready: Enterprise-level architecture with full TypeScript support
+- 💪 Professional Setup: CI/CD, Testing, and Code Quality tools pre-configured
+- 🎯 Developer-Friendly: Clear documentation and best practices built-in
+- 🌍 Localization: i18n ready with English and German support
+- 🎨 Modern UX: Drag-and-drop, animations, and dark mode included
+- 💾 Persistent data: via local storage
+
+---
+
+⭐ **Love this template?**
+If you like it, don't forget to [give it a star](https://github.com/john-data-chen/to-do-list-app) today!
+Every star motivates me to deliver more high-quality templates. 🚀
+
+---
+
+[Try the Live Demo](https://john-data-chen.github.io/to-do-list-app/)
 
 ![Screenshots of drag and drip](/src/assets/drag%20demo.gif)
-
-## 🌟 Key Features
-
-- ⭐️ **Intuitive interaction**: drag & drop and animations
-- ♿ **Accessibility**: Screen reader support and keyboard navigation
-- 🌍 **Localization**: Full support for English and German
-- 📱 **Responsive Design**: Consistent experience across devices
-
-## Minor Features
-
-- 🌓 Dark/Light Theme
-- 💾 Persistent data via local storage
 
 **Key Accomplishments**:
 
@@ -32,8 +37,6 @@ A React-based template demonstrating modern frontend architecture and engineerin
 - **CI/CD automation**: in GitHub actions.
 
 ## 🛠️ Technical Stack
-
-[![React Dependencies](https://img.shields.io/librariesio/release/npm/react)](https://libraries.io/npm/react)
 
 - **Requirements**: [Node.JS](https://nodejs.org/en/download/) v22.13.0 or higher
 - **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Redux Toolkit](https://redux-toolkit.js.org/)
@@ -50,7 +53,7 @@ A React-based template demonstrating modern frontend architecture and engineerin
 - Press **Use this template** to create a new repository.
 - Modify `package.json`: modify the `homepage` fields such as `https://[your-github-username].github.io/[repository-name]/`.
 - Modify `vite.config.ts`: modify the `base` field to match the `homepage` field, such as `/[repository-name]/`.
-- Modify `App.test.ts`: modify testing url such as `http://localhost:5173/[repository-name]/`
+- Modify `App.test.ts` in `__tests__`: modify testing url such as `http://localhost:5173/[repository-name]/`
 
 ### NPM commands
 
@@ -65,7 +68,7 @@ npm run dev
 npm run test
 
 # Run E2E tests by Playwright
-npx playwright test
+npm run playwright
 
 # Deploy to GitHub Pages
 npm run deploy
@@ -73,17 +76,17 @@ npm run deploy
 
 ## 🔜 Roadmap
 
-This template is feature-complete but limited by GitHub Pages architecture. Future updates will be added into the another project **Next Board** such as
+This template is feature-complete but limited by GitHub Pages architecture. Future updates will be added into the another template **Next Board** such as
 
-- [ ] Use Next.js to be a full stack project
-- [ ] Use Shadcn UI to fitting WAI-ARIA and more browsers
-- [ ] Login to manage users, projects and tasks in security
+- [ ] Full-stack support using Next.js
+- [ ] Enhanced accessibility with Shadcn UI
+- [ ] User authentication for secure project/task management
 
 ## 📖 Detailed Technical Documentation
 
 ### 🐛 Limitations
 
-Minor Display Issue: Language menu behaves abnormally only in Chrome Developer Tools on desktop.
+Language menu displays abnormally in Chrome DevTools on desktop but works perfectly in real-world scenarios.
 
 🖥️ Chrome Developer Tool of PC / Laptop <br>
 ![Screenshot of language menu on PC / laptop](/src/assets/language%20menu%20on%20PC.png)
@@ -129,10 +132,6 @@ src/
 
 - **Automated Deployment**: GitHub Actions triggers on PR to the main branch, ensuring smooth updates.
 - **Manual Emergency Deployment**: Use `npm run deploy` for urgent fixes.
-
-### 🤝 Contribution
-
-Contributions are welcome! If you find a bug or want to suggest a feature, feel free to open an issue or submit a pull request.
 
 ### 📃 License
 
