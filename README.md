@@ -1,10 +1,10 @@
 # Production-Ready React TypeScript Todo Template | Drag & Drop + i18n <br>
 
-[![codecov](https://codecov.io/gh/john-data-chen/to-do-list-app/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/to-do-list-app)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
+[![codecov](https://codecov.io/gh/john-data-chen/ts-react-drag-and-drop-starter-kit/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/ts-react-drag-and-drop-starter-kit)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_ts-react-drag-and-drop-starter-kit&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_ts-react-drag-and-drop-starter-kit)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-![CI workflow](https://github.com/john-data-chen/to-do-list-app/actions/workflows/ci.yml/badge.svg)
+![CI workflow](https://github.com/john-data-chen/ts-react-drag-and-drop-starter-kit/actions/workflows/ci.yml/badge.svg)
 
 ## ✨ Why Choose This Template:
 
@@ -20,12 +20,12 @@ The **Enterprise-grade React TypeScript template** with 85%+ test coverage, feat
 ---
 
 ⭐ **Love this template?**
-If you like it, don't forget to [give it a star](https://github.com/john-data-chen/to-do-list-app) today!
+If you like it, don't forget to [give it a star](https://github.com/john-data-chen/ts-react-drag-and-drop-starter-kit) today!
 Every star motivates me to deliver more high-quality templates. 🚀
 
 ---
 
-[Try the Live Demo](https://john-data-chen.github.io/to-do-list-app/)
+[Try the Live Demo](https://john-data-chen.github.io/ts-react-drag-and-drop-starter-kit/)
 
 ![Screenshots of drag and drip](/src/assets/drag%20demo.gif)
 
