@@ -40,7 +40,7 @@ Every star motivates me to deliver more high-quality templates. 🚀
 
 - **Requirements**: [Node.JS](https://nodejs.org/en/download/) v22.13.0 or higher
 - **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Redux Toolkit](https://redux-toolkit.js.org/)
-- **Build**: [Vite](https://vitejs.dev/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Commitizen](https://commitizen.github.io/cz-cli/), [Lint Staged](https://github.com/okonet/lint-staged), [husky](https://github.com/typicode/husky)
+- **Build**: [PNPM](https://pnpm.io/), [Vite](https://vitejs.dev/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Commitizen](https://commitizen.github.io/cz-cli/), [Lint Staged](https://github.com/okonet/lint-staged), [husky](https://github.com/typicode/husky)
 - **Styling**: [Styled-components](https://styled-components.com/)
 - **Localization**: [i18next](https://www.i18next.com/), [react-i18next](https://react.i18next.com/)
 - **Testing**: [Jest](https://jestjs.io/), [Playwright](https://playwright.dev/)
@@ -51,11 +51,14 @@ Every star motivates me to deliver more high-quality templates. 🚀
 ## 🚀 Getting Started
 
 - Press **Use this template** to create a new repository.
+- I use PNPM@10.0.0 to increase CI/CD installation performance, you can use NPM.
 - Modify `package.json`: modify the `homepage` fields such as `https://[your-github-username].github.io/[repository-name]/`.
 - Modify `vite.config.ts`: modify the `base` field to match the `homepage` field, such as `/[repository-name]/`.
 - Modify `App.test.ts` in `__tests__`: modify testing url such as `http://localhost:5173/[repository-name]/`
 
 ### NPM commands
+
+Change npm to pnpm if you use pnpm.
 
 ```bash
 # Install dependencies
@@ -126,7 +129,7 @@ src/
 ### Performance Optimization
 
 - Faster Testing: Playwright parallel execution enhances testing speed.
-- Optimized Builds: add Gzip compression
+- Optimized Builds: add PNPM and Gzip compression
 
 ### Deployment Strategy
 
