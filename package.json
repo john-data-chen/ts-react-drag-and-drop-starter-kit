@@ -27,10 +27,6 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
-  "engines": {
-    "node": ">=22.0.0",
-    "pnpm": ">=10.0.0"
-  },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",
     "@reduxjs/toolkit": "^2.5.0",
