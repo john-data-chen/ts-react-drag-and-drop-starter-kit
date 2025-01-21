@@ -1,7 +1,7 @@
 # Production-Ready React TypeScript Todo Template | Drag & Drop + i18n <br>
 
 [![codecov](https://codecov.io/gh/john-data-chen/ts-react-drag-and-drop-starter-kit/graph/badge.svg?token=2QA3D3NBHD)](https://codecov.io/gh/john-data-chen/ts-react-drag-and-drop-starter-kit)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=john-data-chen_to-do-list-app&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=john-data-chen_to-do-list-app)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 ![CI workflow](https://github.com/john-data-chen/ts-react-drag-and-drop-starter-kit/actions/workflows/ci.yml/badge.svg)
@@ -11,7 +11,7 @@
 The **Enterprise-grade React TypeScript template** with 85%+ test coverage, featuring drag & drop functionality, WAI-ARIA accessibility, and i18n support. It is designed for saving time while adhering to best practices and including:
 
 - 🚀 Production-Ready: Enterprise-level architecture with full TypeScript support
-- 💪 Professional Setup: CI/CD, Testing, and Code Quality tools pre-configured
+- 💪 Professional Setup: CI/CD, Testing, Code Quality tools pre-configured and pass the SonarQube Quality Check
 - 🎯 Developer-Friendly: Clear documentation and best practices built-in
 - 🌍 Localization: i18n ready with English and German support
 - 🎨 Modern UX: Drag-and-drop, animations, and dark mode included
@@ -32,7 +32,7 @@ Every star motivates me to deliver more high-quality templates. 🚀
 **Key Accomplishments**:
 
 - **Test Coverage in Codecov**: 85%+
-- **Reliability Rating in SonarQube**: A
+- **Reliability, Security, Reliability and Maintainability Rating in SonarQube**: A
 - **Cross-browser Testing**: for both desktop and mobile devices.
 - **CI/CD automation**: in GitHub actions.
 
