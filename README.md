@@ -79,11 +79,12 @@ npm run deploy
 
 ## 🔜 Roadmap
 
-This template is feature-complete but limited by GitHub Pages architecture. Future updates will be added into the another template **Next Board** such as
+This template is feature-complete but limited by GitHub Pages architecture. Future updates will be added into the another template [next-dnd-starter-kit](https://github.com/john-data-chen/next-dnd-starter-kit) such as
 
 - [ ] Full-stack support using Next.js
 - [ ] Enhanced accessibility with Shadcn UI
-- [ ] User authentication for secure project/task management
+
+and more...
 
 ## 📖 Detailed Technical Documentation
 
