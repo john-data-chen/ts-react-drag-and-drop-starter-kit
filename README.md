@@ -14,7 +14,7 @@ The **Enterprise-grade React TypeScript template** with 85%+ test coverage, feat
 - 💪 Professional Setup: CI/CD, Testing, Code Quality tools pre-configured and pass the SonarQube Quality Check
 - 🎯 Developer-Friendly: Clear documentation and best practices built-in
 - 🌍 Localization: i18n ready with English and German support
-- 🎨 Modern UX: Drag-and-drop, animations, and dark mode included
+- 🎨 Modern UX: Drag-and-drop, animations, dark mode, responsive design for mobile, tablet, and desktop
 - 💾 Persistent data: via local storage
 
 ---
