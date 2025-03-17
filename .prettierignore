@@ -1,3 +1,6 @@
 # Ignore artifacts:
 dist
 coverage
+pnpm-lock.yaml
+# Ignore files:
+*.log
