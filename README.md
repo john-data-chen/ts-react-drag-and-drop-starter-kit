@@ -52,7 +52,7 @@ Every star motivates me to deliver more high-quality templates. 🚀
 ## 🚀 Getting Started
 
 - Press **Use this template** to create a new repository.
-- I use PNPM@10.0.0 to increase CI/CD installation performance, you can use NPM.
+- I use PNPM to increase installation performance, you can use NPM.
 - Modify `package.json`: modify the `homepage` fields such as `https://[your-github-username].github.io/[repository-name]/`.
 - Modify `vite.config.ts`: modify the `base` field to match the `homepage` field, such as `/[repository-name]/`.
 - Modify `App.test.ts` in `__tests__`: modify testing url such as `http://localhost:5173/[repository-name]/`
