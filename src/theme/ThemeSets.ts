@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 
+// Define a type for your theme
+export interface ThemeType {
+  backgroundColor: string
+  textColor: string
+  switchColor: string
+}
+
 export const GlobalStyles = createGlobalStyle`
   // normalize and reset
   ${normalize}
@@ -16,8 +23,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.backgroundColor};
-    color: ${({ theme }) => theme.textColor};
+    background: ${({ theme }: { theme: ThemeType }) => theme.backgroundColor};
+    color: ${({ theme }: { theme: ThemeType }) => theme.textColor};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     line-height: 1.5;
     font-size: 14px;
@@ -326,13 +333,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 `
 
-export const lightTheme = {
+export const lightTheme: ThemeType = {
   backgroundColor: '#f7f7f7',
   textColor: '#333',
   switchColor: '#FFC000'
 }
 
-export const darkTheme = {
+export const darkTheme: ThemeType = {
   backgroundColor: '#333',
   textColor: '#B2BEB5',
   switchColor: '#FAFA33'
