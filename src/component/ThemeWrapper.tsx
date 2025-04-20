@@ -10,7 +10,7 @@ const ThemeWrapper = React.memo(({ children }: ThemeWrapperProps) => {
   const { isDarkMode } = useTheme()
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <GlobalStyles />
+      <GlobalStyles theme={isDarkMode ? darkTheme : lightTheme} />
       {children}
     </ThemeProvider>
   )
