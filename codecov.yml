@@ -1,0 +1,5 @@
+# .codecov.yml or codecov.yml in the project root
+
+coverage:
+  ignore:
+    - "src/theme/ThemeSets.ts"
