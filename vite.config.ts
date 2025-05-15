@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import { compression } from 'vite-plugin-compression2'
 import removeAttribute from '@castlenine/vite-remove-attribute'
 
@@ -7,7 +7,11 @@ import removeAttribute from '@castlenine/vite-remove-attribute'
 export default defineConfig({
   base: '/ts-react-drag-and-drop-starter-kit/',
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: ['babel-plugin-react-compiler']
+      }
+    }),
     compression({
       threshold: 50000,
       algorithm: 'gzip'
