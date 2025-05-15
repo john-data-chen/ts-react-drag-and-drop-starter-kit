@@ -39,7 +39,7 @@ Every star motivates me to deliver more high-quality templates. 🚀
 
 ## 🛠️ Technical Stack
 
-- **Requirements**: [Node.JS](https://nodejs.org/en/download/) v22.13.0 or higher
+- **Requirements**: [Node.JS](https://nodejs.org/en/download/) v22.x
 - **Frontend**: [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), [Redux Toolkit](https://redux-toolkit.js.org/)
 - **Build**: [PNPM](https://pnpm.io/), [Vite](https://vitejs.dev/), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Commitizen](https://commitizen.github.io/cz-cli/), [Lint Staged](https://github.com/okonet/lint-staged), [husky](https://github.com/typicode/husky)
 - **Styling**: [Styled-components](https://styled-components.com/)
