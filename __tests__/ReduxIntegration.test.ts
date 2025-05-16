@@ -1,8 +1,13 @@
-import { store } from '../src/redux/store'
-import { addTodo, toggleComplete, deleteTodo, editTodo } from '../src/redux/todoSlice'
-import { switchTheme } from '../src/redux/themeSlice'
-import { changeLanguageState } from '../src/redux/languageSlice'
 import { DEMO_TASKS } from '../src/constants/constants'
+import { changeLanguageState } from '../src/redux/languageSlice'
+import { store } from '../src/redux/store'
+import { switchTheme } from '../src/redux/themeSlice'
+import {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  toggleComplete
+} from '../src/redux/todoSlice'
 
 describe('Redux Store Integration Tests', () => {
   beforeEach(() => {

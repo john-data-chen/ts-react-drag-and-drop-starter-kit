@@ -1,14 +1,26 @@
-import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit'
-import { switchTheme } from './themeSlice'
-import { changeLanguageState } from './languageSlice'
-import { addTodo, editTodo, deleteTodo, handleDragEnd, toggleComplete } from './todoSlice'
 import Todo from '../type/Todo'
+import { changeLanguageState } from './languageSlice'
+import { switchTheme } from './themeSlice'
+import {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  handleDragEnd,
+  toggleComplete
+} from './todoSlice'
+import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit'
 
 export const listenerMiddleware = createListenerMiddleware()
 
 const themeChange = isAnyOf(switchTheme)
 const languageChange = isAnyOf(changeLanguageState)
-const tasksChange = isAnyOf(addTodo, editTodo, deleteTodo, handleDragEnd, toggleComplete)
+const tasksChange = isAnyOf(
+  addTodo,
+  editTodo,
+  deleteTodo,
+  handleDragEnd,
+  toggleComplete
+)
 
 listenerMiddleware.startListening({
   matcher: themeChange,

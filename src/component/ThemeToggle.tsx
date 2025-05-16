@@ -1,13 +1,16 @@
 import { motion } from 'motion/react'
-import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface ThemeToggleProps {
   switchTheme: () => void
   isDarkMode: boolean
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ switchTheme, isDarkMode }) => {
+const ThemeToggle: React.FC<ThemeToggleProps> = ({
+  switchTheme,
+  isDarkMode
+}) => {
   const { t } = useTranslation()
 
   return (

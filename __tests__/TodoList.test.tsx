@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import TodoList from '../src/component/TodoList'
 import { DEMO_TASKS } from '../src/constants/constants'
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import React from 'react'
 
 jest.mock('react-i18next', () => ({

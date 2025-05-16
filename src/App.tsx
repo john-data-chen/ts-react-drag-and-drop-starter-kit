@@ -1,14 +1,14 @@
-import TodoForm from './component/TodoForm'
-import { DragDropContext } from '@hello-pangea/dnd'
-import LanguageSelector from './component/LanguageSelector'
-import useLanguage from './hooks/useLanguage'
-import ThemeToggle from './component/ThemeToggle'
-import useTheme from './hooks/useTheme'
-import useTodos from './hooks/useTodos'
-import TodoDragDropList from './component/TodoDragDropList'
 import AppTitle from './component/AppTitle'
+import LanguageSelector from './component/LanguageSelector'
+import ThemeToggle from './component/ThemeToggle'
 import ThemeWrapper from './component/ThemeWrapper'
 import Toast from './component/Toast'
+import TodoDragDropList from './component/TodoDragDropList'
+import TodoForm from './component/TodoForm'
+import useLanguage from './hooks/useLanguage'
+import useTheme from './hooks/useTheme'
+import useTodos from './hooks/useTodos'
+import { DragDropContext } from '@hello-pangea/dnd'
 
 function App() {
   const {
@@ -27,8 +27,14 @@ function App() {
       <Toast />
       <div className="appContainer">
         <div className="topContainer">
-          <ThemeToggle switchTheme={handleSwitchTheme} isDarkMode={isDarkMode} />
-          <LanguageSelector selectedLanguage={languageCode} onChangeLang={handleLanguageChange} />
+          <ThemeToggle
+            switchTheme={handleSwitchTheme}
+            isDarkMode={isDarkMode}
+          />
+          <LanguageSelector
+            selectedLanguage={languageCode}
+            onChangeLang={handleLanguageChange}
+          />
         </div>
         <AppTitle />
         <TodoForm addTodo={handleAddTodo} />

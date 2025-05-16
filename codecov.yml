@@ -2,4 +2,4 @@
 
 coverage:
   ignore:
-    - "src/theme/ThemeSets.ts"
+    - 'src/theme/ThemeSets.ts'

@@ -1,7 +1,7 @@
-import { render, fireEvent } from '@testing-library/react'
 import TodoCard from '../src/component/TodoCard'
-import Todo from '../src/type/Todo'
 import { DEMO_TASKS } from '../src/constants/constants'
+import Todo from '../src/type/Todo'
+import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
 jest.mock('react-i18next', () => ({

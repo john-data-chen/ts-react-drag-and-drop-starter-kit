@@ -1,7 +1,7 @@
-import React from 'react'
 import useTheme from '../hooks/useTheme'
+import { darkTheme, GlobalStyles, lightTheme } from '../theme/ThemeSets'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme, GlobalStyles } from '../theme/ThemeSets'
 
 interface ThemeWrapperProps {
   children: React.ReactNode

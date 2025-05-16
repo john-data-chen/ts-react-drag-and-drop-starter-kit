@@ -1,6 +1,14 @@
 const i18nConfig = {
   // order and from where user language should be detected
-  order: ['localStorage', 'querystring', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
+  order: [
+    'localStorage',
+    'querystring',
+    'cookie',
+    'navigator',
+    'htmlTag',
+    'path',
+    'subdomain'
+  ],
   // keys or params to lookup language from
   lookupQuerystring: 'lng',
   lookupCookie: 'i18next',
