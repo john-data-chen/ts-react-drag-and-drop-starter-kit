@@ -1,5 +1,5 @@
-import { render, fireEvent } from '@testing-library/react'
 import ThemeToggle from '../src/component/ThemeToggle'
+import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
 jest.mock('react-i18next', () => ({
@@ -11,7 +11,9 @@ jest.mock('react-i18next', () => ({
 describe('ThemeToggle Component', () => {
   test('test_theme_toggle_switch', () => {
     const switchThemeMock = jest.fn()
-    const { getByTestId } = render(<ThemeToggle switchTheme={switchThemeMock} isDarkMode={false} />)
+    const { getByTestId } = render(
+      <ThemeToggle switchTheme={switchThemeMock} isDarkMode={false} />
+    )
 
     const button = getByTestId('themeSwitcher')
     fireEvent.click(button)

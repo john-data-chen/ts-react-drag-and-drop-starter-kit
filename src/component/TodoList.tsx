@@ -1,6 +1,6 @@
-import { memo } from 'react'
-import TodoCard from './TodoCard'
 import Todo from '../type/Todo'
+import TodoCard from './TodoCard'
+import { memo } from 'react'
 
 interface TodoListProps {
   todos: Todo[]
@@ -16,20 +16,26 @@ interface TodoListProps {
   handleEditTodo: (id: string, text: string, dueDate: Date | null) => void
 }
 
-const TodoList = memo(({ todos, toggleComplete, deleteTodo, handleEditTodo }: TodoListProps) => {
-  return (
-    <ul className="todoList" data-testid="todoList" aria-label="Todo items list">
-      {todos.map((todo) => (
-        <TodoCard
-          key={todo.id}
-          todo={todo}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          handleEditTodo={handleEditTodo}
-        />
-      ))}
-    </ul>
-  )
-})
+const TodoList = memo(
+  ({ todos, toggleComplete, deleteTodo, handleEditTodo }: TodoListProps) => {
+    return (
+      <ul
+        className="todoList"
+        data-testid="todoList"
+        aria-label="Todo items list"
+      >
+        {todos.map((todo) => (
+          <TodoCard
+            key={todo.id}
+            todo={todo}
+            toggleComplete={toggleComplete}
+            deleteTodo={deleteTodo}
+            handleEditTodo={handleEditTodo}
+          />
+        ))}
+      </ul>
+    )
+  }
+)
 
 export default TodoList

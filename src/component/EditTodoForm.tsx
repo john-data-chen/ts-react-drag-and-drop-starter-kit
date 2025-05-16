@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
 import Todo from '../type/Todo'
+import { motion } from 'motion/react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { motion } from 'motion/react'
+import { useTranslation } from 'react-i18next'
 
 interface EditFormProps {
   todo: Todo
@@ -14,7 +14,9 @@ interface EditFormProps {
 const EditTodoForm = ({ todo, editTodo, closeEditForm }: EditFormProps) => {
   const { t } = useTranslation()
   const [text, setText] = useState(todo.text)
-  const [dueDate, setDueDate] = useState<Date | null>(todo.dueDate ? new Date(todo.dueDate) : null)
+  const [dueDate, setDueDate] = useState<Date | null>(
+    todo.dueDate ? new Date(todo.dueDate) : null
+  )
 
   useEffect(() => {
     setText(todo.text)

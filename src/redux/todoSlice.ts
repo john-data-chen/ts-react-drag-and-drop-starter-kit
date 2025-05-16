@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Todo from '../type/Todo'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 interface TodoState {
   todos: Todo[]
 }
@@ -12,7 +13,10 @@ export const todoSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<{ text: string; dueDate: string | null }>) => {
+    addTodo: (
+      state,
+      action: PayloadAction<{ text: string; dueDate: string | null }>
+    ) => {
       state.todos.push({
         id: Date.now().toString(),
         text: action.payload.text,
@@ -25,7 +29,9 @@ export const todoSlice = createSlice({
     },
     toggleComplete: (state, action: PayloadAction<string>) => {
       state.todos = state.todos.map((todo) =>
-        todo.id === action.payload ? { ...todo, completed: !todo.completed } : todo
+        todo.id === action.payload
+          ? { ...todo, completed: !todo.completed }
+          : todo
       )
     },
     deleteTodo: (state, action: PayloadAction<string>) => {
@@ -42,12 +48,17 @@ export const todoSlice = createSlice({
     ) => {
       state.todos = state.todos.map((todo) =>
         todo.id === action.payload.id
-          ? { ...todo, text: action.payload.text, dueDate: action.payload.dueDate }
+          ? {
+              ...todo,
+              text: action.payload.text,
+              dueDate: action.payload.dueDate
+            }
           : todo
       )
     }
   }
 })
 
-export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } = todoSlice.actions
+export const { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } =
+  todoSlice.actions
 export default todoSlice.reducer

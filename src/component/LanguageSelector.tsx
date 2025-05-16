@@ -1,5 +1,5 @@
-import React from 'react'
 import { LANGUAGES } from '../constants/constants'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface LanguageSelectorProps {

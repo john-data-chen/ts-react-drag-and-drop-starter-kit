@@ -1,7 +1,7 @@
-import { render, fireEvent } from '@testing-library/react'
 import EditTodoForm from '../src/component/EditTodoForm'
-import Todo from '../src/type/Todo'
 import { DEMO_TASKS } from '../src/constants/constants'
+import Todo from '../src/type/Todo'
+import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
 jest.mock('react-i18next', () => ({
@@ -18,7 +18,11 @@ describe('EditTodoForm', () => {
 
   test('test_initialization_with_todo_data', () => {
     const { getByTestId } = render(
-      <EditTodoForm todo={mockTodo} editTodo={mockEditTodo} closeEditForm={mockCloseEditForm} />
+      <EditTodoForm
+        todo={mockTodo}
+        editTodo={mockEditTodo}
+        closeEditForm={mockCloseEditForm}
+      />
     )
 
     const textInput = getByTestId('editTaskInput') as HTMLInputElement
@@ -28,7 +32,11 @@ describe('EditTodoForm', () => {
 
   test('test_prevent_empty_submission', () => {
     const { getByTestId } = render(
-      <EditTodoForm todo={mockTodo} editTodo={mockEditTodo} closeEditForm={mockCloseEditForm} />
+      <EditTodoForm
+        todo={mockTodo}
+        editTodo={mockEditTodo}
+        closeEditForm={mockCloseEditForm}
+      />
     )
 
     const textInput = getByTestId('editTaskInput') as HTMLInputElement

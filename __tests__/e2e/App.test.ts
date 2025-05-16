@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test('has title', async ({ page }) => {
   await page.goto('http://localhost:5173/ts-react-drag-and-drop-starter-kit/')
@@ -10,7 +10,10 @@ test('has title', async ({ page }) => {
 test('delete all tasks', async ({ page }) => {
   await page.goto('http://localhost:5173/ts-react-drag-and-drop-starter-kit/')
 
-  await page.getByLabel('todo item: Delete the Demo').getByLabel('Delete', { exact: true }).click()
+  await page
+    .getByLabel('todo item: Delete the Demo')
+    .getByLabel('Delete', { exact: true })
+    .click()
   await page.getByLabel('Delete').click()
   await expect(page.getByText('Delete the Demo')).not.toBeVisible()
 })
@@ -48,18 +51,35 @@ test('edit todo', async ({ page }) => {
     .getByLabel('Edit')
     .click()
   await page.getByLabel('Cancel').click()
-  await expect(page.getByLabel('todo item: Delete the Demo Tasks before you use')).toBeVisible()
+  await expect(
+    page.getByLabel('todo item: Delete the Demo Tasks before you use')
+  ).toBeVisible()
 
   await page
     .getByLabel('todo item: Delete the Demo Tasks before you use')
     .getByLabel('Edit')
     .click()
-  await page.getByLabel('Edit Todo Form').getByPlaceholder('Input Task...').click()
-  await page.getByLabel('Edit Todo Form').getByPlaceholder('Input Task...').fill('')
-  await page.getByLabel('Edit Todo Form').getByPlaceholder('Input Task...').fill('edited task')
+  await page
+    .getByLabel('Edit Todo Form')
+    .getByPlaceholder('Input Task...')
+    .click()
+  await page
+    .getByLabel('Edit Todo Form')
+    .getByPlaceholder('Input Task...')
+    .fill('')
+  await page
+    .getByLabel('Edit Todo Form')
+    .getByPlaceholder('Input Task...')
+    .fill('edited task')
   await page.getByLabel('Edit Todo Form').getByPlaceholder('Due Date').click()
-  await page.getByLabel('Edit Todo Form').getByPlaceholder('Due Date').fill('2030/1/1')
-  await page.getByLabel('Edit Todo Form').getByPlaceholder('Due Date').press('Enter')
+  await page
+    .getByLabel('Edit Todo Form')
+    .getByPlaceholder('Due Date')
+    .fill('2030/1/1')
+  await page
+    .getByLabel('Edit Todo Form')
+    .getByPlaceholder('Due Date')
+    .press('Enter')
   await page.getByLabel('Edit Todo Form').getByLabel('Save').click()
   await expect(page.getByLabel('todo item: edited task')).toBeVisible()
 })

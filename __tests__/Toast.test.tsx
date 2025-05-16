@@ -1,8 +1,8 @@
-import { act, render, screen } from '@testing-library/react'
-import { toast } from 'react-toastify'
 import Toast from '../src/component/Toast'
-import { useTranslation } from 'react-i18next'
+import { act, render, screen } from '@testing-library/react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -18,7 +18,9 @@ describe('Toast', () => {
       toast.success(t('toast.delete-success'))
     })
 
-    expect(await screen.findByText(t('toast.delete-success'))).toBeInTheDocument()
+    expect(
+      await screen.findByText(t('toast.delete-success'))
+    ).toBeInTheDocument()
   })
 
   it('test_toast_notification_limit', async () => {

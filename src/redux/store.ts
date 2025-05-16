@@ -1,9 +1,9 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { DEMO_TASKS } from '../constants/constants'
+import languageReducer, { LanguageState } from './languageSlice'
 import { listenerMiddleware } from './localStorageMiddleware'
 import themeReducer, { ThemeState } from './themeSlice'
-import languageReducer, { LanguageState } from './languageSlice'
 import todoReducer from './todoSlice'
-import { DEMO_TASKS } from '../constants/constants'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 const rootReducer = combineReducers({
   theme: themeReducer,

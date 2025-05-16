@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../redux/store'
 import { changeLanguageState } from '../redux/languageSlice'
+import { RootState } from '../redux/store'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 
 const useLanguage = () => {
   const languageCode = useSelector((state: RootState) => state.language.code)

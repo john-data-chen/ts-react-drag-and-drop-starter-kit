@@ -10,7 +10,5 @@
   "printWidth": 80,
   "importOrderSortSpecifiers": true,
   "importOrderCaseInsensitive": true,
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
-  ]
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

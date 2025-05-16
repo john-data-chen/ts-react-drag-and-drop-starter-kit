@@ -1,9 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../redux/store'
-import { addTodo, handleDragEnd, toggleComplete, deleteTodo, editTodo } from '../redux/todoSlice'
+import {
+  addTodo,
+  deleteTodo,
+  editTodo,
+  handleDragEnd,
+  toggleComplete
+} from '../redux/todoSlice'
 import { DropResult } from '@hello-pangea/dnd'
-import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 const useTodos = () => {
   const todos = useSelector((state: RootState) => state.todos.todos)
