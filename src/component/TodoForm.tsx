@@ -38,7 +38,7 @@ const TodoForm = ({ addTodo }: TodoFormProps) => {
         aria-label={t('todo-form.todo-input')}
         initial={{ width: '0', x: '50vw' }}
         animate={{ width: '100%', x: 0 }}
-        transition={{ duration: 1, origin: 1 }}
+        transition={{ duration: 1 }}
       />
       <DatePicker
         minDate={new Date()}
